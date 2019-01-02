@@ -4,43 +4,11 @@
     ViewData["Title"] = "Product Detail";
 }
 
-
-
-<!-- Page Banner Section Start -->
-<div class="page-banner-section section">
-    <div class="page-banner-wrap row row-0 d-flex align-items-center ">
-
-        <!-- Page Banner -->
-        <div class="col-lg-4 col-12 order-lg-2 d-flex align-items-center justify-content-center">
-            <div class="page-banner">
-                <h1>Product Details</h1>
-                <p>similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita</p>
-                <div class="breadcrumb">
-                    <ul>
-                        <li><a href="#">HOME</a></li>
-                        <li><a href="#">Product Details</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <!-- Banner -->
-        <div class="col-lg-4 col-md-6 col-12 order-lg-1">
-            <div class="banner"><a href="#"><img src="~/assets/images/banner/banner-15.jpg" alt="Banner"></a></div>
-        </div>
-
-        <!-- Banner -->
-        <div class="col-lg-4 col-md-6 col-12 order-lg-3">
-            <div class="banner"><a href="#"><img src="~/assets/images/banner/banner-14.jpg" alt="Banner"></a></div>
-        </div>
-
-    </div>
-</div><!-- Page Banner Section End -->
 <!-- Single Product Section Start -->
-<div class="product-section section mt-90 mb-90">
+<div class="product-section section mt-10 mb-10">
     <div class="container">
 
-        <div class="row mb-90">
+        <div class="row mb-10">
 
             <div class="col-lg-6 col-12 mb-50">
 
@@ -167,6 +135,33 @@
 
         </div>
 
+        <div class="row mb-10">
+            <!-- Compare Table -->
+            <div class="compare-table table-responsive">
+                <table class="table mb-0">
+                    <tbody>
+                        <tr>
+                            <td class="first-column">Feature</td>
+                            <td class="first-column">Feature Name</td>
+                            <td class="first-column">Feature Value</td>
+                        </tr>
+                        @if (Model.Telefon.Features != null)
+                        {
+                            @foreach (var feature in Model?.Telefon?.Features)
+                            {
+                                <tr>
+                                    <td class="first-column">@feature.FeatureType</td>
+                                    <td class="pro-desc"><p>@feature.Name</p></td>
+                                    <td class="pro-desc"><p>@feature.Value</p></td>
+                                </tr>
+                            }
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
         <div class="row">
 
             <div class="col-lg-10 col-12 ml-auto mr-auto">
@@ -202,8 +197,9 @@
                             <ul>
                                 @foreach (var spec in Model.Telefon.MainSpecs)
                                 {
-                                    <li>@spec</li>    
+                                    <li>@spec</li>
                                 }
+
 
                                 <li>Full HD Camcorder</li>
                                 <li>Dual Video Recording</li>
@@ -212,6 +208,32 @@
                                 <li>Dual Video Recording</li>
                                 <li>X type battery operation</li>
                             </ul>
+
+                            <!-- Compare Table -->
+                            <div class="compare-table table-responsive">
+                                <table class="table mb-0">
+                                    <tbody>
+                                        <tr>
+                                            <td class="first-column">Feature</td>
+                                            <td class="first-column">Feature Name</td>
+                                            <td class="first-column">Feature Value</td>
+                                        </tr>
+                                        @if (Model.Telefon.Features != null)
+                                        {
+                                            @foreach (var feature in Model?.Telefon?.Features)
+                                            {
+                                                <tr>
+                                                    <td class="first-column">@feature.FeatureType</td>
+                                                    <td class="pro-desc"><p>@feature.Name</p></td>
+                                                    <td class="pro-desc"><p>@feature.Value</p></td>
+                                                </tr>
+                                            }
+                                        }
+
+                                    </tbody>
+                                </table>
+                            </div>
+
                         </div>
                     </div>
                     <div class="tab-pane fade" id="product-reviews">

@@ -16,5 +16,31 @@ namespace Alfonso.Models
         public string Category { get; set; }
         public double Star { get; set; }
         public List<string> MainSpecs { get; set; }
+
+        public List<Feature> Features { get; set; }
+    }
+
+    public class Feature
+    {
+        public FeatureType FeatureType { get; set; }
+
+        public string Name { get; set; }
+
+        public string Value { get; set; }
+    }
+
+    public enum FeatureType
+    {
+        Network,
+        Launch,
+        Body,
+        Display,
+        Platform,
+        Memory,
+        MainCamera,
+        SelfieCamera,
+        Sound,
+        COMMS,
+        Battery
     }
 }
