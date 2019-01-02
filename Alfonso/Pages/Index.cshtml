@@ -1,6 +1,7 @@
 ﻿@page
 @model IndexModel
 @{
+    ViewData["Title"] = "Product List";
 }
 
 
@@ -92,6 +93,8 @@
                 <!-- Shop Product Wrap Start -->
                 <div class="shop-product-wrap grid row">
 
+                @foreach (var tel in Model.TelefonList)
+                {
                     <div class="col-xl-3 col-lg-4 col-md-6 col-12 pb-30 pt-10">
 
                         <!-- Product Start -->
@@ -100,7 +103,8 @@
                             <!-- Image -->
                             <div class="image">
 
-                                <a href="single-product.html" class="img"><img src="assets/images/product/product-1.png" alt="Product Image"></a>
+                                @*<a href="single-product.html" class="img"><img src="assets/images/product/product-1.png" alt="Product Image"></a>*@
+                                <a asp-page="telefon" asp-route-slug="@tel.Slug" class="img"><img asp-append-version="true" src="~/assets/images/product/@tel.ImageFile" alt="Product Image"></a>                                
 
                                 <div class="wishlist-compare">
                                     <a href="#" data-tooltip="Compare"><i class="ti-control-shuffle"></i></a>
@@ -117,8 +121,10 @@
                                 <!-- Category & Title -->
                                 <div class="category-title">
 
-                                    <a href="#" class="cat">Laptop</a>
-                                    <h5 class="title"><a href="single-product.html">Zeon Zen 4 Pro</a></h5>
+                                    @*<a href="#" class="cat">Laptop</a>*@
+                                    <a href="#" class="cat">@tel.Category</a>
+                                    @*<h5 class="title"><a href="single-product.html">Zeon Zen 4 Pro</a></h5>*@
+                                    <h5 class="title"><a asp-page="telefon" asp-route-slug="@tel.Slug">@tel.Name</a></h5>
 
                                 </div>
 
@@ -145,7 +151,8 @@
                             <!-- Image -->
                             <div class="image">
 
-                                <a href="single-product.html" class="img"><img src="assets/images/product/product-1.png" alt="Product Image"></a>
+                                @*<a href="single-product.html" class="img"><img src="assets/images/product/product-1.png" alt="Product Image"></a>*@                                
+                                <a asp-page="telefon" asp-route-slug="@tel.Slug" class="img"><img asp-append-version="true" src="~/assets/images/product/@tel.ImageFile" alt="Product Image"></a>
 
                             </div>
 
@@ -156,8 +163,9 @@
                                 <div class="head-content">
 
                                     <div class="category-title">
-                                        <a href="#" class="cat">Laptop</a>
-                                        <h5 class="title"><a href="single-product.html">Zeon Zen 4 Pro</a></h5>
+                                        <a href="#" class="cat">@tel.Category</a>
+                                        @*<h5 class="title"><a href="single-product.html">Zeon Zen 4 Pro</a></h5>*@
+                                        <h5 class="title"><a asp-page="telefon" asp-route-slug="@tel.Slug">@tel.Name</a></h5>
                                     </div>
 
                                     <h5 class="price">$295.00</h5>
@@ -175,7 +183,7 @@
                                     </div>
 
                                     <div class="desc">
-                                        <p>enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni res eos qui ratione voluptatem sequi nesciunt</p>
+                                        <p>@tel.Description</p>
                                     </div>
 
                                     <div class="actions">
@@ -193,11 +201,15 @@
 
                                 <div class="right-content">
                                     <div class="specification">
-                                        <h5>Specifications</h5>
+                                        <h5>Specifications</h5>                                       
                                         <ul>
-                                            <li>Intel Core i7 Processor</li>
+                                            @foreach(var spec in tel.MainSpecs)
+                                            {
+                                                <li>@spec</li>
+                                            }
+                                            @*<li>Intel Core i7 Processor</li>
                                             <li>Zeon Z 170 Pro Motherboad</li>
-                                            <li>16 GB RAM</li>
+                                            <li>16 GB RAM</li>*@
                                         </ul>
                                     </div>
                                     <span class="availability">Availability: <span>In Stock</span></span>
@@ -208,6 +220,7 @@
                         </div><!-- Product List End -->
 
                     </div>
+                }
 
                     <div class="col-xl-3 col-lg-4 col-md-6 col-12 pb-30 pt-10">
                         <!-- Product Start -->
