@@ -3506,10 +3506,10 @@ img.mfp-img {
 /*-- Mini Cart Wrap --*/
 .mini-cart-wrap {
   background-color: #fefcef;
-  width: 320px;
+  width: 170px;
   position: fixed;
   top: 0;
-  right: -320px;
+  right: -170px;
   z-index: 9822;
   height: 100%;
   padding-bottom: 150px;
@@ -3522,7 +3522,7 @@ img.mfp-img {
     right: 0; }
   .mini-cart-wrap .mini-cart-top {
     border-bottom: 1px solid #e2e2e2;
-    padding: 10px 25px; }
+    padding: 10px 15px; }
     .mini-cart-wrap .mini-cart-top .close-cart {
       border: none;
       background-color: transparent;
@@ -3537,26 +3537,25 @@ img.mfp-img {
         font-size: 16px;
         margin-left: 5px; }
   .mini-cart-wrap .mini-cart-products {
-    padding: 30px 25px;
+    padding: 20px 15px;
     overflow: hidden;
     overflow-y: auto;
     height: calc(100% - 45px); }
     .mini-cart-wrap .mini-cart-products li {
       float: left;
       width: 100%;
-      margin-bottom: 25px; }
+      margin-bottom: 15px; }
       .mini-cart-wrap .mini-cart-products li .image {
-        width: 90px;
+        width: 70px;
         float: left;
-        margin-right: 20px; }
+        margin-right: 10px; }
         .mini-cart-wrap .mini-cart-products li .image img {
           width: 100%;
           background-color: #f6f7f8; }
-      .mini-cart-wrap .mini-cart-products li .content {
-        width: 120px;
+      .mini-cart-wrap .mini-cart-products li .content {        
         float: left; }
         .mini-cart-wrap .mini-cart-products li .content .title {
-          font-size: 14px;
+          font-size: 12px;
           display: block;
           font-weight: 600;
           color: #444444;
@@ -3570,7 +3569,8 @@ img.mfp-img {
           line-height: 18px;
           color: #444444; }
       .mini-cart-wrap .mini-cart-products li .remove {
-        width: 20px;
+        height: 60px;
+        width: 40px;
         float: right;
         padding: 0;
         border: none;

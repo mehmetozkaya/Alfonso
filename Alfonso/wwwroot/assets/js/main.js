@@ -142,12 +142,12 @@ var miniCartWrap = $('.mini-cart-wrap');
 
 headerCart.on('click', function(e){
     e.preventDefault();
-    $('.cart-overlay').addClass('visible');
+    // $('.cart-overlay').addClass('visible');
     miniCartWrap.addClass('open');
 });
 closeCart.on('click', function(e){
     e.preventDefault();
-    $('.cart-overlay').removeClass('visible');
+    // $('.cart-overlay').removeClass('visible');
     miniCartWrap.removeClass('open');
 });
     
