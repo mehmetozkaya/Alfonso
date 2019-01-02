@@ -7,24 +7,24 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="~/assets/images/favicon.ico">
 
     <!-- CSS
     ============================================ -->
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/assets/css/bootstrap.min.css">
 
     <!-- Icon Font CSS -->
-    <link rel="stylesheet" href="assets/css/icon-font.min.css">
+    <link rel="stylesheet" href="~/assets/css/icon-font.min.css">
 
     <!-- Plugins CSS -->
-    <link rel="stylesheet" href="assets/css/plugins.css">
+    <link rel="stylesheet" href="~/assets/css/plugins.css">
 
     <!-- Main Style CSS -->
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="~/assets/css/style.css">
 
     <!-- Modernizer JS -->
-    <script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
+    <script src="~/assets/js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
 <body>
 
@@ -33,15 +33,15 @@
     <div class="header-section section">
 
         <!-- Header Top Start -->
-        <div class="header-top header-top-one header-top-border pt-10 pb-10">
+        @*<div class="header-top header-top-one header-top-border pt-10 pb-10">
             <div class="container">
                 <div class="row align-items-center justify-content-between">
 
                     <div class="col mt-10 mb-10">
                         <!-- Header Links Start -->
                         <div class="header-links">
-                            <a href="track-order.html"><img src="assets/images/icons/car.png" alt="Car Icon"> <span>Track your order</span></a>
-                            <a href="store.html"><img src="assets/images/icons/marker.png" alt="Car Icon"> <span>Locate Store</span></a>
+                            <a href="track-order.html"><img src="~/assets/images/icons/car.png" alt="Car Icon"> <span>Track your order</span></a>
+                            <a href="store.html"><img src="~/assets/images/icons/marker.png" alt="Car Icon"> <span>Locate Store</span></a>
                         </div><!-- Header Links End -->
                     </div>
 
@@ -76,7 +76,9 @@
 
                 </div>
             </div>
-        </div><!-- Header Top End -->
+        </div>*@
+        <!-- Header Top End -->
+
         <!-- Header Bottom Start -->
         <div class="header-bottom header-bottom-one header-sticky">
             <div class="container">
@@ -85,19 +87,40 @@
                     <div class="col mt-15 mb-15">
                         <!-- Logo Start -->
                         <div class="header-logo">
-                            <a href="index.html">
-                                <img src="assets/images/logo.png" alt="E&E - Electronics eCommerce Bootstrap4 HTML Template">
-                                <img class="theme-dark" src="assets/images/logo-light.png" alt="E&E - Electronics eCommerce Bootstrap4 HTML Template">
+                            <a asp-page="Index">
+                                <img src="~/assets/images/logo.png" alt="E&E - Electronics eCommerce Bootstrap4 HTML Template">
+                                <img class="theme-dark" src="~/assets/images/logo-light.png" alt="E&E - Electronics eCommerce Bootstrap4 HTML Template">
                             </a>
                         </div><!-- Logo End -->
                     </div>
 
                     <div class="col order-12 order-lg-2 order-xl-2 d-none d-lg-block">
+
+                        <!-- Header Advance Search Start -->
+                        <div class="header-advance-search">
+
+                            <form action="#">
+                                <div class="input"><input type="text" placeholder="Search your product"></div>
+                                <div class="select">
+                                    <select class="nice-select">
+                                        <option>All Categories</option>
+                                        <option>Mobile</option>
+                                        <option>Computer</option>
+                                        <option>Laptop</option>
+                                        <option>Camera</option>
+                                    </select>
+                                </div>
+                                <div class="submit"><button><i class="icofont icofont-search-alt-1"></i></button></div>
+                            </form>
+
+                        </div>
+                        <!-- Header Advance Search End -->
+
                         <!-- Main Menu Start -->
-                        <div class="main-menu">
+                        @*<div class="main-menu">
                             <nav>
                                 <ul>
-                                    <li class="active"><a href="index.html">HOME</a></li>
+                                    <li class="active"><a asp-page="Index">HOME</a></li>
                                     <li class="menu-item-has-children">
                                         <a href="shop-grid.html">Shop</a>
                                         <ul class="sub-menu">
@@ -158,7 +181,8 @@
                                     <li><a href="contact.html">CONTACT</a></li>
                                 </ul>
                             </nav>
-                        </div><!-- Main Menu End -->
+                        </div>*@
+                        <!-- Main Menu End -->
                     </div>
 
                     <div class="col order-2 order-lg-12 order-xl-12">
@@ -215,7 +239,8 @@
             </div>
         </div><!-- Header Category End -->
 
-    </div><!-- Header Section End -->
+    </div>
+    <!-- Header Section End -->
     <!-- Mini Cart Wrap Start -->
     <div class="mini-cart-wrap">
 
@@ -229,7 +254,7 @@
         <!-- Mini Cart Products -->
         <ul class="mini-cart-products">
             <li>
-                <a class="image"><img src="assets/images/product/product-1.png" alt="Product"></a>
+                <a class="image"><img src="~/assets/images/product/product-1.png" alt="Product"></a>
                 <div class="content">
                     <a href="single-product.html" class="title">Waxon Note Book Pro 5</a>
                     <span class="price">Price: $295</span>
@@ -238,7 +263,7 @@
                 <button class="remove"><i class="fa fa-trash-o"></i></button>
             </li>
             <li>
-                <a class="image"><img src="assets/images/product/product-2.png" alt="Product"></a>
+                <a class="image"><img src="~/assets/images/product/product-2.png" alt="Product"></a>
                 <div class="content">
                     <a href="single-product.html" class="title">Aquet Drone D 420</a>
                     <span class="price">Price: $275</span>
@@ -247,7 +272,7 @@
                 <button class="remove"><i class="fa fa-trash-o"></i></button>
             </li>
             <li>
-                <a class="image"><img src="assets/images/product/product-3.png" alt="Product"></a>
+                <a class="image"><img src="~/assets/images/product/product-3.png" alt="Product"></a>
                 <div class="content">
                     <a href="single-product.html" class="title">Game Station X 22</a>
                     <span class="price">Price: $295</span>
@@ -295,8 +320,8 @@
                     <div class="col mb-90">
                         <div class="footer-widget text-center">
                             <div class="footer-logo">
-                                <img src="assets/images/logo.png" alt="E&E - Electronics eCommerce Bootstrap4 HTML Template">
-                                <img class="theme-dark" src="assets/images/logo-light.png" alt="E&E - Electronics eCommerce Bootstrap4 HTML Template">
+                                <img src="~/assets/images/logo.png" alt="E&E - Electronics eCommerce Bootstrap4 HTML Template">
+                                <img class="theme-dark" src="~/assets/images/logo-light.png" alt="E&E - Electronics eCommerce Bootstrap4 HTML Template">
                             </div>
                             <p>Electronics product actual teachings of  he great explorer of the truth, the malder of human happiness. No one rejects</p>
                         </div>
@@ -375,7 +400,7 @@
 
                             <h4 class="widget-title">LATEST TWEET</h4>
 
-                            <div class="footer-tweet"></div>
+                            @*<div class="footer-tweet"></div>*@
 
                         </div>
                     </div><!-- Footer Widget End -->
@@ -396,7 +421,7 @@
 
                     <!-- Footer Payment Support -->
                     <div class="col-lg-6 col-12">
-                        <div class="footer-payments-image"><img src="assets/images/payment-support.png" alt="Payment Support Image"></div>
+                        <div class="footer-payments-image"><img src="~/assets/images/payment-support.png" alt="Payment Support Image"></div>
                     </div>
 
                 </div>
@@ -407,16 +432,16 @@
     <!-- JS
     ============================================ -->
     <!-- jQuery JS -->
-    <script src="assets/js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="~/assets/js/vendor/jquery-1.12.4.min.js"></script>
     <!-- Popper JS -->
-    <script src="assets/js/popper.min.js"></script>
+    <script src="~/assets/js/popper.min.js"></script>
     <!-- Bootstrap JS -->
-    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="~/assets/js/bootstrap.min.js"></script>
     <!-- Plugins JS -->
-    <script src="assets/js/plugins.js"></script>
+    <script src="~/assets/js/plugins.js"></script>
 
     <!-- Main JS -->
-    <script src="assets/js/main.js"></script>
+    <script src="~/assets/js/main.js"></script>
 
     @RenderSection("Scripts", required: false)
 </body>

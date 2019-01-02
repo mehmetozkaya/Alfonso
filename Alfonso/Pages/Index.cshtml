@@ -6,7 +6,7 @@
 
 
 <!-- Page Banner Section Start -->
-<div class="page-banner-section section">
+@*<div class="page-banner-section section">
     <div class="page-banner-wrap row row-0 d-flex align-items-center ">
 
         <!-- Page Banner -->
@@ -34,15 +34,17 @@
         </div>
 
     </div>
-</div><!-- Page Banner Section End -->
+</div>*@
+<!-- Page Banner Section End -->
+
 <!-- Product Section Start -->
-<div class="product-section section mt-90 mb-90">
+<div class="product-section section mt-10 mb-10">
     <div class="container">
         <div class="row">
 
             <div class="col-12">
 
-                <div class="row mb-50">
+                <div class="row mb-10">
                     <div class="col">
 
                         <!-- Shop Top Bar Start -->
@@ -104,7 +106,7 @@
                             <div class="image">
 
                                 @*<a href="single-product.html" class="img"><img src="assets/images/product/product-1.png" alt="Product Image"></a>*@
-                                <a asp-page="telefon" asp-route-slug="@tel.Slug" class="img"><img asp-append-version="true" src="~/assets/images/product/@tel.ImageFile" alt="Product Image"></a>                                
+                                <a asp-page="product" asp-route-slug="@tel.Slug" class="img"><img asp-append-version="true" src="~/assets/images/product/@tel.ImageFile" alt="Product Image"></a>                                
 
                                 <div class="wishlist-compare">
                                     <a href="#" data-tooltip="Compare"><i class="ti-control-shuffle"></i></a>
@@ -124,7 +126,7 @@
                                     @*<a href="#" class="cat">Laptop</a>*@
                                     <a href="#" class="cat">@tel.Category</a>
                                     @*<h5 class="title"><a href="single-product.html">Zeon Zen 4 Pro</a></h5>*@
-                                    <h5 class="title"><a asp-page="telefon" asp-route-slug="@tel.Slug">@tel.Name</a></h5>
+                                    <h5 class="title"><a asp-page="product" asp-route-slug="@tel.Slug">@tel.Name</a></h5>
 
                                 </div>
 
@@ -152,7 +154,7 @@
                             <div class="image">
 
                                 @*<a href="single-product.html" class="img"><img src="assets/images/product/product-1.png" alt="Product Image"></a>*@                                
-                                <a asp-page="telefon" asp-route-slug="@tel.Slug" class="img"><img asp-append-version="true" src="~/assets/images/product/@tel.ImageFile" alt="Product Image"></a>
+                                <a asp-page="product" asp-route-slug="@tel.Slug" class="img"><img asp-append-version="true" src="~/assets/images/product/@tel.ImageFile" alt="Product Image"></a>
 
                             </div>
 
@@ -165,7 +167,7 @@
                                     <div class="category-title">
                                         <a href="#" class="cat">@tel.Category</a>
                                         @*<h5 class="title"><a href="single-product.html">Zeon Zen 4 Pro</a></h5>*@
-                                        <h5 class="title"><a asp-page="telefon" asp-route-slug="@tel.Slug">@tel.Name</a></h5>
+                                        <h5 class="title"><a asp-page="product" asp-route-slug="@tel.Slug">@tel.Name</a></h5>
                                     </div>
 
                                     <h5 class="price">$295.00</h5>
