@@ -412,24 +412,35 @@
 
             </div>
         </div><!-- Footer Bottom Section Start -->
-        <!-- Footer Bottom Section Start -->
-        <div class="footer-bottom-section section">
-            <div class="container">
-                <div class="row">
 
-                    <!-- Footer Copyright -->
-                    <div class="col-lg-6 col-12">
-                        <div class="footer-copyright"><p>&copy; Copyright, 2018 All Rights Reserved by <a href="https://freethemescloud.com/">Free themes Cloud</a></p></div>
+
+        @if (IsSectionDefined("FooterBottom"))
+        {
+            RenderSection("FooterBottom");
+        }
+        else
+        {
+            <!-- Footer Bottom Section Start -->
+            <div class="footer-bottom-section section">
+                <div class="container">
+                    <div class="row">
+
+                        <!-- Footer Copyright -->
+                        <div class="col-lg-6 col-12">
+                            <div class="footer-copyright"><p>&copy; Copyright, 2018 All Rights Reserved by <a href="https://freethemescloud.com/">Free themes Cloud</a></p></div>
+                        </div>
+
+                        <!-- Footer Payment Support -->
+                        <div class="col-lg-6 col-12">
+                            <div class="footer-payments-image"><img src="~/assets/images/payment-support.png" alt="Payment Support Image"></div>
+                        </div>
+
                     </div>
-
-                    <!-- Footer Payment Support -->
-                    <div class="col-lg-6 col-12">
-                        <div class="footer-payments-image"><img src="~/assets/images/payment-support.png" alt="Payment Support Image"></div>
-                    </div>
-
                 </div>
-            </div>
-        </div><!-- Footer Bottom Section Start -->
+            </div><!-- Footer Bottom Section Start -->
+        }
+
+
 
     </div><!-- Footer Section End -->
     <!-- JS
