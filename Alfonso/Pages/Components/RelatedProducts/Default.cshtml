@@ -1,0 +1,80 @@
+﻿@model IEnumerable<Telefon>
+
+
+<!-- Related Product Section Start -->
+<div class="product-section section mb-70">
+    <div class="container">
+        <div class="row">
+
+            <!-- Section Title Start -->
+            <div class="col-12 mb-40">
+                <div class="section-title-one" data-title="RELATED PRODUCT"><h1>RELATED PRODUCT</h1></div>
+            </div><!-- Section Title End -->
+            <!-- Product Tab Content Start -->
+            <div class="col-12">
+
+                <!-- Product Slider Wrap Start -->
+                <div class="product-slider-wrap product-slider-arrow-one">
+                    <!-- Product Slider Start -->
+                    <div class="product-slider product-slider-4">
+
+                        @foreach (var telefon in Model)
+                        {
+                            <div class="col pb-20 pt-10">
+                                <!-- Product Start -->
+                                <div class="ee-product">
+
+                                    <!-- Image -->
+                                    <div class="image">
+
+                                        <a href="single-product.html" class="img"><img src="~/assets/images/product/@telefon.ImageFile" alt="Product Image"></a>
+
+                                        <div class="wishlist-compare">
+                                            <a href="#" data-tooltip="Compare"><i class="ti-control-shuffle"></i></a>
+                                            <a href="#" data-tooltip="Wishlist"><i class="ti-heart"></i></a>
+                                        </div>
+
+                                        <a href="#" class="add-to-cart"><i class="ti-shopping-cart"></i><span>ADD TO CART</span></a>
+
+                                    </div>
+
+                                    <!-- Content -->
+                                    <div class="content">
+
+                                        <!-- Category & Title -->
+                                        <div class="category-title">
+
+                                            <a href="#" class="cat">@telefon.Category</a>
+                                            <h5 class="title"><a href="single-product.html">@telefon.Name</a></h5>
+
+                                        </div>
+
+                                        <!-- Price & Ratting -->
+                                        <div class="price-ratting">
+
+                                            <h5 class="price">$295.00</h5>
+                                            <div class="ratting">
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star-half-o"></i>
+                                                <i class="fa fa-star-o"></i>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                </div><!-- Product End -->
+                            </div>
+                        }                      
+
+                    </div><!-- Product Slider End -->
+                </div><!-- Product Slider Wrap End -->
+
+            </div><!-- Product Tab Content End -->
+
+        </div>
+    </div>
+</div>
+<!-- Related Product Section End -->

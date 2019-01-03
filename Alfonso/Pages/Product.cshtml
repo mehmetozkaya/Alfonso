@@ -376,6 +376,11 @@
 
     </div>
 </div><!-- Single Product Section End -->
+<!-- RELATED PRODUCT AS A COMPONENT -->
+<vc:related-products product-id="3"></vc:related-products>
+
+<!-- PARTIAL VIEW AS A MODEL PASSING -->
+<partial name="TelefonWidget" model="@Model.Telefon" />
 
 <!-- Related Product Section Start -->
 <div class="product-section section mb-70">
@@ -644,7 +649,6 @@
         </div>
     </div>
 </div><!-- Related Product Section End -->
-
 <!-- Brands Section Start -->
 <div class="brands-section section mb-90">
     <div class="container">
@@ -662,11 +666,9 @@
         </div>
     </div>
 </div><!-- Brands Section End -->
-
 <!-- Page Banner Section Start --> <!-- REKLAM ICIN -->
 <partial name="BannerWidget" model="@("Subs ustu")" />
 <!-- Page Banner Section End -->
-
 <!-- Subscribe Section Start -->
 <div class="subscribe-section section bg-gray pt-55 pb-55">
     <div class="container">
@@ -699,7 +701,7 @@
     </div>
 </div><!-- Subscribe Section End -->
 
-
+<!-- OVERRIDE LAYOUT SECTIONS -->
 @section FooterBottom {
     <!-- Footer Bottom Section Start -->
     <div class="footer-bottom-section section">
@@ -713,5 +715,6 @@
 
             </div>
         </div>
-    </div><!-- Footer Bottom Section Start -->
+    </div>
+    <!-- Footer Bottom Section Start -->
 }
