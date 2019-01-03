@@ -89,6 +89,51 @@ namespace Alfonso.Services
                         "Intel Core i7 Processor",
                         "Zeon Z 170 Pro Motherboad",
                         "16 GB RAM"
+                    },
+                    Features = new List<Feature>()
+                    {
+                        new Feature
+                        {
+                            FeatureType = FeatureType.Network,
+                            Name = "Technology",
+                            Value = "GSM / CDMA / HSPA"
+                        },
+                        new Feature
+                        {
+                            FeatureType = FeatureType.Launch,
+                            Name = "Announced",
+                            Value = "2018, September"
+                        },
+                        new Feature
+                        {
+                            FeatureType = FeatureType.Launch,
+                            Name = "Status",
+                            Value = "Available. Released 2018, September"
+                        },
+                        new Feature
+                        {
+                            FeatureType = FeatureType.Body,
+                            Name = "Dimensions",
+                            Value = "157.5 x 77.4 x 7.7 mm (6.20 x 3.05 x 0.30 in)"
+                        },
+                        new Feature
+                        {
+                            FeatureType = FeatureType.Body,
+                            Name = "Weight",
+                            Value = "208 g (7.34 oz)"
+                        },
+                        new Feature
+                        {
+                            FeatureType = FeatureType.Body,
+                            Name = "Build",
+                            Value = "Front/back glass, stainless steel frame"
+                        },
+                        new Feature
+                        {
+                            FeatureType = FeatureType.Body,
+                            Name = "SIM",
+                            Value = "Single SIM (Nano-SIM) or Dual SIM (Nano-SIM, dual stand-by)"
+                        }
                     }
                 },
                 new Telefon()
