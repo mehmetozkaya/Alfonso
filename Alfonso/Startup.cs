@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Alfonso.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -36,6 +32,10 @@ namespace Alfonso
 
 
             services.AddScoped<ITelefonService, TelefonService>();
+
+            //services.AddDbContext<CatalogContext>(c =>
+            //    c.UseSqlServer(Configuration.GetConnectionString("CatalogConnection")));
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
