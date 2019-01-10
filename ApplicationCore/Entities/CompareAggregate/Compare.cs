@@ -7,5 +7,7 @@ namespace ApplicationCore.Entities.CompareAggregate
 {
     public class Compare : BaseEntity, IAggregateRoot
     {
+        public string BuyerId { get; set; }
+
     }
 }
