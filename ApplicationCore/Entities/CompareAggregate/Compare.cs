@@ -11,6 +11,10 @@ namespace ApplicationCore.Entities.CompareAggregate
         private readonly List<CompareItem> _items = new List<CompareItem>();
         public IReadOnlyCollection<CompareItem> Items => _items.AsReadOnly();        
 
+        public void AddItem()
+        {
+
+        }
 
     }
 }
