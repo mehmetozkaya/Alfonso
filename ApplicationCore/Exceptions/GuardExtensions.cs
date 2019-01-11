@@ -11,5 +11,10 @@ namespace ApplicationCore.Exceptions
         //    if (basket == null)
         //        throw new CompareNotFoundException(basketId);
         //}
+
+        public static void NullCompare()
+        {
+
+        }
     }
 }
