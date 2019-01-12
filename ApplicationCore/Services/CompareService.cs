@@ -10,6 +10,8 @@ namespace ApplicationCore.Services
     public class CompareService : ICompareService
     {
         private readonly IAsyncRepository<Compare> _compareRepository;
+        private readonly IUriComposer _uriComposer;
+        private readonly IAppLogger<CompareService> _logger;
 
         public Task AddItemToCompare(int compareId, int catalogItemId, decimal price, int quantity)
         {
