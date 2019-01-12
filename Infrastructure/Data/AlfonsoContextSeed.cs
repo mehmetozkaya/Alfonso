@@ -36,10 +36,16 @@ namespace Infrastructure.Data
                     await alfonsoContext.SaveChangesAsync();
                 }
 
-
             }
-            catch (Exception)
+            catch (Exception exception)
             {
+                if (retryForAvailability < 10)
+                {
+                    retryForAvailability++;
+                    var log = loggerFactory.CreateLogger<AlfonsoContextSeed>();
+                    log.LogError(exception.Message);
+                    await SeedAsync(alfonsoContext, loggerFactory, retryForAvailability);
+                }
                 throw;
             }
         }
