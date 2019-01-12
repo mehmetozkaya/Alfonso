@@ -1,4 +1,5 @@
-﻿using ApplicationCore.Entities.CompareAggregate;
+﻿using ApplicationCore.Entities;
+using ApplicationCore.Entities.CompareAggregate;
 using ApplicationCore.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -12,10 +13,21 @@ namespace ApplicationCore.Services
         private readonly IAsyncRepository<Compare> _compareRepository;
         private readonly IUriComposer _uriComposer;
         private readonly IAppLogger<CompareService> _logger;
+        private readonly IRepository<CatalogItem> _itemRepository;
 
-        public Task AddItemToCompare(int compareId, int catalogItemId, decimal price, int quantity)
+        public CompareService(IAsyncRepository<Compare> compareRepository, IUriComposer uriComposer, IAppLogger<CompareService> logger, IRepository<CatalogItem> itemRepository)
         {
-            throw new NotImplementedException();
+            _compareRepository = compareRepository ?? throw new ArgumentNullException(nameof(compareRepository));
+            _uriComposer = uriComposer ?? throw new ArgumentNullException(nameof(uriComposer));
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+            _itemRepository = itemRepository ?? throw new ArgumentNullException(nameof(itemRepository));
+        }
+
+        public async Task AddItemToCompare(int compareId, int catalogItemId)
+        {
+            var compare = await _compareRepository.GetByIdAsync(compareId);
+            compare.AddItem(catalogItemId);
+            await _compareRepository.UpdateAsync(compare);
         }
 
         public Task DeleteCompareAsync(int compareId)
