@@ -1,4 +1,5 @@
-﻿using ApplicationCore.Interfaces;
+﻿using ApplicationCore.Entities.CompareAggregate;
+using ApplicationCore.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -8,6 +9,8 @@ namespace ApplicationCore.Services
 {
     public class CompareService : ICompareService
     {
+        private readonly IAsyncRepository<Compare> _compareRepository;
+
         public Task AddItemToCompare(int compareId, int catalogItemId, decimal price, int quantity)
         {
             throw new NotImplementedException();
