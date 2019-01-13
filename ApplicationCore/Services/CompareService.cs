@@ -1,6 +1,7 @@
 ﻿using ApplicationCore.Entities;
 using ApplicationCore.Entities.CompareAggregate;
 using ApplicationCore.Interfaces;
+using Ardalis.GuardClauses;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -38,11 +39,15 @@ namespace ApplicationCore.Services
 
         public async Task<int> GetCompareItemCountAsync(string userName)
         {
+            Guard.Against.NullOrEmpty(userName, nameof(userName));
             throw new NotImplementedException();
         }
 
         public Task TransferCompareAsync(string anonymousId, string userName)
         {
+            Guard.Against.NullOrEmpty(anonymousId, nameof(anonymousId));
+            Guard.Against.NullOrEmpty(userName, nameof(userName));
+
             throw new NotImplementedException();
         }
     }
