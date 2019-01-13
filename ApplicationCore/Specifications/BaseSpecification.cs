@@ -24,6 +24,32 @@ namespace ApplicationCore.Specifications
         public int Skip { get; private set; }
         public bool isPagingEnabled { get; private set; } = false;
 
+        protected virtual void AddInclude(Expression<Func<T, object>> includeExpression)
+        {
+            Includes.Add(includeExpression);
+        }
+
+        protected virtual void AddInclude(string includeString)
+        {
+            IncludeStrings.Add(includeString);
+        }
+
+        protected virtual void ApplyPaging(int skip, int take)
+        {
+            Skip = skip;
+            Take = take;
+            isPagingEnabled = true;
+        }
+
+        protected virtual void ApplyOrderBy(Expression<Func<T, object>> orderByExpression)
+        {
+            OrderBy = orderByExpression;
+        }
+
+        protected virtual void ApplyOrderByDescending(Expression<Func<T, object>> orderByDescendingExpression)
+        {
+            OrderByDescending = orderByDescendingExpression;
+        }
 
     }
 }
