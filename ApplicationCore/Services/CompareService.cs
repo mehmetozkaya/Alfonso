@@ -30,12 +30,13 @@ namespace ApplicationCore.Services
             await _compareRepository.UpdateAsync(compare);
         }
 
-        public Task DeleteCompareAsync(int compareId)
+        public async Task DeleteCompareAsync(int compareId)
         {
-            throw new NotImplementedException();
+            var compare = await _compareRepository.GetByIdAsync(compareId);
+            await _compareRepository.DeleteAsync(compare);
         }
 
-        public Task<int> GetCompareItemCountAsync(string userName)
+        public async Task<int> GetCompareItemCountAsync(string userName)
         {
             throw new NotImplementedException();
         }
