@@ -1,5 +1,4 @@
-﻿
-@model Alfonso.ViewModels.CatalogIndexViewModel
+﻿@model Alfonso.ViewModels.CatalogIndexViewModel
 
 <!-- Product Section Start -->
 <div class="product-section section mt-10 mb-10">
@@ -54,139 +53,143 @@
 
                     </div>
                 </div>
-                
+
                 <!-- Shop Product Wrap Start -->
                 <div class="shop-product-wrap grid row">
 
-                    @foreach (var catalogItem in Model.CatalogItems)
+                    @if (Model.CatalogItems.Any())
                     {
-                        <div class="col-xl-3 col-lg-4 col-md-6 col-12 pb-30 pt-10">
+                        @foreach (var catalogItem in Model.CatalogItems)
+                        {
+                            <div class="col-xl-3 col-lg-4 col-md-6 col-12 pb-30 pt-10">
 
-                            <!-- Product Start -->
-                            <div class="ee-product">
+                                <!-- Product Start -->
+                                <div class="ee-product">
 
-                                <!-- Image -->
-                                <div class="image">
+                                    <!-- Image -->
+                                    <div class="image">
 
-                                    @*<a href="single-product.html" class="img"><img src="assets/images/product/product-1.png" alt="Product Image"></a>*@
-                                    <a asp-page="product" asp-route-slug="@catalogItem.Slug" class="img"><img src="@catalogItem.PictureUri" alt="Product Image"></a>
+                                        @*<a href="single-product.html" class="img"><img src="assets/images/product/product-1.png" alt="Product Image"></a>*@
+                                        <a asp-page="product" asp-route-slug="@catalogItem.Slug" class="img"><img src="@catalogItem.PictureUri" alt="Product Image"></a>
 
-                                    <div class="wishlist-compare">
-                                        <a href="#" data-tooltip="Compare"><i class="ti-control-shuffle"></i></a>
-                                        <a href="#" data-tooltip="Wishlist"><i class="ti-heart"></i></a>
-                                    </div>
-
-                                    <a href="#" class="add-to-cart"><i class="ti-shopping-cart"></i><span>ADD TO CART</span></a>
-
-                                </div>
-
-                                <!-- Content -->
-                                <div class="content">
-
-                                    <!-- Category & Title -->
-                                    <div class="category-title">
-
-                                        <a href="#" class="cat">Laptop</a>
-                                        @*<a href="#" class="cat">@tel.Category</a>*@
-                                        @*<h5 class="title"><a href="single-product.html">Zeon Zen 4 Pro</a></h5>*@
-                                        <h5 class="title"><a asp-page="product" asp-route-slug="@catalogItem.Slug">@catalogItem.Name</a></h5>
-
-                                    </div>
-
-                                    <!-- Price & Ratting -->
-                                    <div class="price-ratting">
-
-                                        <h5 class="price">$295.00</h5>
-                                        <div class="ratting">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star-half-o"></i>
-                                            <i class="fa fa-star-o"></i>
+                                        <div class="wishlist-compare">
+                                            <a href="#" data-tooltip="Compare"><i class="ti-control-shuffle"></i></a>
+                                            <a href="#" data-tooltip="Wishlist"><i class="ti-heart"></i></a>
                                         </div>
 
+                                        <a href="#" class="add-to-cart"><i class="ti-shopping-cart"></i><span>ADD TO CART</span></a>
+
                                     </div>
 
-                                </div>
+                                    <!-- Content -->
+                                    <div class="content">
 
-                            </div><!-- Product End -->
-                            <!-- Product List Start -->
-                            <div class="ee-product-list">
-
-                                <!-- Image -->
-                                <div class="image">
-
-                                    @*<a href="single-product.html" class="img"><img src="assets/images/product/product-1.png" alt="Product Image"></a>*@
-                                    <a asp-page="product" asp-route-slug="@catalogItem.Slug" class="img"><img asp-append-version="true" src="@catalogItem.PictureUri" alt="Product Image"></a>
-
-                                </div>
-
-                                <!-- Content -->
-                                <div class="content">
-
-                                    <!-- Category & Title -->
-                                    <div class="head-content">
-
+                                        <!-- Category & Title -->
                                         <div class="category-title">
+
+                                            <a href="#" class="cat">Laptop</a>
                                             @*<a href="#" class="cat">@tel.Category</a>*@
                                             @*<h5 class="title"><a href="single-product.html">Zeon Zen 4 Pro</a></h5>*@
                                             <h5 class="title"><a asp-page="product" asp-route-slug="@catalogItem.Slug">@catalogItem.Name</a></h5>
+
                                         </div>
 
-                                        <h5 class="price">$295.00</h5>
+                                        <!-- Price & Ratting -->
+                                        <div class="price-ratting">
 
-                                    </div>
-
-                                    <div class="left-content">
-
-                                        <div class="ratting">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star-half-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                        </div>
-
-                                        <div class="desc">
-                                            <p>@catalogItem.Description</p>
-                                        </div>
-
-                                        <div class="actions">
-
-                                            <a href="#" class="add-to-cart"><i class="ti-shopping-cart"></i><span>ADD TO CART</span></a>
-
-                                            <div class="wishlist-compare">
-                                                <a href="#" data-tooltip="Compare"><i class="ti-control-shuffle"></i></a>
-                                                <a href="#" data-tooltip="Wishlist"><i class="ti-heart"></i></a>
+                                            <h5 class="price">$295.00</h5>
+                                            <div class="ratting">
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star-half-o"></i>
+                                                <i class="fa fa-star-o"></i>
                                             </div>
 
                                         </div>
 
                                     </div>
 
-                                    <div class="right-content">
-                                        <div class="specification">
-                                            <h5>Specifications</h5>
-                                            <ul>
-                                                @*@foreach (var spec in tel.MainSpecs)
-                                                {
-                                                    <li>@spec</li>
-                                                }*@
+                                </div><!-- Product End -->
+                                <!-- Product List Start -->
+                                <div class="ee-product-list">
 
-                                                <li>Intel Core i7 Processor</li>
-                                                <li>Zeon Z 170 Pro Motherboad</li>
-                                                <li>16 GB RAM</li>
-                                            </ul>
-                                        </div>
-                                        <span class="availability">Availability: <span>In Stock</span></span>
+                                    <!-- Image -->
+                                    <div class="image">
+
+                                        @*<a href="single-product.html" class="img"><img src="assets/images/product/product-1.png" alt="Product Image"></a>*@
+                                        <a asp-page="product" asp-route-slug="@catalogItem.Slug" class="img"><img asp-append-version="true" src="@catalogItem.PictureUri" alt="Product Image"></a>
+
                                     </div>
 
-                                </div>
+                                    <!-- Content -->
+                                    <div class="content">
 
-                            </div><!-- Product List End -->
+                                        <!-- Category & Title -->
+                                        <div class="head-content">
 
-                        </div>
+                                            <div class="category-title">
+                                                @*<a href="#" class="cat">@tel.Category</a>*@
+                                                @*<h5 class="title"><a href="single-product.html">Zeon Zen 4 Pro</a></h5>*@
+                                                <h5 class="title"><a asp-page="product" asp-route-slug="@catalogItem.Slug">@catalogItem.Name</a></h5>
+                                            </div>
+
+                                            <h5 class="price">$295.00</h5>
+
+                                        </div>
+
+                                        <div class="left-content">
+
+                                            <div class="ratting">
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star-half-o"></i>
+                                                <i class="fa fa-star-o"></i>
+                                            </div>
+
+                                            <div class="desc">
+                                                <p>@catalogItem.Description</p>
+                                            </div>
+
+                                            <div class="actions">
+
+                                                <a href="#" class="add-to-cart"><i class="ti-shopping-cart"></i><span>ADD TO CART</span></a>
+
+                                                <div class="wishlist-compare">
+                                                    <a href="#" data-tooltip="Compare"><i class="ti-control-shuffle"></i></a>
+                                                    <a href="#" data-tooltip="Wishlist"><i class="ti-heart"></i></a>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+                                        <div class="right-content">
+                                            <div class="specification">
+                                                <h5>Specifications</h5>
+                                                <ul>
+                                                    @*@foreach (var spec in tel.MainSpecs)
+                                            {
+                                                <li>@spec</li>
+                                            }*@
+
+                                                    <li>Intel Core i7 Processor</li>
+                                                    <li>Zeon Z 170 Pro Motherboad</li>
+                                                    <li>16 GB RAM</li>
+                                                </ul>
+                                            </div>
+                                            <span class="availability">Availability: <span>In Stock</span></span>
+                                        </div>
+
+                                    </div>
+
+                                </div><!-- Product List End -->
+
+                            </div>
+                        }
                     }
+
 
                     <div class="col-xl-3 col-lg-4 col-md-6 col-12 pb-30 pt-10">
                         <!-- Product Start -->
@@ -1472,24 +1475,8 @@
                 </div>
                 <!-- Shop Product Wrap End -->
 
-                <div class="row mt-30">
-                    <div class="col">
-
-                        <ul class="pagination">
-                            <li><a href="#"><i class="fa fa-angle-left"></i>Back</a></li>
-                            <li><a href="#">1</a></li>
-                            <li class="active"><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li> - - - - - </li>
-                            <li><a href="#">18</a></li>
-                            <li><a href="#">18</a></li>
-                            <li><a href="#">20</a></li>
-                            <li><a href="#">Next<i class="fa fa-angle-right"></i></a></li>
-                        </ul>
-
-                    </div>
-                </div>
-
+                <partial name="_pagination" for="@Model.PaginationInfo" />
+               
             </div>
 
         </div>
