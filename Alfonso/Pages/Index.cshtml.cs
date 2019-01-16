@@ -23,16 +23,13 @@ namespace Alfonso.Pages
         }
 
         public List<Telefon> TelefonList { get; set; }
-        public CatalogIndexViewModel CatalogModel { get; set; } = new CatalogIndexViewModel();
-
-        public void OnGet()
-        {
-            TelefonList = _telefonService.GetTelefons();
-        }
+        public CatalogIndexViewModel CatalogModel { get; set; } = new CatalogIndexViewModel();        
 
         public async Task OnGet(CatalogIndexViewModel catalogModel, int? pageId)
         {
             CatalogModel = await _catalogService.GetCatalogItems(pageId ?? 0, Constants.ITEMS_PER_PAGE, catalogModel.BrandFilterApplied, catalogModel.TypesFilterApplied);
+
+            TelefonList = _telefonService.GetTelefons();
         }
     }
 }

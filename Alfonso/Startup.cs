@@ -1,6 +1,10 @@
+using Alfonso.Interfaces;
 using Alfonso.Services;
+using ApplicationCore;
 using ApplicationCore.Interfaces;
+using ApplicationCore.Services;
 using Infrastructure.Data;
+using Infrastructure.Logging;
 using Infrastructure.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -41,8 +45,12 @@ namespace Alfonso
             services.AddScoped(typeof(IAsyncRepository<>), typeof(EfRepository<>));
 
             services.AddScoped<ITelefonService, TelefonService>();
+            services.AddScoped<ICatalogService, CatalogService>();
+            services.AddSingleton<IUriComposer>(new UriComposer(Configuration.Get<CatalogSettings>()));
 
-            
+            services.AddScoped(typeof(IAppLogger<>), typeof(LoggerAdapter<>));
+            //services.AddTransient<IEmailSender, EmailSender>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

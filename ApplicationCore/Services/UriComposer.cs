@@ -10,7 +10,10 @@ namespace ApplicationCore.Services
 
         public string ComposePicUri(string uriTemplate)
         {
-            return uriTemplate.Replace("http://catalogbaseurltobereplaced", _catalogSettings.CatalogBaseUrl);
+
+            return "assets/images/product/" + uriTemplate;
+
+            // return uriTemplate.Replace("http://catalogbaseurltobereplaced", _catalogSettings.CatalogBaseUrl);
         }
     }
 }
