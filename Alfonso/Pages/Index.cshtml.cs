@@ -32,7 +32,7 @@ namespace Alfonso.Pages
 
         public async Task OnGet(CatalogIndexViewModel catalogModel, int? pageId)
         {
-            CatalogModel = await _catalogService.GetCatalogItems(pageId ?? 0, )
+            CatalogModel = await _catalogService.GetCatalogItems(pageId ?? 0, Constants.ITEMS_PER_PAGE, catalogModel.BrandFilterApplied, catalogModel.TypesFilterApplied);
         }
     }
 }
