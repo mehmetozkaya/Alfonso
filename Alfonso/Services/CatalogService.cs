@@ -29,9 +29,9 @@ namespace Alfonso.Services
             _uriComposer = uriComposer ?? throw new ArgumentNullException(nameof(uriComposer));
         }       
 
-        public Task<CatalogIndexViewModel> GetCatalogItems(int pageIndex, int itemsPage, int? brandId, int? typeId)
+        public async Task<CatalogIndexViewModel> GetCatalogItems(int pageIndex, int itemsPage, int? brandId, int? typeId)
         {
-            _logger.LogInformation("GetCatalogItems called.");
+            //_logger.LogInformation("GetCatalogItems called.");
 
             var filterSpecification = new CatalogFilterSpecification(brandId, typeId);
             var filterPaginatedSpecification = new CatalogFilterPaginatedSpecification(itemsPage * pageIndex, itemsPage, brandId, typeId);
@@ -77,14 +77,36 @@ namespace Alfonso.Services
             return vm;
         }
 
-        public Task<IEnumerable<SelectListItem>> GetBrands()
-        {
-            throw new NotImplementedException();
+        public async Task<IEnumerable<SelectListItem>> GetBrands()
+        {            
+            var brands = await _brandRepository.ListAllAsync();
+
+            var items = new List<SelectListItem>
+            {
+                new SelectListItem() { Value = null, Text = "All", Selected = true }
+            };
+
+            foreach (CatalogBrand brand in brands)
+            {
+                items.Add(new SelectListItem() { Value = brand.Id.ToString(), Text = brand.Brand });
+            }
+
+            return items;
         }
 
-        public Task<IEnumerable<SelectListItem>> GetTypes()
+        public async Task<IEnumerable<SelectListItem>> GetTypes()
         {
-            throw new NotImplementedException();
+            var types = await _typeRepository.ListAllAsync();
+            var items = new List<SelectListItem>
+            {
+                new SelectListItem() { Value = null, Text = "All", Selected = true }
+            };
+            foreach (CatalogType type in types)
+            {
+                items.Add(new SelectListItem() { Value = type.Id.ToString(), Text = type.Type });
+            }
+
+            return items;
         }
     }
 }
