@@ -1,5 +1,7 @@
 using Alfonso.Services;
+using ApplicationCore.Interfaces;
 using Infrastructure.Data;
+using Infrastructure.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -34,6 +36,9 @@ namespace Alfonso
 
             services.AddDbContext<AlfonsoContext>(c =>
                 c.UseSqlServer(Configuration.GetConnectionString("CatalogConnection")));
+
+            services.AddScoped(typeof(IRepository<>), typeof(EfRepository<>));
+            services.AddScoped(typeof(IAsyncRepository<>), typeof(EfRepository<>));
 
             services.AddScoped<ITelefonService, TelefonService>();
 
