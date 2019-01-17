@@ -4,17 +4,38 @@
     <div class="col">
 
         <ul class="pagination">
-            <li><a href="#"><i class="fa fa-angle-left @Model.Previous" id="Previous" asp-route-pageid="@(Model.ActualPage - 1)"></i>Previous</a></li>
+            <li><a id="Back" asp-route-pageid="@(Model.ActualPage - 1)" style=" @Model.Previous"><i class="fa fa-angle-left"></i>Back</a></li>
 
-            <li><a href="#">1</a></li>
+            @if (Model.ActualPage != 0)
+            {
+                <li><a asp-route-pageid="@Model.ActualPage">@Model.ActualPage</a></li>
+            }
+
+            <li class="active"><a asp-route-pageid="@(Model.ActualPage + 1)">@(Model.ActualPage + 1)</a></li>
+
+            @if ((Model.ActualPage + 1) != (Model.TotalPages-1))
+            {
+                <li><a asp-route-pageid="@(Model.ActualPage+2)">@(Model.ActualPage + 2)</a></li>
+                @if ((Model.ActualPage + 2) != (Model.TotalPages - 1))
+                {
+                    <li> - - - - - </li>
+                    <li><a asp-route-pageid="@(Model.TotalPages-1)">@(Model.TotalPages-1)</a></li>
+                }
+
+            }
+
+            @*<li><a href="#">1</a></li>
             <li class="active"><a href="#">2</a></li>
             <li><a href="#">3</a></li>
             <li> - - - - - </li>
             <li><a href="#">18</a></li>
             <li><a href="#">18</a></li>
-            <li><a href="#">20</a></li>
-            <li><a href="#">Next<i class="fa fa-angle-right"></i></a></li>
+            <li><a href="#">20</a></li>*@
+
+            <li><a id="Next" asp-route-pageid="@(Model.ActualPage + 1)" style=" @Model.Next">Next<i class="fa fa-angle-right"></i></a></li>
         </ul>
+
+        <span>Showing @Model.ItemsPerPage of @Model.TotalItems products - Page @(Model.ActualPage + 1) - @Model.TotalPages</span>
 
     </div>
 </div>

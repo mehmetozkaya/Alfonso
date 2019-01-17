@@ -29,7 +29,7 @@ namespace Alfonso.Pages
         {
             CatalogModel = await _catalogService.GetCatalogItems(pageId ?? 0, Constants.ITEMS_PER_PAGE, catalogModel.BrandFilterApplied, catalogModel.TypesFilterApplied);
 
-            TelefonList = _telefonService.GetTelefons();
+            // TelefonList = _telefonService.GetTelefons();
         }
     }
 }

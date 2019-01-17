@@ -79,59 +79,77 @@ namespace Infrastructure.Data
 
         private static IEnumerable<CatalogItem> GetPreconfiguredItems()
         {
-            return new List<CatalogItem>()
-            {
+            var catalogItems = new List<CatalogItem>();
 
-                new CatalogItem()
-                {
-                    CatalogTypeId = 1,
-                    CatalogBrandId = 1,
-                    Name = "IPhone X",
-                    Slug = "iphone-x",
-                    Star = 4.4,
-                    Description = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, tenetur natus doloremque laborum quos iste ipsum rerum obcaecati impedit odit illo dolorum ab tempora nihil dicta earum fugiat. Temporibus, voluptatibus. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, tenetur natus doloremque laborum quos iste ipsum rerum obcaecati impedit odit illo dolorum ab tempora nihil dicta earum fugiat. Temporibus, voluptatibus.",
-                    Summary = "A seasonal delight we offer every autumn.  Pumpking bread with just a bit of spice, cream cheese frosting with just a hint of home.",
-                    Price = 19.5M,
-                    PictureUri = "product-52.png"
-                },
-                new CatalogItem()
-                {
-                    CatalogTypeId = 1,
-                    CatalogBrandId = 1,
-                    Name = "Huawei Nova i2",
-                    Slug = "huawai-nova-i2",
-                    Star = 4.2,
-                    Description = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, tenetur natus doloremque laborum quos iste ipsum rerum obcaecati impedit odit illo dolorum ab tempora nihil dicta earum fugiat. Temporibus, voluptatibus. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, tenetur natus doloremque laborum quos iste ipsum rerum obcaecati impedit odit illo dolorum ab tempora nihil dicta earum fugiat. Temporibus, voluptatibus.",
-                    Summary = "A seasonal delight we offer every autumn.  Pumpking bread with just a bit of spice, cream cheese frosting with just a hint of home.",
-                    Price = 4.2M,
-                    PictureUri = "product-53.png"
-                },
-                new CatalogItem()
-                {
-                    CatalogTypeId = 1,
-                    CatalogBrandId = 1,
-                    Name = "Samsung Galaxy S9",
-                    Slug = "samsung-galaxy-s9",
-                    Star = 4.6,
-                    Description = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, tenetur natus doloremque laborum quos iste ipsum rerum obcaecati impedit odit illo dolorum ab tempora nihil dicta earum fugiat. Temporibus, voluptatibus. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, tenetur natus doloremque laborum quos iste ipsum rerum obcaecati impedit odit illo dolorum ab tempora nihil dicta earum fugiat. Temporibus, voluptatibus.",
-                    Summary = "A seasonal delight we offer every autumn.  Pumpking bread with just a bit of spice, cream cheese frosting with just a hint of home.",
-                    Price = 4.2M,
-                    PictureUri = "product-17.png"
-                },
-                new CatalogItem()
-                {
-                    CatalogTypeId = 1,
-                    CatalogBrandId = 1,
-                    Name = "LG Stylus 4",
-                    Slug = "lg-stylus-4",
-                    Star = 4.1,
-                    Description = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, tenetur natus doloremque laborum quos iste ipsum rerum obcaecati impedit odit illo dolorum ab tempora nihil dicta earum fugiat. Temporibus, voluptatibus. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, tenetur natus doloremque laborum quos iste ipsum rerum obcaecati impedit odit illo dolorum ab tempora nihil dicta earum fugiat. Temporibus, voluptatibus.",
-                    Summary = "A seasonal delight we offer every autumn.  Pumpking bread with just a bit of spice, cream cheese frosting with just a hint of home.",
-                    Price = 4.2M,
-                    PictureUri = "product-54.png"
-                }
-                
-            };
+            for (int i = 0; i < 8; i++)
+            {
+                catalogItems.Add(
+                    new CatalogItem()
+                    {
+                        CatalogTypeId = 1,
+                        CatalogBrandId = 1,
+                        Name = "IPhone X",
+                        Slug = "iphone-x",
+                        Star = 4.4,
+                        Description = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, tenetur natus doloremque laborum quos iste ipsum rerum obcaecati impedit odit illo dolorum ab tempora nihil dicta earum fugiat. Temporibus, voluptatibus. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, tenetur natus doloremque laborum quos iste ipsum rerum obcaecati impedit odit illo dolorum ab tempora nihil dicta earum fugiat. Temporibus, voluptatibus.",
+                        Summary = "A seasonal delight we offer every autumn.  Pumpking bread with just a bit of spice, cream cheese frosting with just a hint of home.",
+                        Price = 19.5M,
+                        PictureUri = "product-52.png"
+                    });
+            }
+
+            for (int i = 0; i < 8; i++)
+            {
+                catalogItems.Add(
+                    new CatalogItem()
+                    {
+                        CatalogTypeId = 1,
+                        CatalogBrandId = 1,
+                        Name = "Huawei Nova i2",
+                        Slug = "huawai-nova-i2",
+                        Star = 4.2,
+                        Description = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, tenetur natus doloremque laborum quos iste ipsum rerum obcaecati impedit odit illo dolorum ab tempora nihil dicta earum fugiat. Temporibus, voluptatibus. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, tenetur natus doloremque laborum quos iste ipsum rerum obcaecati impedit odit illo dolorum ab tempora nihil dicta earum fugiat. Temporibus, voluptatibus.",
+                        Summary = "A seasonal delight we offer every autumn.  Pumpking bread with just a bit of spice, cream cheese frosting with just a hint of home.",
+                        Price = 4.2M,
+                        PictureUri = "product-53.png"
+                    });
+            }
+
+            for (int i = 0; i < 8; i++)
+            {
+                catalogItems.Add(
+                    new CatalogItem()
+                    {
+                        CatalogTypeId = 1,
+                        CatalogBrandId = 1,
+                        Name = "Samsung Galaxy S9",
+                        Slug = "samsung-galaxy-s9",
+                        Star = 4.6,
+                        Description = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, tenetur natus doloremque laborum quos iste ipsum rerum obcaecati impedit odit illo dolorum ab tempora nihil dicta earum fugiat. Temporibus, voluptatibus. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, tenetur natus doloremque laborum quos iste ipsum rerum obcaecati impedit odit illo dolorum ab tempora nihil dicta earum fugiat. Temporibus, voluptatibus.",
+                        Summary = "A seasonal delight we offer every autumn.  Pumpking bread with just a bit of spice, cream cheese frosting with just a hint of home.",
+                        Price = 4.2M,
+                        PictureUri = "product-17.png"
+                    });
+            }
+
+            for (int i = 0; i < 8; i++)
+            {
+                catalogItems.Add(
+                    new CatalogItem()
+                    {
+                        CatalogTypeId = 1,
+                        CatalogBrandId = 1,
+                        Name = "LG Stylus 4",
+                        Slug = "lg-stylus-4",
+                        Star = 4.1,
+                        Description = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, tenetur natus doloremque laborum quos iste ipsum rerum obcaecati impedit odit illo dolorum ab tempora nihil dicta earum fugiat. Temporibus, voluptatibus. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, tenetur natus doloremque laborum quos iste ipsum rerum obcaecati impedit odit illo dolorum ab tempora nihil dicta earum fugiat. Temporibus, voluptatibus.",
+                        Summary = "A seasonal delight we offer every autumn.  Pumpking bread with just a bit of spice, cream cheese frosting with just a hint of home.",
+                        Price = 4.2M,
+                        PictureUri = "product-54.png"
+                    });
+            }
+
+            return catalogItems;
         }
 
     }

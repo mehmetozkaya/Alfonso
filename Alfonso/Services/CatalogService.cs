@@ -71,8 +71,8 @@ namespace Alfonso.Services
                 }
             };
 
-            vm.PaginationInfo.Next = (vm.PaginationInfo.ActualPage == vm.PaginationInfo.TotalPages - 1) ? "is-disabled" : "";
-            vm.PaginationInfo.Previous = (vm.PaginationInfo.ActualPage == 0) ? "is-disabled" : "";
+            vm.PaginationInfo.Next = (vm.PaginationInfo.ActualPage == vm.PaginationInfo.TotalPages - 1) ? "display:none" : "";
+            vm.PaginationInfo.Previous = (vm.PaginationInfo.ActualPage == 0) ? "display:none" : "";
 
             return vm;
         }
