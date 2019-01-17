@@ -52,11 +52,11 @@
                     <div class="head-content">
 
                         <div class="category-title">
-                            <a href="#" class="cat">@Model.Telefon.Category</a>
-                            <h5 class="title">@Model.Telefon.Name</h5>
+                            <a href="#" class="cat">SmartPhone</a>
+                            <h5 class="title">@Model.CatalogItem.Name</h5>
                         </div>
 
-                        <h5 class="price">$295.00</h5>
+                        <h5 class="price">$295.00 @Model.CatalogItem.Price</h5>
 
                     </div>
 
@@ -71,7 +71,7 @@
                         </div>
 
                         <div class="desc">
-                            <p>@Model.Telefon.Description </p>
+                            <p>@Model.CatalogItem.Description </p>
                         </div>
 
                         <span class="availability">Availability: <span>In Stock</span></span>
@@ -145,17 +145,11 @@
                             <td class="first-column">Feature Name</td>
                             <td class="first-column">Feature Value</td>
                         </tr>
-                        @if (Model.Telefon.Features != null)
-                        {
-                            @foreach (var feature in Model?.Telefon?.Features)
-                            {
-                                <tr>
-                                    <td class="first-column">@feature.FeatureType</td>
-                                    <td class="pro-desc"><p>@feature.Name</p></td>
-                                    <td class="pro-desc"><p>@feature.Value</p></td>
-                                </tr>
-                            }
-                        }
+                        <tr>
+                            <td class="first-column">@Model.CatalogItem.Name</td>
+                            <td class="pro-desc"><p>@Model.CatalogItem.Slug</p></td>
+                            <td class="pro-desc"><p>@Model.CatalogItem.Star</p></td>
+                        </tr>
 
                     </tbody>
                 </table>
@@ -177,7 +171,7 @@
                         <div class="row">
                             <div class="single-product-description-content col-lg-8 col-12">
 
-                                <p>@Model.Telefon.Summary</p>
+                                <p>@Model.CatalogItem.Summary</p>
 
                                 <h4>Introducing Flex 3310</h4>
                                 <p>enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia res eos qui ratione voluptatem sequi Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora in</p>
@@ -194,12 +188,7 @@
 
                     <div class="tab-pane fade" id="product-specifications">
                         <div class="single-product-specification">
-                            <ul>
-                                @foreach (var spec in Model.Telefon.MainSpecs)
-                                {
-                                    <li>@spec</li>
-                                }
-
+                            <ul>                            
 
                                 <li>Full HD Camcorder</li>
                                 <li>Dual Video Recording</li>
@@ -218,18 +207,11 @@
                                             <td class="first-column">Feature Name</td>
                                             <td class="first-column">Feature Value</td>
                                         </tr>
-                                        @if (Model.Telefon.Features != null)
-                                        {
-                                            @foreach (var feature in Model?.Telefon?.Features)
-                                            {
-                                                <tr>
-                                                    <td class="first-column">@feature.FeatureType</td>
-                                                    <td class="pro-desc"><p>@feature.Name</p></td>
-                                                    <td class="pro-desc"><p>@feature.Value</p></td>
-                                                </tr>
-                                            }
-                                        }
-
+                                        <tr>
+                                            <td class="first-column">@Model.CatalogItem.Name</td>
+                                            <td class="pro-desc"><p>@Model.CatalogItem.Slug</p></td>
+                                            <td class="pro-desc"><p>@Model.CatalogItem.Star</p></td>
+                                        </tr>                                       
                                     </tbody>
                                 </table>
                             </div>
@@ -380,7 +362,7 @@
 <vc:related-products product-id="3"></vc:related-products>
 
 <!-- PARTIAL VIEW AS A MODEL PASSING -->
-<partial name="TelefonWidget" model="@Model.Telefon" />
+<partial name="TelefonWidget" model="@Model.CatalogItem" />
 
 <!-- Related Product Section Start -->
 <div class="product-section section mb-70">

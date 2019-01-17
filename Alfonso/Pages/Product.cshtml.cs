@@ -22,14 +22,12 @@ namespace Alfonso.Pages
 
         public CatalogItemViewModel CatalogItem { get; set; }        
 
-        public void OnGet(string slug)
+        public async Task OnGet(string slug)
         {
-            CatalogItem = await _catalogService.GetCatalogItems
+            CatalogItem = await _catalogService.GetCatalogItem(slug);
 
-            var telefonService = new TelefonService();
-            Telefon = telefonService.GetTelefons().FirstOrDefault(x => x.Slug == slug);
-
-
+            //var telefonService = new TelefonService();
+            //Telefon = telefonService.GetTelefons().FirstOrDefault(x => x.Slug == slug);
         }
     }
 }

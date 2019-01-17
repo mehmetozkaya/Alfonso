@@ -31,8 +31,6 @@ namespace Alfonso.Services
 
         public async Task<CatalogIndexViewModel> GetCatalogItems(int pageIndex, int itemsPage, int? brandId, int? typeId)
         {
-            //_logger.LogInformation("GetCatalogItems called.");
-
             var filterSpecification = new CatalogFilterSpecification(brandId, typeId);
             var filterPaginatedSpecification = new CatalogFilterPaginatedSpecification(itemsPage * pageIndex, itemsPage, brandId, typeId);
 
@@ -109,11 +107,24 @@ namespace Alfonso.Services
             return items;
         }
 
-        public Task<CatalogItemViewModel> GetCatalogItem(string slug)
+        public async Task<CatalogItemViewModel> GetCatalogItem(string slug)
         {
-            var slugSpecification = new CatalogFilterSpecification(brandId, typeId);
+            var slugSpecification = new SlugSpecification(slug);
+            var catalogItem = _itemRepository.GetSingleBySpec(slugSpecification);
 
-            throw new NotImplementedException();
+            var catalogItemViewModel = new CatalogItemViewModel
+            {
+                Id = catalogItem.Id,
+                Description = catalogItem.Description,
+                Name = catalogItem.Name,
+                PictureUri = catalogItem.PictureUri,
+                Price = catalogItem.Price,
+                Slug = catalogItem.Slug,
+                Star = catalogItem.Star,
+                Summary = catalogItem.Summary
+            };
+
+            return catalogItemViewModel;
         }
     }
 }
