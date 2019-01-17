@@ -8,20 +8,19 @@
 
             @if (Model.ActualPage != 0)
             {
-                <li><a asp-route-pageid="@Model.ActualPage">@Model.ActualPage</a></li>
+                <li><a asp-route-pageid="@(Model.ActualPage-1)">@Model.ActualPage</a></li>
             }
 
-            <li class="active"><a asp-route-pageid="@(Model.ActualPage + 1)">@(Model.ActualPage + 1)</a></li>
+            <li class="active"><a asp-route-pageid="@(Model.ActualPage)">@(Model.ActualPage + 1)</a></li>
 
-            @if ((Model.ActualPage + 1) != (Model.TotalPages-1))
+            @if ((Model.ActualPage + 1) != (Model.TotalPages))
             {
-                <li><a asp-route-pageid="@(Model.ActualPage+2)">@(Model.ActualPage + 2)</a></li>
-                @if ((Model.ActualPage + 2) != (Model.TotalPages - 1))
+                <li><a asp-route-pageid="@(Model.ActualPage+1)">@(Model.ActualPage + 2)</a></li>
+                @if ((Model.ActualPage + 2) != (Model.TotalPages))
                 {
                     <li> - - - - - </li>
-                    <li><a asp-route-pageid="@(Model.TotalPages-1)">@(Model.TotalPages-1)</a></li>
+                    <li><a asp-route-pageid="@(Model.TotalPages-1)">@(Model.TotalPages)</a></li>
                 }
-
             }
 
             @*<li><a href="#">1</a></li>

@@ -54,6 +54,8 @@
                     </div>
                 </div>
 
+                <partial name="_pagination" for="@Model.PaginationInfo" />
+
                 <!-- Shop Product Wrap Start -->
                 <div class="shop-product-wrap grid row">
 
@@ -68,7 +70,7 @@
 
                                     <!-- Image -->
                                     <div class="image">
-                                        
+
                                         <a asp-page="product" asp-route-slug="@catalogItem.Slug" class="img"><img src="@catalogItem.PictureUri" alt="Product Image"></a>
 
                                         <div class="wishlist-compare">
@@ -87,7 +89,7 @@
                                         <div class="category-title">
 
                                             <a href="#" class="cat">Laptop</a>
-                                            @*<a href="#" class="cat">@tel.Category</a>*@                                            
+                                            @*<a href="#" class="cat">@tel.Category</a>*@
                                             <h5 class="title"><a asp-page="product" asp-route-slug="@catalogItem.Slug">@catalogItem.Name</a></h5>
 
                                         </div>
@@ -113,7 +115,7 @@
                                 <div class="ee-product-list">
 
                                     <!-- Image -->
-                                    <div class="image">                                        
+                                    <div class="image">
                                         <a asp-page="product" asp-route-slug="@catalogItem.Slug" class="img"><img asp-append-version="true" src="@catalogItem.PictureUri" alt="Product Image"></a>
                                     </div>
 
@@ -124,7 +126,7 @@
                                         <div class="head-content">
 
                                             <div class="category-title">
-                                                @*<a href="#" class="cat">@tel.Category</a>*@                                             
+                                                @*<a href="#" class="cat">@tel.Category</a>*@
                                                 <h5 class="title"><a asp-page="product" asp-route-slug="@catalogItem.Slug">@catalogItem.Name</a></h5>
                                             </div>
 
@@ -188,7 +190,7 @@
                 <!-- Shop Product Wrap End -->
 
                 <partial name="_pagination" for="@Model.PaginationInfo" />
-               
+
             </div>
 
         </div>
