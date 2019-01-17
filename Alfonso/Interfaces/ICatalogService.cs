@@ -10,5 +10,7 @@ namespace Alfonso.Interfaces
         Task<CatalogIndexViewModel> GetCatalogItems(int pageIndex, int itemsPage, int? brandId, int? typeId);
         Task<IEnumerable<SelectListItem>> GetBrands();
         Task<IEnumerable<SelectListItem>> GetTypes();
+
+        Task<CatalogItemViewModel> GetCatalogItem(string slug);
     }
 }

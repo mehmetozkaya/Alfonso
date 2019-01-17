@@ -14,12 +14,10 @@ namespace Alfonso.Pages
     public class IndexModel : PageModel
     {
         private readonly ICatalogService _catalogService;
-        private readonly ITelefonService _telefonService;
 
         public IndexModel(ICatalogService catalogService, ITelefonService telefonService)
         {
-            _catalogService = catalogService ?? throw new ArgumentNullException(nameof(catalogService));
-            _telefonService = telefonService ?? throw new ArgumentNullException(nameof(telefonService));
+            _catalogService = catalogService ?? throw new ArgumentNullException(nameof(catalogService));            
         }
 
         public List<Telefon> TelefonList { get; set; }
@@ -27,9 +25,7 @@ namespace Alfonso.Pages
 
         public async Task OnGet(CatalogIndexViewModel catalogModel, int? pageId)
         {
-            CatalogModel = await _catalogService.GetCatalogItems(pageId ?? 0, Constants.ITEMS_PER_PAGE, catalogModel.BrandFilterApplied, catalogModel.TypesFilterApplied);
-
-            // TelefonList = _telefonService.GetTelefons();
+            CatalogModel = await _catalogService.GetCatalogItems(pageId ?? 0, Constants.ITEMS_PER_PAGE, catalogModel.BrandFilterApplied, catalogModel.TypesFilterApplied);            
         }
     }
 }

@@ -108,5 +108,12 @@ namespace Alfonso.Services
 
             return items;
         }
+
+        public Task<CatalogItemViewModel> GetCatalogItem(string slug)
+        {
+            var slugSpecification = new CatalogFilterSpecification(brandId, typeId);
+
+            throw new NotImplementedException();
+        }
     }
 }
