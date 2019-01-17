@@ -104,7 +104,7 @@ namespace Infrastructure.Data
                     new CatalogItem()
                     {
                         CatalogTypeId = 1,
-                        CatalogBrandId = 1,
+                        CatalogBrandId = 5,
                         Name = "Huawei Nova i2",
                         Slug = "huawai-nova-i2",
                         Star = 4.2,
@@ -115,13 +115,13 @@ namespace Infrastructure.Data
                     });
             }
 
-            for (int i = 0; i < 8; i++)
+            for (int i = 0; i < 24; i++)
             {
                 catalogItems.Add(
                     new CatalogItem()
                     {
                         CatalogTypeId = 1,
-                        CatalogBrandId = 1,
+                        CatalogBrandId = 2,
                         Name = "Samsung Galaxy S9",
                         Slug = "samsung-galaxy-s9",
                         Star = 4.6,
@@ -138,7 +138,7 @@ namespace Infrastructure.Data
                     new CatalogItem()
                     {
                         CatalogTypeId = 1,
-                        CatalogBrandId = 1,
+                        CatalogBrandId = 3,
                         Name = "LG Stylus 4",
                         Slug = "lg-stylus-4",
                         Star = 4.1,

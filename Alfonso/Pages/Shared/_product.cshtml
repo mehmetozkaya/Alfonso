@@ -44,6 +44,15 @@
                                 </select>
                             </div>
 
+                            <!-- Product Short -->
+                            <div class="product-short">
+                                <form method="get" class="subscribe-form">
+                                    <p>Brand</p>
+                                    <select asp-for="@Model.BrandFilterApplied" asp-items="@Model.Brands" class="nice-select"></select>
+                                    <span><button>Search</button></span>
+                                </form>
+                            </div>
+
                             <!-- Product Pages -->
                             <div class="product-pages">
                                 <p>Pages 1 of 25</p>
