@@ -19,39 +19,23 @@
                                 <a href="#" data-target="list"><i class="fa fa-list"></i></a>
                             </div>
 
-                            <!-- Product Showing -->
-                            <div class="product-showing">
-                                <p>Showing</p>
-                                <select name="showing" class="nice-select">
-                                    <option value="1">8</option>
-                                    <option value="2">12</option>
-                                    <option value="3">16</option>
-                                    <option value="4">20</option>
-                                    <option value="5">24</option>
-                                </select>
-                            </div>
 
-                            <!-- Product Short -->
-                            <div class="product-short">
-                                <p>Short by</p>
-                                <select name="sortby" class="nice-select">
-                                    <option value="trending">Trending items</option>
-                                    <option value="sales">Best sellers</option>
-                                    <option value="rating">Best rated</option>
-                                    <option value="date">Newest items</option>
-                                    <option value="price-asc">Price: low to high</option>
-                                    <option value="price-desc">Price: high to low</option>
-                                </select>
-                            </div>
+                            <form method="get" class="ee-register row">
 
-                            <!-- Product Short -->
-                            <div class="product-short">
-                                <form method="get" class="subscribe-form">
+                                <!-- Product Showing -->
+                                <div class="product-showing">
+                                    <p>Type</p>
+                                    <select asp-for="@Model.TypesFilterApplied" asp-items="@Model.Types" class="nice-select"></select>                                    
+                                </div>
+                               
+                                <!-- Brand Filter -->
+                                <div class="product-short">
                                     <p>Brand</p>
                                     <select asp-for="@Model.BrandFilterApplied" asp-items="@Model.Brands" class="nice-select"></select>
-                                    <span><button>Search</button></span>
-                                </form>
-                            </div>
+                                    <input type="submit" class="btn btn-small button hover-theme" value="Search">
+                                </div>
+
+                            </form>
 
                             <!-- Product Pages -->
                             <div class="product-pages">
