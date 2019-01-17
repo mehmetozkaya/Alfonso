@@ -4,7 +4,8 @@
     <div class="col">
 
         <ul class="pagination">
-            <li><a href="#"><i class="fa fa-angle-left"></i>Back</a></li>
+            <li><a href="#"><i class="fa fa-angle-left @Model.Previous" id="Previous" asp-route-pageid="@(Model.ActualPage - 1)"></i>Previous</a></li>
+
             <li><a href="#">1</a></li>
             <li class="active"><a href="#">2</a></li>
             <li><a href="#">3</a></li>
