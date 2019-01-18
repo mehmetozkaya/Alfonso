@@ -36,20 +36,23 @@ namespace Alfonso
             });
 
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-
             services.AddDbContext<AlfonsoContext>(c =>
                 c.UseSqlServer(Configuration.GetConnectionString("CatalogConnection")));
 
             services.AddScoped(typeof(IRepository<>), typeof(EfRepository<>));
             services.AddScoped(typeof(IAsyncRepository<>), typeof(EfRepository<>));
-            
+
+            //TODOX : CachedCatalogService yemiyor. -- services.AddScoped<ICatalogService, CachedCatalogService>();
             services.AddScoped<ICatalogService, CatalogService>();
             services.AddSingleton<IUriComposer>(new UriComposer(Configuration.Get<CatalogSettings>()));
 
             services.AddScoped(typeof(IAppLogger<>), typeof(LoggerAdapter<>));
             //services.AddTransient<IEmailSender, EmailSender>();
 
+            // Add memory cache services
+            services.AddMemoryCache();
+
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

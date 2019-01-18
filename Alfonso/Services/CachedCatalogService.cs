@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Caching.Memory;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace Alfonso.Services
@@ -17,7 +16,7 @@ namespace Alfonso.Services
         private static readonly string _typesKey = "types";
         private static readonly string _itemsKeyTemplate = "items-{0}-{1}-{2}-{3}";
         private static readonly string _slugKeyTemplate = "slug-{0}";
-        private static readonly TimeSpan _defaultCacheDuration = TimeSpan.FromSeconds(30);
+        private readonly TimeSpan _defaultCacheDuration = TimeSpan.FromSeconds(30);
 
         public CachedCatalogService(IMemoryCache cache, CatalogService catalogService)
         {
