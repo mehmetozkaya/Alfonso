@@ -19,8 +19,7 @@ namespace Alfonso.Pages
         {
             _catalogService = catalogService ?? throw new ArgumentNullException(nameof(catalogService));            
         }
-
-        public List<Telefon> TelefonList { get; set; }
+        
         public CatalogIndexViewModel CatalogModel { get; set; } = new CatalogIndexViewModel();        
 
         public async Task OnGet(CatalogIndexViewModel catalogModel, int? pageId)
