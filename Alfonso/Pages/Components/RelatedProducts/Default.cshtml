@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Telefon>
+﻿@model IEnumerable<Alfonso.ViewModels.CatalogItemViewModel>
 
 
 <!-- Related Product Section Start -->
@@ -18,7 +18,7 @@
                     <!-- Product Slider Start -->
                     <div class="product-slider product-slider-4">
 
-                        @foreach (var telefon in Model)
+                        @foreach (var catalogItem in Model)
                         {
                             <div class="col pb-20 pt-10">
                                 <!-- Product Start -->
@@ -27,7 +27,7 @@
                                     <!-- Image -->
                                     <div class="image">
 
-                                        <a href="single-product.html" class="img"><img src="~/assets/images/product/@telefon.ImageFile" alt="Product Image"></a>
+                                        <a href="single-product.html" class="img"><img src="@catalogItem.PictureUri" alt="Product Image"></a>
 
                                         <div class="wishlist-compare">
                                             <a href="#" data-tooltip="Compare"><i class="ti-control-shuffle"></i></a>
@@ -44,8 +44,8 @@
                                         <!-- Category & Title -->
                                         <div class="category-title">
 
-                                            <a href="#" class="cat">@telefon.Category</a>
-                                            <h5 class="title"><a href="single-product.html">@telefon.Name</a></h5>
+                                            <a href="#" class="cat">@catalogItem.Slug</a>
+                                            <h5 class="title"><a href="single-product.html">@catalogItem.Name</a></h5>
 
                                         </div>
 

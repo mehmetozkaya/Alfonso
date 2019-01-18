@@ -43,8 +43,7 @@ namespace Alfonso
 
             services.AddScoped(typeof(IRepository<>), typeof(EfRepository<>));
             services.AddScoped(typeof(IAsyncRepository<>), typeof(EfRepository<>));
-
-            services.AddScoped<ITelefonService, TelefonService>();
+            
             services.AddScoped<ICatalogService, CatalogService>();
             services.AddSingleton<IUriComposer>(new UriComposer(Configuration.Get<CatalogSettings>()));
 
