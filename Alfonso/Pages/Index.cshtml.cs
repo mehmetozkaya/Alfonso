@@ -15,7 +15,7 @@ namespace Alfonso.Pages
     {
         private readonly ICatalogService _catalogService;
 
-        public IndexModel(ICatalogService catalogService, ITelefonService telefonService)
+        public IndexModel(ICatalogService catalogService)
         {
             _catalogService = catalogService ?? throw new ArgumentNullException(nameof(catalogService));            
         }

@@ -1,4 +1,5 @@
-﻿using Alfonso.Services;
+﻿using Alfonso.Interfaces;
+using Alfonso.Services;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -9,16 +10,17 @@ namespace Alfonso
 {
     public class RelatedProducts : ViewComponent
     {
-        private readonly ITelefonService _telefonService;
+        private readonly ICatalogService _catalogService;
 
-        public RelatedProducts(ITelefonService telefonService)
+        public RelatedProducts(ICatalogService catalogService)
         {
-            _telefonService = telefonService ?? throw new ArgumentNullException(nameof(telefonService));
+            _catalogService = catalogService ?? throw new ArgumentNullException(nameof(catalogService));
         }
 
         public async Task<IViewComponentResult> InvokeAsync(int productId)
-        {            
-            return View(_telefonService.GetTelefons().Take(2));
+        {
+            var vm = await _catalogService.GetCatalogItems(0, 10, null, null);
+            return View(vm.CatalogItems.Take(2));
         }
     }
 }
