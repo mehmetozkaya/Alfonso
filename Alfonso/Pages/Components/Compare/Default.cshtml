@@ -1,4 +1,7 @@
-﻿
+﻿@model Alfonso.Pages.Compare.CompareViewModel
+@{
+    ViewData["Title"] = "My Compare List";
+}
 
 
 <!-- Mini Cart Wrap Start -->
@@ -13,13 +16,29 @@
 
     <!-- Mini Cart Products -->
     <ul class="mini-cart-products">
+
+        @if (Model.Items.Any())
+        {
+            @foreach (var compareItem in Model.Items)
+            {
+                <li>
+                    <a class="image"><img src="@compareItem.PictureUrl" alt="@compareItem.ProductName"></a>
+                    <button class="remove"><i class="fa fa-trash-o"></i></button>
+                    <div class="content">
+                        <a href="single-product.html" class="title">@compareItem.ProductName</a>
+                        @*<a asp-page="product" asp-route-slug="@compareItem.Slug" class="img"><img src="@catalogItem.PictureUri" alt="Product Image"></a>*@
+                    </div>
+                </li>
+            }
+        }
+
         <li>
             <a class="image"><img src="~/assets/images/product/product-1.png" alt="Product"></a>
             <button class="remove"><i class="fa fa-trash-o"></i></button>
             <div class="content">
                 <a href="single-product.html" class="title">Waxon Note Book Pro 5</a>
                 @*<span class="price">Price: $295</span>
-                    <span class="qty">Qty: 02</span>*@
+                <span class="qty">Qty: 02</span>*@
             </div>
 
         </li>
@@ -29,7 +48,7 @@
             <div class="content">
                 <a href="single-product.html" class="title">Aquet Drone D 420</a>
                 @*<span class="price">Price: $275</span>
-                    <span class="qty">Qty: 01</span>*@
+                <span class="qty">Qty: 01</span>*@
             </div>
 
         </li>
@@ -39,7 +58,7 @@
             <div class="content">
                 <a href="single-product.html" class="title">Game Station X 22</a>
                 @*<span class="price">Price: $295</span>
-                    <span class="qty">Qty: 01</span>*@
+                <span class="qty">Qty: 01</span>*@
             </div>
 
         </li>
