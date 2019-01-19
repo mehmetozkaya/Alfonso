@@ -27,7 +27,7 @@ namespace Alfonso.Services
             _brandRepository = brandRepository ?? throw new ArgumentNullException(nameof(brandRepository));
             _typeRepository = typeRepository ?? throw new ArgumentNullException(nameof(typeRepository));
             _uriComposer = uriComposer ?? throw new ArgumentNullException(nameof(uriComposer));
-        }       
+        }             
 
         public async Task<CatalogIndexViewModel> GetCatalogItems(int pageIndex, int itemsPage, int? brandId, int? typeId)
         {

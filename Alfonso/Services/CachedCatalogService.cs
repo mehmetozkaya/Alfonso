@@ -22,8 +22,8 @@ namespace Alfonso.Services
         {
             _cache = cache;
             _catalogService = catalogService;
-        }
-       
+        }        
+
         public async Task<IEnumerable<SelectListItem>> GetBrands()
         {
             return await _cache.GetOrCreateAsync(_brandsKey, async entry =>
