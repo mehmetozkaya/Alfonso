@@ -71,8 +71,14 @@
                                             <a href="#" data-tooltip="Wishlist"><i class="ti-heart"></i></a>
                                         </div>
 
-                                        <a href="#" class="add-to-cart"><i class="ti-shopping-cart"></i><span>ADD TO CART</span></a>
-
+                                        <form asp-page-handler="addtocompare" method="post">                                            
+                                            <a href="#" class="add-to-cart"><i class="ti-shopping-cart"></i><span>ADD TO CART<input type="submit" value="[ ADD TO BASKET ]" /></span></a>
+                                            <input type="hidden" asp-for="@catalogItem.Id" name="id" />
+                                            <input type="hidden" asp-for="@catalogItem.Name" name="name" />
+                                            <input type="hidden" asp-for="@catalogItem.Slug" name="slug" />
+                                            <input type="hidden" asp-for="@catalogItem.Description" name="description" />
+                                            <input type="hidden" asp-for="@catalogItem.PictureUri" name="pictureUri" />
+                                        </form>
                                     </div>
 
                                     <!-- Content -->
@@ -84,6 +90,16 @@
                                             <a href="#" class="cat">Laptop</a>
                                             @*<a href="#" class="cat">@tel.Category</a>*@
                                             <h5 class="title"><a asp-page="product" asp-route-slug="@catalogItem.Slug">@catalogItem.Name</a></h5>
+
+                                            <form asp-page-handler="addtocompare" method="post">
+                                                <span><input type="submit" value="[ ADD TO COMPARE ]" /></span>
+                                                <input type="hidden" asp-for="@catalogItem.Id" name="id" />
+                                                <input type="hidden" asp-for="@catalogItem.Name" name="name" />
+                                                <input type="hidden" asp-for="@catalogItem.Slug" name="slug" />
+                                                <input type="hidden" asp-for="@catalogItem.Description" name="description" />
+                                                <input type="hidden" asp-for="@catalogItem.PictureUri" name="pictureUri" />
+                                            </form>
+
 
                                         </div>
 
@@ -143,7 +159,14 @@
 
                                             <div class="actions">
 
-                                                <a href="#" class="add-to-cart"><i class="ti-shopping-cart"></i><span>ADD TO CART</span></a>
+                                                <form asp-page-handler="addtocompare" method="post">
+                                                    <a href="#" class="add-to-cart"><i class="ti-shopping-cart"></i><span>ADD TO CART<input type="submit" value="[ ADD TO BASKET ]" /></span></a>
+                                                    <input type="hidden" asp-for="@catalogItem.Id" name="id" />
+                                                    <input type="hidden" asp-for="@catalogItem.Name" name="name" />
+                                                    <input type="hidden" asp-for="@catalogItem.Slug" name="slug" />
+                                                    <input type="hidden" asp-for="@catalogItem.Description" name="description" />
+                                                    <input type="hidden" asp-for="@catalogItem.PictureUri" name="pictureUri" />
+                                                </form>                                                
 
                                                 <div class="wishlist-compare">
                                                     <a href="#" data-tooltip="Compare"><i class="ti-control-shuffle"></i></a>

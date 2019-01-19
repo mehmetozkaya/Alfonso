@@ -66,7 +66,7 @@ namespace Alfonso
 
             services.AddScoped<ICatalogService, CachedCatalogService>();
             //services.AddScoped<IBasketService, BasketService>();
-            //services.AddScoped<IBasketViewModelService, BasketViewModelService>();
+            services.AddScoped<ICompareViewModelService, CompareViewModelService>();
             //services.AddScoped<IOrderService, OrderService>();
             //services.AddScoped<IOrderRepository, OrderRepository>();
             services.AddScoped<CatalogService>();

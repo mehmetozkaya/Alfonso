@@ -2,6 +2,7 @@ using System;
 using System.Threading.Tasks;
 using Alfonso.Interfaces;
 using Alfonso.ViewModels;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Alfonso.Pages
@@ -20,6 +21,21 @@ namespace Alfonso.Pages
         public async Task OnGet(CatalogIndexViewModel catalogModel, int? pageId)
         {
             CatalogModel = await _catalogService.GetCatalogItems(pageId ?? 0, Constants.ITEMS_PER_PAGE, catalogModel.BrandFilterApplied, catalogModel.TypesFilterApplied);            
+        }
+
+        public async Task<IActionResult> OnPostAddToCompare(CatalogItemViewModel productDetails)
+        {
+            if (productDetails?.Id == null)
+            {
+                return RedirectToPage("/Index");
+            }
+            //await SetBasketModelAsync();
+
+            //await _basketService.AddItemToBasket(BasketModel.Id, productDetails.Id, productDetails.Price, 1);
+
+            //await SetBasketModelAsync();
+
+            return RedirectToPage();
         }
     }
 }
