@@ -12,5 +12,11 @@ namespace ApplicationCore.Specifications
         {
             AddInclude(b => b.Items);
         }
+
+        public CompareWithItemsSpecification(string buyerId)
+           : base(b => b.BuyerId == buyerId)
+        {
+            AddInclude(b => b.Items);
+        }
     }
 }
