@@ -1,9 +1,11 @@
 ﻿using ApplicationCore.Entities;
 using ApplicationCore.Entities.CompareAggregate;
 using ApplicationCore.Interfaces;
+using ApplicationCore.Specifications;
 using Ardalis.GuardClauses;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -33,7 +35,9 @@ namespace ApplicationCore.Services
 
         public async Task RemoveItemToCompare(int compareId, int catalogItemId)
         {
-            var compare = await _compareRepository.GetByIdAsync(compareId);
+            var compareSpec = new CompareWithItemsSpecification(compareId);
+            var compare = (await _compareRepository.ListAsync(compareSpec)).FirstOrDefault();
+            
             compare.RemoveItem(catalogItemId);
             await _compareRepository.UpdateAsync(compare);
         }
