@@ -12,12 +12,11 @@ namespace Alfonso.Pages
 {
     public class IndexModel : PageModel
     {
-        private readonly ICatalogService _catalogService;
-        private string _username = null;
+        private readonly ICatalogService _catalogService;        
         private readonly ICompareViewModelService _compareViewModelService;
-
         private readonly ICompareService _compareService;
         private readonly IUriComposer _uriComposer;
+        private string _username = null;
 
         public IndexModel(ICatalogService catalogService, ICompareViewModelService compareViewModelService, ICompareService compareService, IUriComposer uriComposer)
         {
@@ -36,9 +35,9 @@ namespace Alfonso.Pages
             CatalogModel = await _catalogService.GetCatalogItems(pageId ?? 0, Constants.ITEMS_PER_PAGE, catalogModel.BrandFilterApplied, catalogModel.TypesFilterApplied);            
         }
 
-        public async Task<IActionResult> OnPostRemoveToCompare(int compareId, int itemId)
+        public async Task<IActionResult> OnPostRemoveToCompare(int compareId, int compareItemId)
         {
-            await _compareService.RemoveItemToCompare(compareId, itemId);            
+            await _compareService.RemoveItemToCompare(compareId, compareItemId);
             await SetCompareModelAsync();
             return RedirectToPage();
         }
@@ -50,7 +49,7 @@ namespace Alfonso.Pages
                 return RedirectToPage("/Index");
             }
 
-            // await SetCompareModelAsync();
+            await SetCompareModelAsync();
             await _compareService.AddItemToCompare(CompareModel.Id, productDetails.Id);
             await SetCompareModelAsync();
             return RedirectToPage();

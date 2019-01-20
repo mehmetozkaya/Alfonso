@@ -33,12 +33,12 @@ namespace ApplicationCore.Services
             await _compareRepository.UpdateAsync(compare);
         }
 
-        public async Task RemoveItemToCompare(int compareId, int catalogItemId)
+        public async Task RemoveItemToCompare(int compareId, int compareItemId)
         {
             var compareSpec = new CompareWithItemsSpecification(compareId);
             var compare = (await _compareRepository.ListAsync(compareSpec)).FirstOrDefault();
             
-            compare.RemoveItem(catalogItemId);
+            compare.RemoveItem(compareItemId);
             await _compareRepository.UpdateAsync(compare);
         }
 

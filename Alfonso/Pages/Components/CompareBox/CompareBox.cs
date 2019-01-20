@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace Alfonso.Pages.Components.Compare
 {
-    public class Compare : ViewComponent
+    public class CompareBox : ViewComponent
     {
         private readonly ICompareViewModelService _compareService;
 
-        public Compare(ICompareViewModelService compareService)
+        public CompareBox(ICompareViewModelService compareService)
         {
             _compareService = compareService ?? throw new ArgumentNullException(nameof(compareService));
         }        
@@ -38,6 +38,6 @@ namespace Alfonso.Pages.Components.Compare
                 return Request.Cookies[Constants.BASKET_COOKIENAME];
             }
             return null;
-        }
+        }       
     }
 }
