@@ -1,7 +1,7 @@
 # Alfonso
 
 --------------------------------------------------------------------------------------
-Project Structure
+## Project Structure
 
 - ApplicationCore
 - Infrastructure
@@ -10,7 +10,7 @@ Project Structure
 AlfonsoWeb -> ApplicationCore -> Infrastructure
 
 --------------------------------------------------------------------------------------
-Infrastructure
+## Infrastructure
 
 Implementation of Core interfaces in this project with Entity Framework Core and other dependencies.
 
@@ -24,7 +24,7 @@ Services
 	Custom services implementation, like email, cron jobs etc.
 
 --------------------------------------------------------------------------------------
-ApplicationCore
+## ApplicationCore
 
 Development of Domain Logic with abstraction. Interfaces drives business requirements with light implementation.
 
@@ -45,7 +45,7 @@ Specifications
 	This helps create custom queries.
 
 --------------------------------------------------------------------------------------
-AlfonsoWeb
+## AlfonsoWeb
 
 Interfaces - Services
 	This folders includes Web related logics and after perform operations returns Razor Page elements.
@@ -79,7 +79,7 @@ Page Structure
 		Single product page, only load 1 product details.
 
 --------------------------------------------------------------------------------------
-Example Use Case
+## Example Use Case
 
 AlfonsoWeb - Services - CatalogService.cs --> this returns ViewModel screen DTOs for use in Razor Page.
 	This CatalogService could be uses IRepository and FilterSpecifications directly in order to perform db operations. After that returns UI elements.
