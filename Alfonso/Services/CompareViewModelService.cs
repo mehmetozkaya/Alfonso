@@ -65,7 +65,7 @@ namespace Alfonso.Services
 
                 };
                 var item = _itemRepository.GetById(i.CatalogItemId);
-                itemModel.PictureUrl = _uriComposer.ComposePicUri(item.PictureUri);
+                itemModel.PictureUrl = _uriComposer.ComposePicUri(item.PictureUri);                
                 itemModel.ProductName = item.Name;
                 return itemModel;
             }).ToList();

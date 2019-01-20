@@ -10,9 +10,13 @@ namespace ApplicationCore.Services
 
         public string ComposePicUri(string uriTemplate)
         {
+            // TODO Fix : bunu yazmayınca image degisik geliyor
+            if (!uriTemplate.Contains("/assets/images/product/"))
+            {
+                return "/assets/images/product/" + uriTemplate;
+            }
 
-            return "/assets/images/product/" + uriTemplate;
-
+            return uriTemplate;
             // return uriTemplate.Replace("http://catalogbaseurltobereplaced", _catalogSettings.CatalogBaseUrl);
         }
     }

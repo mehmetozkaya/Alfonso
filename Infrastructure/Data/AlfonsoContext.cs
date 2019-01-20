@@ -14,10 +14,10 @@ namespace Infrastructure.Data
         {
         }
 
+        public DbSet<Compare> Compares { get; set; }
         public DbSet<CatalogBrand> CatalogBrands { get; set; }
         public DbSet<CatalogItem> CatalogItems { get; set; }
-        public DbSet<CatalogType> CatalogTypes { get; set; }
-        public DbSet<Compare> Compares { get; set; }
+        public DbSet<CatalogType> CatalogTypes { get; set; }        
 
 
         protected override void OnModelCreating(ModelBuilder builder)

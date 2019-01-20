@@ -20,9 +20,7 @@ namespace Alfonso.Pages.Components.Compare
         public async Task<IViewComponentResult> InvokeAsync()
         {
             var vm = new CompareViewModel();
-
             vm = await GetCompareViewModelAsync();
-
             return View(vm);
         }
 
