@@ -9,5 +9,6 @@ namespace Alfonso.Interfaces
     public interface ICompareViewModelService
     {
         Task<CompareViewModel> GetOrCreateCompareForUser(string userName);
+        Task<CompareViewModel> GetCompare(int compareId);
     }
 }

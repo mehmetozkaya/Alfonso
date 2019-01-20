@@ -12,7 +12,7 @@ namespace Alfonso.Pages
 {
     public class IndexModel : PageModel
     {
-        private readonly ICatalogService _catalogService;        
+        private readonly ICatalogService _catalogService;
         private readonly ICompareViewModelService _compareViewModelService;
         private readonly ICompareService _compareService;
         private readonly IUriComposer _uriComposer;

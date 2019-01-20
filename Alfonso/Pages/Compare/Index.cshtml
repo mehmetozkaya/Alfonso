@@ -1,4 +1,132 @@
-﻿@page
+﻿@page "/compare/{compareid:int?}"
 @model Alfonso.Pages.Compare.IndexModel
 @{
+    ViewData["Title"] = "Compare Products";
 }
+
+
+<!-- Compare Page Start -->
+<div class="page-section section mt-90 mb-90">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <form action="#">
+
+                    <!-- Compare Table -->
+                    <div class="compare-table table-responsive">
+                        <table class="table mb-0">
+                            <tbody>
+                                <tr>
+                                    <td class="first-column">Product</td>
+
+                                    @if (Model.CompareModel.Items.Any())
+                                    {
+                                        foreach (var compareItem in Model.CompareModel.Items)
+                                        {
+                                            <td class="product-image-title">
+                                                <a href="#" class="image"><img src="@compareItem.PictureUrl" alt="Compare Product"></a>
+                                                <a href="#" class="category">@compareItem.ProductName</a>
+                                                <a href="#" class="title">@compareItem.ProductName</a>
+                                            </td>
+                                        }
+                                    }                               
+                                </tr>
+                                <tr>
+                                    <td class="first-column">Description</td>
+
+                                    @if (Model.CompareModel.Items.Any())
+                                    {
+                                        foreach (var compareItem in Model.CompareModel.Items)
+                                        {
+                                            <td class="pro-desc"><p>@compareItem.ProductName + Refactor : Should be Description</p></td>                                          
+                                        }
+                                    }
+                                 </tr>
+                                <tr>
+                                    <td class="first-column">Price</td>
+
+                                    @if (Model.CompareModel.Items.Any())
+                                    {
+                                        foreach (var compareItem in Model.CompareModel.Items)
+                                        {
+                                            <td class="pro-price">$295 @compareItem.UnitPrice</td>
+                                        }
+                                    }
+                                </tr>
+                                <tr>
+                                    <td class="first-column">Color</td>
+
+                                    @if (Model.CompareModel.Items.Any())
+                                    {
+                                        foreach (var compareItem in Model.CompareModel.Items)
+                                        {                                            
+                                            <td class="pro-color">Black</td>
+                                        }
+                                    }
+                                </tr>
+                                <tr>
+                                    <td class="first-column">Stock</td>
+
+                                    @if (Model.CompareModel.Items.Any())
+                                    {
+                                        foreach (var compareItem in Model.CompareModel.Items)
+                                        {
+                                            <td class="pro-stock">In Stock</td>
+                                        }
+                                    }
+                                    
+                                </tr>
+                                <tr>
+                                    <td class="first-column">Add to cart</td>
+
+                                    @if (Model.CompareModel.Items.Any())
+                                    {
+                                        foreach (var compareItem in Model.CompareModel.Items)
+                                        {
+                                            <td class="pro-addtocart"><a href="#" class="add-to-cart" tabindex="0"><i class="ti-shopping-cart"></i><span>ADD TO CART</span></a></td>
+                                        }
+                                    }                                                                        
+                                </tr>
+                                <tr>
+                                    <td class="first-column">Delete</td>
+
+                                    @if (Model.CompareModel.Items.Any())
+                                    {
+                                        foreach (var compareItem in Model.CompareModel.Items)
+                                        {                                            
+                                            <form asp-page-handler="removetocompare" method="post">
+                                                <td class="pro-remove"><button><i class="fa fa-trash-o"></i></button></td>
+                                                <input type="hidden" asp-for="@Model.CompareModel.Id" name="compareId" />
+                                                <input type="hidden" asp-for="@compareItem.Id" name="compareItemId" />
+                                            </form>
+                                        }
+                                    }
+                                </tr>
+                                <tr>
+                                    <td class="first-column">Rating</td>
+
+                                    @if (Model.CompareModel.Items.Any())
+                                    {
+                                        foreach (var compareItem in Model.CompareModel.Items)
+                                        {
+                                            <td class="pro-ratting">
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star-o"></i>
+                                            </td>
+                                        }
+                                    }                                    
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Compare Page End -->

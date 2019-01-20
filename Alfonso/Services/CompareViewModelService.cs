@@ -22,7 +22,7 @@ namespace Alfonso.Services
             _compareRepository = compareRepository ?? throw new ArgumentNullException(nameof(compareRepository));
             _uriComposer = uriComposer ?? throw new ArgumentNullException(nameof(uriComposer));
             _itemRepository = itemRepository ?? throw new ArgumentNullException(nameof(itemRepository));
-        }
+        }      
 
         public async Task<CompareViewModel> GetOrCreateCompareForUser(string userName)
         {
@@ -33,6 +33,19 @@ namespace Alfonso.Services
             {
                 return await CreateCompareForUser(userName);
             }
+            return CreateViewModelFromCompare(compare);
+        }
+
+        public async Task<CompareViewModel> GetCompare(int compareId)
+        {
+            var compareSpec = new CompareWithItemsSpecification(compareId);
+            var compare = (await _compareRepository.ListAsync(compareSpec)).FirstOrDefault();
+
+            if (compare == null)
+            {
+                throw new NotImplementedException();
+            }
+
             return CreateViewModelFromCompare(compare);
         }
 
@@ -72,5 +85,7 @@ namespace Alfonso.Services
 
             return viewModel;
         }
+
+       
     }
 }
