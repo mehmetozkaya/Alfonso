@@ -36,6 +36,13 @@ namespace Alfonso.Pages
             CatalogModel = await _catalogService.GetCatalogItems(pageId ?? 0, Constants.ITEMS_PER_PAGE, catalogModel.BrandFilterApplied, catalogModel.TypesFilterApplied);            
         }
 
+        public async Task<IActionResult> OnPostRemoveToCompare(int compareId, int itemId)
+        {
+            await _compareService.RemoveItemToCompare(compareId, itemId);            
+            await SetCompareModelAsync();
+            return RedirectToPage();
+        }
+
         public async Task<IActionResult> OnPostAddToCompare(CatalogItemViewModel productDetails)
         {
             if (productDetails?.Id == null)
@@ -43,12 +50,9 @@ namespace Alfonso.Pages
                 return RedirectToPage("/Index");
             }
 
-            await SetCompareModelAsync();
-
+            // await SetCompareModelAsync();
             await _compareService.AddItemToCompare(CompareModel.Id, productDetails.Id);
-
             await SetCompareModelAsync();
-
             return RedirectToPage();
         }
 

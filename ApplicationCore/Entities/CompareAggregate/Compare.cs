@@ -26,5 +26,14 @@ namespace ApplicationCore.Entities.CompareAggregate
             //existingItem.Quantity += quantity;
         }
 
+        public void RemoveItem(int catalogItemId)
+        {
+            if (Items.Any(i => i.CatalogItemId == catalogItemId))
+            {
+                var removedItem = _items.FirstOrDefault(x => x.CatalogItemId == catalogItemId);
+                _items.Remove(removedItem);                                
+            }            
+        }
+
     }
 }

@@ -10,6 +10,7 @@ namespace ApplicationCore.Interfaces
         Task<int> GetCompareItemCountAsync(string userName);
         Task TransferCompareAsync(string anonymousId, string userName);
         Task AddItemToCompare(int compareId, int catalogItemId);
+        Task RemoveItemToCompare(int compareId, int catalogItemId);
         //Task SetQuantities(int basketId, Dictionary<string, int> quantities);
         Task DeleteCompareAsync(int compareId);
     }

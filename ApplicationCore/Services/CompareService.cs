@@ -31,6 +31,13 @@ namespace ApplicationCore.Services
             await _compareRepository.UpdateAsync(compare);
         }
 
+        public async Task RemoveItemToCompare(int compareId, int catalogItemId)
+        {
+            var compare = await _compareRepository.GetByIdAsync(compareId);
+            compare.RemoveItem(catalogItemId);
+            await _compareRepository.UpdateAsync(compare);
+        }
+
         public async Task DeleteCompareAsync(int compareId)
         {
             var compare = await _compareRepository.GetByIdAsync(compareId);
@@ -41,7 +48,7 @@ namespace ApplicationCore.Services
         {
             Guard.Against.NullOrEmpty(userName, nameof(userName));
             throw new NotImplementedException();
-        }
+        }       
 
         public Task TransferCompareAsync(string anonymousId, string userName)
         {
