@@ -8,17 +8,17 @@ using System.Threading.Tasks;
 
 namespace Alfonso.Services
 {
-    public class CachedCatalogService : ICatalogService
+    public class CachedCatalogService : ICatalogRazorService
     {
         private readonly IMemoryCache _cache;
-        private readonly CatalogService _catalogService;
+        private readonly CatalogRazorService _catalogService;
         private static readonly string _brandsKey = "brands";
         private static readonly string _typesKey = "types";
         private static readonly string _itemsKeyTemplate = "items-{0}-{1}-{2}-{3}";
         private static readonly string _slugKeyTemplate = "slug-{0}";
         private readonly TimeSpan _defaultCacheDuration = TimeSpan.FromSeconds(30);
 
-        public CachedCatalogService(IMemoryCache cache, CatalogService catalogService)
+        public CachedCatalogService(IMemoryCache cache, CatalogRazorService catalogService)
         {
             _cache = cache;
             _catalogService = catalogService;

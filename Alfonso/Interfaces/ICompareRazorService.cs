@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Alfonso.Interfaces
 {
-    public interface ICompareViewModelService
+    public interface ICompareRazorService
     {
         Task<CompareViewModel> GetOrCreateCompareForUser(string userName);
         Task<CompareViewModel> GetCompare(int compareId);

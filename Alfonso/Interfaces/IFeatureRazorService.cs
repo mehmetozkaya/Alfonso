@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace Alfonso.Interfaces
 {
-    public interface IFeatureViewModelService
+    public interface IFeatureRazorService
     {
         Task<IEnumerable<FeatureViewModel>> GetFeatures(int catalogItemId);
     }

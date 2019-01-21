@@ -8,9 +8,9 @@ namespace Alfonso.Pages
 {
     public class ProductModel : PageModel
     {
-        private readonly ICatalogService _catalogService;
+        private readonly ICatalogRazorService _catalogService;
 
-        public ProductModel(ICatalogService catalogService)
+        public ProductModel(ICatalogRazorService catalogService)
         {
             _catalogService = catalogService ?? throw new ArgumentNullException(nameof(catalogService));
         }

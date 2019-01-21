@@ -12,13 +12,13 @@ namespace Alfonso.Pages
 {
     public class IndexModel : PageModel
     {
-        private readonly ICatalogService _catalogService;
-        private readonly ICompareViewModelService _compareViewModelService;
+        private readonly ICatalogRazorService _catalogService;
+        private readonly ICompareRazorService _compareViewModelService;
         private readonly ICompareService _compareService;
         private readonly IUriComposer _uriComposer;
         private string _username = null;
 
-        public IndexModel(ICatalogService catalogService, ICompareViewModelService compareViewModelService, ICompareService compareService, IUriComposer uriComposer)
+        public IndexModel(ICatalogRazorService catalogService, ICompareRazorService compareViewModelService, ICompareService compareService, IUriComposer uriComposer)
         {
             _catalogService = catalogService ?? throw new ArgumentNullException(nameof(catalogService));
             _compareViewModelService = compareViewModelService ?? throw new ArgumentNullException(nameof(compareViewModelService));

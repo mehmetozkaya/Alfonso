@@ -10,9 +10,9 @@ namespace Alfonso.Pages.Components.FeatureList
 {
     public class FeatureList : ViewComponent
     {
-        private readonly IFeatureViewModelService _featureService;
+        private readonly IFeatureRazorService _featureService;
 
-        public FeatureList(IFeatureViewModelService featureService)
+        public FeatureList(IFeatureRazorService featureService)
         {
             _featureService = featureService ?? throw new ArgumentNullException(nameof(featureService));
         }

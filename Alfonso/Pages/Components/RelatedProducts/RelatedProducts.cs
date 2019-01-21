@@ -1,8 +1,6 @@
 ﻿using Alfonso.Interfaces;
-using Alfonso.Services;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -10,9 +8,9 @@ namespace Alfonso
 {
     public class RelatedProducts : ViewComponent
     {
-        private readonly ICatalogService _catalogService;
+        private readonly ICatalogRazorService _catalogService;
 
-        public RelatedProducts(ICatalogService catalogService)
+        public RelatedProducts(ICatalogRazorService catalogService)
         {
             _catalogService = catalogService ?? throw new ArgumentNullException(nameof(catalogService));
         }

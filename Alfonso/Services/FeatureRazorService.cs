@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace Alfonso.Services
 {
-    public class FeatureViewModelService : IFeatureViewModelService
+    public class FeatureRazorService : IFeatureRazorService
     {
         private readonly IFeatureService _featureService;
         private readonly IUriComposer _uriComposer;
 
-        public FeatureViewModelService(IFeatureService featureService, IUriComposer uriComposer)
+        public FeatureRazorService(IFeatureService featureService, IUriComposer uriComposer)
         {
             _featureService = featureService ?? throw new ArgumentNullException(nameof(featureService));
             _uriComposer = uriComposer ?? throw new ArgumentNullException(nameof(uriComposer));

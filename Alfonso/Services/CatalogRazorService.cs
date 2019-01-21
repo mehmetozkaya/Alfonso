@@ -12,31 +12,23 @@ using System.Threading.Tasks;
 
 namespace Alfonso.Services
 {
-    public class CatalogService : ICatalogService
+    public class CatalogRazorService : ICatalogRazorService
     {
-        private readonly ILogger<CatalogService> _logger;
-        private readonly IRepository<CatalogItem> _itemRepository;
-        private readonly IAsyncRepository<CatalogBrand> _brandRepository;
-        private readonly IAsyncRepository<CatalogType> _typeRepository;
+        private readonly ICatalogService _catalogService;
         private readonly IUriComposer _uriComposer;
+        private readonly ILogger<CatalogRazorService> _logger;
 
-        public CatalogService(ILoggerFactory loggerFactory, IRepository<CatalogItem> itemRepository, IAsyncRepository<CatalogBrand> brandRepository, IAsyncRepository<CatalogType> typeRepository, IUriComposer uriComposer)
+        public CatalogRazorService(ICatalogService catalogService, IUriComposer uriComposer, ILogger<CatalogRazorService> logger)
         {
-            _logger = loggerFactory.CreateLogger<CatalogService>();
-            _itemRepository = itemRepository ?? throw new ArgumentNullException(nameof(itemRepository));
-            _brandRepository = brandRepository ?? throw new ArgumentNullException(nameof(brandRepository));
-            _typeRepository = typeRepository ?? throw new ArgumentNullException(nameof(typeRepository));
+            _catalogService = catalogService ?? throw new ArgumentNullException(nameof(catalogService));
             _uriComposer = uriComposer ?? throw new ArgumentNullException(nameof(uriComposer));
-        }             
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+        }
 
         public async Task<CatalogIndexViewModel> GetCatalogItems(int pageIndex, int itemsPage, int? brandId, int? typeId)
-        {
-            var filterSpecification = new CatalogFilterSpecification(brandId, typeId);
-            var filterPaginatedSpecification = new CatalogFilterPaginatedSpecification(itemsPage * pageIndex, itemsPage, brandId, typeId);
-
-            // the implementation below using ForEach and Count. We need a List.
-            var itemsOnPage = _itemRepository.List(filterPaginatedSpecification).ToList();
-            var totalItems = _itemRepository.Count(filterSpecification);
+        {            
+            var itemsOnPage = _catalogService.GetItemsOnPage(pageIndex, itemsPage, brandId, typeId).ToList();
+            var totalItems = _catalogService.GetItemsCount(brandId, typeId);
 
             itemsOnPage.ForEach(x =>
             {
@@ -76,15 +68,15 @@ namespace Alfonso.Services
         }
 
         public async Task<IEnumerable<SelectListItem>> GetBrands()
-        {            
-            var brands = await _brandRepository.ListAllAsync();
+        {
+            var brands = await _catalogService.GetBrands();
 
             var items = new List<SelectListItem>
             {
                 new SelectListItem() { Value = null, Text = "All", Selected = true }
             };
 
-            foreach (CatalogBrand brand in brands)
+            foreach (var brand in brands)
             {
                 items.Add(new SelectListItem() { Value = brand.Id.ToString(), Text = brand.Brand });
             }
@@ -94,12 +86,12 @@ namespace Alfonso.Services
 
         public async Task<IEnumerable<SelectListItem>> GetTypes()
         {
-            var types = await _typeRepository.ListAllAsync();
+            var types = await _catalogService.GetTypes();
             var items = new List<SelectListItem>
             {
                 new SelectListItem() { Value = null, Text = "All", Selected = true }
             };
-            foreach (CatalogType type in types)
+            foreach (var type in types)
             {
                 items.Add(new SelectListItem() { Value = type.Id.ToString(), Text = type.Type });
             }
@@ -108,9 +100,8 @@ namespace Alfonso.Services
         }
 
         public async Task<CatalogItemViewModel> GetCatalogItem(string slug)
-        {
-            var slugSpecification = new SlugSpecification(slug);
-            var catalogItem = _itemRepository.GetSingleBySpec(slugSpecification);
+        {            
+            var catalogItem = _catalogService.GetItemBySlug(slug);
 
             var catalogItemViewModel = new CatalogItemViewModel
             {

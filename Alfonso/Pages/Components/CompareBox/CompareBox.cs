@@ -10,9 +10,9 @@ namespace Alfonso.Pages.Components.Compare
 {
     public class CompareBox : ViewComponent
     {
-        private readonly ICompareViewModelService _compareService;
+        private readonly ICompareRazorService _compareService;
 
-        public CompareBox(ICompareViewModelService compareService)
+        public CompareBox(ICompareRazorService compareService)
         {
             _compareService = compareService ?? throw new ArgumentNullException(nameof(compareService));
         }        

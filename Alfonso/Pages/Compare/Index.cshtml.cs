@@ -11,10 +11,10 @@ namespace Alfonso.Pages.Compare
 {
     public class IndexModel : PageModel
     {
-        private readonly ICompareViewModelService _compareViewModelService;
+        private readonly ICompareRazorService _compareViewModelService;
         private readonly ICompareService _compareService;
 
-        public IndexModel(ICompareViewModelService compareViewModelService, ICompareService compareService)
+        public IndexModel(ICompareRazorService compareViewModelService, ICompareService compareService)
         {
             _compareViewModelService = compareViewModelService ?? throw new ArgumentNullException(nameof(compareViewModelService));
             _compareService = compareService ?? throw new ArgumentNullException(nameof(compareService));

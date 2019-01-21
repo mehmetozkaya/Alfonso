@@ -64,16 +64,17 @@ namespace Alfonso
             services.AddScoped(typeof(IRepository<>), typeof(EfRepository<>));
             services.AddScoped(typeof(IAsyncRepository<>), typeof(EfRepository<>));
 
-            services.AddScoped<ICatalogService, CachedCatalogService>();
+            services.AddScoped<ICatalogRazorService, CachedCatalogService>();
+            services.AddScoped<ICatalogService, CatalogService>();
             services.AddScoped<ICompareService, CompareService>();
-            services.AddScoped<ICompareViewModelService, CompareViewModelService>();
+            services.AddScoped<ICompareRazorService, CompareRazorService>();
 
             services.AddScoped<IFeatureService, FeatureService>();
-            services.AddScoped<IFeatureViewModelService, FeatureViewModelService>();
+            services.AddScoped<IFeatureRazorService, FeatureRazorService>();
 
             //services.AddScoped<IOrderService, OrderService>();
             //services.AddScoped<IOrderRepository, OrderRepository>();
-            services.AddScoped<CatalogService>();
+            services.AddScoped<CatalogRazorService>();
             services.Configure<CatalogSettings>(Configuration);
             services.AddSingleton<IUriComposer>(new UriComposer(Configuration.Get<CatalogSettings>()));
 

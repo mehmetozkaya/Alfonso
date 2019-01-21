@@ -11,13 +11,13 @@ using System.Threading.Tasks;
 
 namespace Alfonso.Services
 {
-    public class CompareViewModelService : ICompareViewModelService
+    public class CompareRazorService : ICompareRazorService
     {
         private readonly IAsyncRepository<Compare> _compareRepository;
         private readonly IUriComposer _uriComposer;
         private readonly IRepository<CatalogItem> _itemRepository;
 
-        public CompareViewModelService(IAsyncRepository<Compare> compareRepository, IUriComposer uriComposer, IRepository<CatalogItem> itemRepository)
+        public CompareRazorService(IAsyncRepository<Compare> compareRepository, IUriComposer uriComposer, IRepository<CatalogItem> itemRepository)
         {
             _compareRepository = compareRepository ?? throw new ArgumentNullException(nameof(compareRepository));
             _uriComposer = uriComposer ?? throw new ArgumentNullException(nameof(uriComposer));
