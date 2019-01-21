@@ -1,4 +1,5 @@
 ﻿using ApplicationCore.Entities;
+using ApplicationCore.Entities.FeatureAggregate;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
@@ -83,19 +84,41 @@ namespace Infrastructure.Data
 
             for (int i = 0; i < 8; i++)
             {
-                catalogItems.Add(
-                    new CatalogItem()
-                    {
-                        CatalogTypeId = 1,
-                        CatalogBrandId = 1,
-                        Name = "IPhone X",
-                        Slug = "iphone-x",
-                        Star = 4.4,
-                        Description = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, tenetur natus doloremque laborum quos iste ipsum rerum obcaecati impedit odit illo dolorum ab tempora nihil dicta earum fugiat. Temporibus, voluptatibus. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, tenetur natus doloremque laborum quos iste ipsum rerum obcaecati impedit odit illo dolorum ab tempora nihil dicta earum fugiat. Temporibus, voluptatibus.",
-                        Summary = "A seasonal delight we offer every autumn.  Pumpking bread with just a bit of spice, cream cheese frosting with just a hint of home.",
-                        Price = 19.5M,
-                        PictureUri = "product-52.png"
-                    });
+                var item = new CatalogItem()
+                {
+                    CatalogTypeId = 1,
+                    CatalogBrandId = 1,
+                    Name = "IPhone X",
+                    Slug = "iphone-x",
+                    Star = 4.4,
+                    Description = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, tenetur natus doloremque laborum quos iste ipsum rerum obcaecati impedit odit illo dolorum ab tempora nihil dicta earum fugiat. Temporibus, voluptatibus. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, tenetur natus doloremque laborum quos iste ipsum rerum obcaecati impedit odit illo dolorum ab tempora nihil dicta earum fugiat. Temporibus, voluptatibus.",
+                    Summary = "A seasonal delight we offer every autumn.  Pumpking bread with just a bit of spice, cream cheese frosting with just a hint of home.",
+                    Price = 19.5M,
+                    PictureUri = "product-52.png"
+                };
+
+                var newFeature = new Feature("Screen");
+                newFeature.AddItem("Screen Width", "5.45 Inc");
+                newFeature.AddItem("Screen Resolution", "720x1440 (HD+) Pixel");
+                newFeature.AddItem("Pixel", "295 PPI");
+                newFeature.AddItem("Technology", "IPS LCD");
+                item.AddFeature(newFeature);
+
+                var newFeature2 = new Feature("Batery");
+                newFeature2.AddItem("Batery Capacity", "3020 mAh");
+                newFeature2.AddItem("Call Duration", "12 Hour");
+                newFeature2.AddItem("Wait Duration", "384 Hour");
+                newFeature2.AddItem("Music Duration", "62 Hour");
+                item.AddFeature(newFeature2);
+
+                var newFeature3 = new Feature("Camera");
+                newFeature3.AddItem("Resolution", "8 MP");
+                newFeature3.AddItem("Flash", "LED");
+                newFeature3.AddItem("Video Record", "1080p (Full HD)");
+                newFeature3.AddItem("Video FPS", "30 fps");
+                item.AddFeature(newFeature3);
+
+                catalogItems.Add(item);
             }
 
             for (int i = 0; i < 8; i++)

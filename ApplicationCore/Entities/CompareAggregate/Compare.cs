@@ -22,7 +22,7 @@ namespace ApplicationCore.Entities.CompareAggregate
                 });
                 return;
             }
-            var existingItem = Items.FirstOrDefault(i => i.CatalogItemId == catalogItemId);            
+            // var existingItem = Items.FirstOrDefault(i => i.CatalogItemId == catalogItemId);            
         }
 
         public void RemoveItem(int compareItemId)
