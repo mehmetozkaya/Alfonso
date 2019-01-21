@@ -2,6 +2,7 @@
 using Alfonso.ViewModels;
 using ApplicationCore.Interfaces;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Alfonso.Services
@@ -17,9 +18,37 @@ namespace Alfonso.Services
             _uriComposer = uriComposer ?? throw new ArgumentNullException(nameof(uriComposer));
         }
 
-        public Task<FeatureViewModel> GetFeatures(int catalogItemId)
+        public async Task<List<FeatureViewModel>> GetFeatures(int catalogItemId)
         {
-            throw new NotImplementedException();
+            var featureList = await _featureService.GetFeatures(catalogItemId);
+
+            var featureViewModelList = new List<FeatureViewModel>();
+            
+            foreach (var feature in featureList)
+            {
+                var featureViewModel = new FeatureViewModel
+                {
+                    Id = feature.Id,
+                    Name = feature.Name,
+                    SubName = feature.SubName
+                };
+
+                foreach (var item in feature.FeatureItems)
+                {
+                    var featureViewModelItem = new FeatureItemViewModel
+                    {
+                        FeatureId = feature.Id,
+                        Name = item.Name,
+                        Value = item.Value
+                    };
+
+                    featureViewModel.Items.Add(featureViewModelItem);
+                }
+
+                featureViewModelList.Add(featureViewModel);
+            }
+
+            return featureViewModelList;
         }
     }
 }
