@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Infrastructure.Migrations
 {
-    public partial class CompareAdded : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -63,8 +63,10 @@ namespace Infrastructure.Migrations
                 {
                     Id = table.Column<int>(nullable: false),
                     Name = table.Column<string>(maxLength: 50, nullable: false),
+                    Slug = table.Column<string>(nullable: true),
                     Description = table.Column<string>(nullable: true),
-                    Reason = table.Column<string>(nullable: true),
+                    Summary = table.Column<string>(nullable: true),
+                    Star = table.Column<double>(nullable: false),
                     Price = table.Column<decimal>(nullable: false),
                     PictureUri = table.Column<string>(nullable: true),
                     CatalogTypeId = table.Column<int>(nullable: false),
@@ -110,6 +112,48 @@ namespace Infrastructure.Migrations
                         onDelete: ReferentialAction.Restrict);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Feature",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Name = table.Column<string>(nullable: true),
+                    SubName = table.Column<string>(nullable: true),
+                    CatalogItemId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Feature", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Feature_Catalog_CatalogItemId",
+                        column: x => x.CatalogItemId,
+                        principalTable: "Catalog",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "FeatureItem",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Name = table.Column<string>(nullable: true),
+                    Value = table.Column<string>(nullable: true),
+                    FeatureId = table.Column<int>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_FeatureItem", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_FeatureItem_Feature_FeatureId",
+                        column: x => x.FeatureId,
+                        principalTable: "Feature",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_Catalog_CatalogBrandId",
                 table: "Catalog",
@@ -124,24 +168,40 @@ namespace Infrastructure.Migrations
                 name: "IX_CompareItem_CompareId",
                 table: "CompareItem",
                 column: "CompareId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Feature_CatalogItemId",
+                table: "Feature",
+                column: "CatalogItemId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_FeatureItem_FeatureId",
+                table: "FeatureItem",
+                column: "FeatureId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Catalog");
+                name: "CompareItem");
 
             migrationBuilder.DropTable(
-                name: "CompareItem");
+                name: "FeatureItem");
+
+            migrationBuilder.DropTable(
+                name: "Compares");
+
+            migrationBuilder.DropTable(
+                name: "Feature");
+
+            migrationBuilder.DropTable(
+                name: "Catalog");
 
             migrationBuilder.DropTable(
                 name: "CatalogBrand");
 
             migrationBuilder.DropTable(
                 name: "CatalogType");
-
-            migrationBuilder.DropTable(
-                name: "Compares");
 
             migrationBuilder.DropSequence(
                 name: "catalog_brand_hilo");

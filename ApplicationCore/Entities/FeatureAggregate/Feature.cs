@@ -24,15 +24,15 @@ namespace ApplicationCore.Entities.FeatureAggregate
 
         public int CatalogItemId { get; set; }
         public CatalogItem CatalogItem { get; set; }
-
-        private readonly List<FeatureItem> _featureItems = new List<FeatureItem>();
-        public IReadOnlyCollection<FeatureItem> FeatureItems => _featureItems.AsReadOnly();
+        
+        private readonly List<FeatureItem> _items = new List<FeatureItem>();
+        public IReadOnlyCollection<FeatureItem> Items => _items.AsReadOnly();
 
         public void AddItem(string name, string value)
         {
-            if (!FeatureItems.Any(i => i.Name == name))
+            if (!Items.Any(i => i.Name == name))
             {
-                _featureItems.Add(new FeatureItem
+                _items.Add(new FeatureItem
                 {
                     Name = name,
                     Value = value

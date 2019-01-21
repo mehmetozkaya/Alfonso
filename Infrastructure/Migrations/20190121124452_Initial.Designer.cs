@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.Migrations
 {
     [DbContext(typeof(AlfonsoContext))]
-    [Migration("20190121101647_Features_Added")]
-    partial class Features_Added
+    [Migration("20190121124452_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -136,7 +136,7 @@ namespace Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("CatalogItemId");
+                    b.Property<int>("CatalogItemId");
 
                     b.Property<string>("Name");
 
@@ -190,15 +190,16 @@ namespace Infrastructure.Migrations
 
             modelBuilder.Entity("ApplicationCore.Entities.FeatureAggregate.Feature", b =>
                 {
-                    b.HasOne("ApplicationCore.Entities.CatalogItem")
+                    b.HasOne("ApplicationCore.Entities.CatalogItem", "CatalogItem")
                         .WithMany("Features")
-                        .HasForeignKey("CatalogItemId");
+                        .HasForeignKey("CatalogItemId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("ApplicationCore.Entities.FeatureAggregate.FeatureItem", b =>
                 {
                     b.HasOne("ApplicationCore.Entities.FeatureAggregate.Feature")
-                        .WithMany("FeatureItems")
+                        .WithMany("Items")
                         .HasForeignKey("FeatureId");
                 });
 #pragma warning restore 612, 618

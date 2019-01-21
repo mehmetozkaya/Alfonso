@@ -8,7 +8,7 @@ namespace ApplicationCore.Interfaces
 {
     public interface IFeatureService
     {
-        Task<IReadOnlyList<Feature>> GetFeatures(int catalogItemId);
+        Task<IEnumerable<Feature>> GetFeatures(int catalogItemId);
 
     }
 }

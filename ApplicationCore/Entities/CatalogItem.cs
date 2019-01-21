@@ -18,13 +18,11 @@ namespace ApplicationCore.Entities
         public CatalogType CatalogType { get; set; }
         public int CatalogBrandId { get; set; }
         public CatalogBrand CatalogBrand { get; set; }
-
-        private readonly List<Feature> _features = new List<Feature>();
-        public IReadOnlyCollection<Feature> Features => _features.AsReadOnly();
+        public List<Feature> Features { get; set; } = new List<Feature>(); 
 
         public void AddFeature(Feature newFeature)
         {
-            _features.Add(newFeature);
+            Features.Add(newFeature);
         }
 
     }

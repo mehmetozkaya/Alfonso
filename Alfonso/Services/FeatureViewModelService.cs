@@ -18,7 +18,7 @@ namespace Alfonso.Services
             _uriComposer = uriComposer ?? throw new ArgumentNullException(nameof(uriComposer));
         }
 
-        public async Task<IReadOnlyList<FeatureViewModel>> GetFeatures(int catalogItemId)
+        public async Task<IEnumerable<FeatureViewModel>> GetFeatures(int catalogItemId)
         {
             var featureList = await _featureService.GetFeatures(catalogItemId);
 
@@ -33,7 +33,7 @@ namespace Alfonso.Services
                     SubName = feature.SubName
                 };
 
-                foreach (var item in feature.FeatureItems)
+                foreach (var item in feature.Items)
                 {
                     var featureViewModelItem = new FeatureItemViewModel
                     {

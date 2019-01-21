@@ -6,6 +6,6 @@ namespace Alfonso.Interfaces
 {
     public interface IFeatureViewModelService
     {
-        Task<IReadOnlyList<FeatureViewModel>> GetFeatures(int catalogItemId);
+        Task<IEnumerable<FeatureViewModel>> GetFeatures(int catalogItemId);
     }
 }

@@ -188,7 +188,7 @@
 
                     <div class="tab-pane fade" id="product-specifications">
                         <div class="single-product-specification">
-                            <ul>                            
+                            <ul>
 
                                 <li>Full HD Camcorder</li>
                                 <li>Dual Video Recording</li>
@@ -211,7 +211,7 @@
                                             <td class="first-column">@Model.CatalogItem.Name</td>
                                             <td class="pro-desc"><p>@Model.CatalogItem.Slug</p></td>
                                             <td class="pro-desc"><p>@Model.CatalogItem.Star</p></td>
-                                        </tr>                                       
+                                        </tr>
                                     </tbody>
                                 </table>
                             </div>
@@ -358,6 +358,10 @@
 
     </div>
 </div><!-- Single Product Section End -->
+
+<!-- FEATURE LIST AS A COMPONENT -->
+<vc:feature-list catalog-item-id="@Model.CatalogItem.Id"></vc:feature-list>
+
 <!-- RELATED PRODUCT AS A COMPONENT -->
 <vc:related-products product-id="3"></vc:related-products>
 
@@ -682,7 +686,6 @@
         </div>
     </div>
 </div><!-- Subscribe Section End -->
-
 <!-- OVERRIDE LAYOUT SECTIONS -->
 @section FooterBottom {
     <!-- Footer Bottom Section Start -->

@@ -134,7 +134,7 @@ namespace Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("CatalogItemId");
+                    b.Property<int>("CatalogItemId");
 
                     b.Property<string>("Name");
 
@@ -188,15 +188,16 @@ namespace Infrastructure.Migrations
 
             modelBuilder.Entity("ApplicationCore.Entities.FeatureAggregate.Feature", b =>
                 {
-                    b.HasOne("ApplicationCore.Entities.CatalogItem")
+                    b.HasOne("ApplicationCore.Entities.CatalogItem", "CatalogItem")
                         .WithMany("Features")
-                        .HasForeignKey("CatalogItemId");
+                        .HasForeignKey("CatalogItemId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("ApplicationCore.Entities.FeatureAggregate.FeatureItem", b =>
                 {
                     b.HasOne("ApplicationCore.Entities.FeatureAggregate.Feature")
-                        .WithMany("FeatureItems")
+                        .WithMany("Items")
                         .HasForeignKey("FeatureId");
                 });
 #pragma warning restore 612, 618

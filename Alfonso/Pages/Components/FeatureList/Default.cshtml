@@ -1,5 +1,136 @@
-﻿@model IReadOnlyList<Alfonso.ViewModels.FeatureViewModel>
+﻿@model IEnumerable<Alfonso.ViewModels.FeatureViewModel>
 @{
     ViewData["Title"] = "My Feature List";
 }
 
+
+
+<!-- Faq Section Start -->
+<div class="faq-section section mt-90 mb-40">
+    <div class="container">
+        <div class="row row-25">
+
+            <div class="col-lg-6 col-12 mb-50">
+
+                <div class="faq-wrap">
+
+                    <div class="single-faq">
+                        @foreach (var feature in Model)
+                        {
+                            <h4>@feature.Name</h4>
+
+                            <div class="checkout-cart-total">                                
+                                <ul>
+                                    @foreach (var item in feature.Items)
+                                    {
+                                        <li>@item.Name <span>@item.Value</span></li>
+                                    }                                
+                                </ul>
+                            </div>
+                        }
+                        
+                    </div>
+
+                    @*<div class="single-faq">
+                        <h4>What Payment Methods are Available?</h4>
+                        <p>Terms know how to pursue pleasure rationally encounter cnces that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because.</p>
+                    </div>
+
+                    <div class="single-faq">
+                        <h4>How I Return back my product?</h4>
+                        <p>Terms know how to pursue pleasure rationally encounter cnces that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because.</p>
+                    </div>
+
+                    <div class="single-faq">
+                        <h4>What policy do you have for product sell?</h4>
+                        <p>Terms know how to pursue pleasure rationally encounter cnces that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because.</p>
+                    </div>*@
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-6 col-12 mb-50">
+
+                <div class="faq-wrap">
+
+                    <div class="single-faq">
+
+                        @foreach (var feature in Model)
+                        {
+                            <h4>@feature.Name</h4>
+
+                            <div class="checkout-cart-total">
+                                <ul>
+                                    @foreach (var item in feature.Items)
+                                    {
+                                        <li>@item.Name <span>@item.Value</span></li>
+                                    }
+                                </ul>
+                            </div>
+                        }                        
+                    </div>                   
+
+                    <div class="single-faq">
+                        <h4>How can I get discount coupon?</h4>
+                        <!-- Cart Total -->
+                        <div class="col-12 mb-60">
+
+                            <h4 class="checkout-title">Cart Total</h4>
+
+                            <div class="checkout-cart-total">
+
+                                <h4>Product <span>Total</span></h4>
+
+                                <ul>
+                                    <li>Samsome Notebook Pro 5 X 01 <span>$295.00</span></li>
+                                    <li>Aquet Drone  D 420 X 02 <span>$550.00</span></li>
+                                    <li>Play Station X 22 X 01 <span>$295.00</span></li>
+                                    <li>Roxxe Headphone Z 75 X 01 <span>$110.00</span></li>
+                                </ul>
+
+                                <p>Sub Total <span>$1250.00</span></p>
+                                <p>Shipping Fee <span>$00.00</span></p>
+
+                                <h4>Grand Total <span>$1250.00</span></h4>
+
+                            </div>
+
+                        </div>
+                        <p>Terms know how to pursue pleasure rationally encounter cnces that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because.</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<!-- Faq Section End -->
+
+<!-- Cart Total -->
+<div class="col-12 mb-60">
+
+    <h4 class="checkout-title">Cart Total</h4>
+
+    <div class="checkout-cart-total">
+
+        <h4>Product <span>Total</span></h4>
+
+        <ul>
+            <li>Samsome Notebook Pro 5 X 01 <span>$295.00</span></li>
+            <li>Aquet Drone  D 420 X 02 <span>$550.00</span></li>
+            <li>Play Station X 22 X 01 <span>$295.00</span></li>
+            <li>Roxxe Headphone Z 75 X 01 <span>$110.00</span></li>
+        </ul>
+
+        <p>Sub Total <span>$1250.00</span></p>
+        <p>Shipping Fee <span>$00.00</span></p>
+
+        <h4>Grand Total <span>$1250.00</span></h4>
+
+    </div>
+
+</div>

@@ -23,7 +23,7 @@ namespace ApplicationCore.Services
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
-        public async Task<IReadOnlyList<Feature>> GetFeatures(int catalogItemId)
+        public async Task<IEnumerable<Feature>> GetFeatures(int catalogItemId)
         {
             var featureSpec = new FeatureWithItemsSpecification(catalogItemId);
             var featureList = await _featureRepository.ListAsync(featureSpec);

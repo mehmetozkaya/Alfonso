@@ -10,7 +10,7 @@ namespace ApplicationCore.Specifications
         public FeatureWithItemsSpecification(int catalogItemId)
           : base(b => b.CatalogItemId == catalogItemId)
         {
-            AddInclude(b => b.FeatureItems);
+            AddInclude(b => b.Items);
         }      
     }
 }

@@ -1,5 +1,6 @@
 ﻿using ApplicationCore.Entities;
 using ApplicationCore.Entities.CompareAggregate;
+using ApplicationCore.Entities.FeatureAggregate;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
@@ -22,12 +23,20 @@ namespace Infrastructure.Data
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
+            builder.Entity<Feature>(ConfigureFeature);
             builder.Entity<Compare>(ConfigureCompare);
             builder.Entity<CatalogBrand>(ConfigureCatalogBrand);
             builder.Entity<CatalogType>(ConfigureCatalogType);
             builder.Entity<CatalogItem>(ConfigureCatalogItem);            
         }
 
+        private void ConfigureFeature(EntityTypeBuilder<Feature> builder)
+        {
+            var navigation = builder.Metadata.FindNavigation(nameof(Feature.Items));
+
+            navigation.SetPropertyAccessMode(PropertyAccessMode.Field);
+
+        }
         private void ConfigureCompare(EntityTypeBuilder<Compare> builder)
         {
             var navigation = builder.Metadata.FindNavigation(nameof(Compare.Items));

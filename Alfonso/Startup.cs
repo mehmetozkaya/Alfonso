@@ -67,6 +67,10 @@ namespace Alfonso
             services.AddScoped<ICatalogService, CachedCatalogService>();
             services.AddScoped<ICompareService, CompareService>();
             services.AddScoped<ICompareViewModelService, CompareViewModelService>();
+
+            services.AddScoped<IFeatureService, FeatureService>();
+            services.AddScoped<IFeatureViewModelService, FeatureViewModelService>();
+
             //services.AddScoped<IOrderService, OrderService>();
             //services.AddScoped<IOrderRepository, OrderRepository>();
             services.AddScoped<CatalogService>();
