@@ -21,20 +21,12 @@
                         <li> - - - - - </li>
                         <li><a asp-route-pageid="@(Model.TotalPages-1)">@(Model.TotalPages)</a></li>
                     }
-                }
-
-                @*<li><a href="#">1</a></li>
-                    <li class="active"><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li> - - - - - </li>
-                    <li><a href="#">18</a></li>
-                    <li><a href="#">18</a></li>
-                    <li><a href="#">20</a></li>*@
+                }               
 
                 <li><a id="Next" asp-route-pageid="@(Model.ActualPage + 1)" style=" @Model.Next">Next<i class="fa fa-angle-right"></i></a></li>
             </ul>
 
-            <span>Showing @Model.ItemsPerPage of @Model.TotalItems products - Page @(Model.ActualPage + 1) - @Model.TotalPages</span>
+            @*<span>Showing @Model.ItemsPerPage of @Model.TotalItems products - Page @(Model.ActualPage + 1) - @Model.TotalPages</span>*@
 
         </div>
 </div>

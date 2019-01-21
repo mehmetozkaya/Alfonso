@@ -47,7 +47,7 @@
                     </div>
                 </div>
 
-                <partial name="_pagination" for="@Model.PaginationInfo" />
+                @*<partial name="_pagination" for="@Model.PaginationInfo" />*@
 
                 <!-- Shop Product Wrap Start -->
                 <div class="shop-product-wrap grid row">
@@ -69,16 +69,8 @@
                                         <div class="wishlist-compare">
                                             <a href="#" data-tooltip="Compare"><i class="ti-control-shuffle"></i></a>
                                             <a href="#" data-tooltip="Wishlist"><i class="ti-heart"></i></a>
-                                        </div>
-
-                                        <form asp-page-handler="addtocompare" method="post">                                            
-                                            <a href="#" class="add-to-cart"><i class="ti-shopping-cart"></i><span>ADD TO CART<input type="submit" value="[ ADD TO BASKET ]" /></span></a>
-                                            <input type="hidden" asp-for="@catalogItem.Id" name="id" />
-                                            <input type="hidden" asp-for="@catalogItem.Name" name="name" />
-                                            <input type="hidden" asp-for="@catalogItem.Slug" name="slug" />
-                                            <input type="hidden" asp-for="@catalogItem.Description" name="description" />
-                                            <input type="hidden" asp-for="@catalogItem.PictureUri" name="pictureUri" />
-                                        </form>
+                                        </div>                                                                                 
+                                       <a href="#" class="add-to-cart"><i class="ti-shopping-cart"></i><span>ADD TO CART</span></a>                                           
                                     </div>
 
                                     <!-- Content -->
@@ -92,7 +84,7 @@
                                             <h5 class="title"><a asp-page="product" asp-route-slug="@catalogItem.Slug">@catalogItem.Name</a></h5>
 
                                             <form asp-page-handler="addtocompare" method="post">
-                                                <span><input type="submit" value="[ ADD TO COMPARE ]" /></span>
+                                                <span><input type="submit" class="place-order" value="Add Compare" /></span>                                                
                                                 <input type="hidden" asp-for="@catalogItem.Id" name="id" />
                                                 <input type="hidden" asp-for="@catalogItem.Name" name="name" />
                                                 <input type="hidden" asp-for="@catalogItem.Slug" name="slug" />
@@ -157,16 +149,8 @@
                                                 <p>@catalogItem.Description</p>
                                             </div>
 
-                                            <div class="actions">
-
-                                                <form asp-page-handler="addtocompare" method="post">
-                                                    <a href="#" class="add-to-cart"><i class="ti-shopping-cart"></i><span>ADD TO CART<input type="submit" value="[ ADD TO BASKET ]" /></span></a>
-                                                    <input type="hidden" asp-for="@catalogItem.Id" name="id" />
-                                                    <input type="hidden" asp-for="@catalogItem.Name" name="name" />
-                                                    <input type="hidden" asp-for="@catalogItem.Slug" name="slug" />
-                                                    <input type="hidden" asp-for="@catalogItem.Description" name="description" />
-                                                    <input type="hidden" asp-for="@catalogItem.PictureUri" name="pictureUri" />
-                                                </form>                                                
+                                            <div class="actions">                                                
+                                                <a href="#" class="add-to-cart"><i class="ti-shopping-cart"></i><span>ADD TO CART</span></a>                                                                                             
 
                                                 <div class="wishlist-compare">
                                                     <a href="#" data-tooltip="Compare"><i class="ti-control-shuffle"></i></a>

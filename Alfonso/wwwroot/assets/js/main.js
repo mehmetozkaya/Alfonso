@@ -143,7 +143,13 @@ var miniCartWrap = $('.mini-cart-wrap');
 headerCart.on('click', function(e){
     e.preventDefault();
     // $('.cart-overlay').addClass('visible');
-    miniCartWrap.addClass('open');
+    if (!miniCartWrap.hasClass('open')) {
+        miniCartWrap.addClass('open');
+    }
+    else {
+        miniCartWrap.removeClass('open');
+    }
+    
 });
 closeCart.on('click', function(e){
     e.preventDefault();
