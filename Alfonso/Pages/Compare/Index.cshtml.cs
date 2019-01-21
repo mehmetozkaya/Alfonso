@@ -22,15 +22,26 @@ namespace Alfonso.Pages.Compare
 
         public CompareViewModel CompareModel { get; set; }
 
-        public async Task OnGet(int compareId)
+        public async Task OnGet(string slug)
         {
+            var compareId = GetCompareId(slug);
             CompareModel = await _compareViewModelService.GetCompare(compareId);
-        }
+        }       
 
         public async Task<IActionResult> OnPostRemoveToCompare(int compareId, int compareItemId)
         {
             await _compareService.RemoveItemToCompare(compareId, compareItemId);          
             return RedirectToPage();
+        }
+
+        private static int GetCompareId(string slug)
+        {
+            var id = slug.Substring(slug.IndexOf("id") + 2);
+            if (Int32.TryParse(id, out int compareId))
+            {
+                return compareId;
+            }
+            throw new ArgumentOutOfRangeException();
         }
     }
 }

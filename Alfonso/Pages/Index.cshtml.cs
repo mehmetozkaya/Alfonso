@@ -63,16 +63,16 @@ namespace Alfonso.Pages
 
         private void GetOrSetCompareCookieAndUserName()
         {
-            if (Request.Cookies.ContainsKey(Constants.BASKET_COOKIENAME))
+            if (Request.Cookies.ContainsKey(Constants.COMPARE_COOKIENAME))
             {
-                _username = Request.Cookies[Constants.BASKET_COOKIENAME];
+                _username = Request.Cookies[Constants.COMPARE_COOKIENAME];
             }
             if (_username != null) return;
 
             _username = Guid.NewGuid().ToString();
             var cookieOptions = new CookieOptions { IsEssential = true };
             cookieOptions.Expires = DateTime.Today.AddYears(10);
-            Response.Cookies.Append(Constants.BASKET_COOKIENAME, _username, cookieOptions);
+            Response.Cookies.Append(Constants.COMPARE_COOKIENAME, _username, cookieOptions);
         }
     }
 }

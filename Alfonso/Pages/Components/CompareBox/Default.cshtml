@@ -3,15 +3,12 @@
     ViewData["Title"] = "My Compare List";
 }
 
-
 <!-- Mini Cart Wrap Start -->
 <div class="mini-cart-wrap">
 
     <!-- Mini Cart Top -->
     <div class="mini-cart-top">
-
         <button class="close-cart">Close Cart<i class="icofont icofont-close"></i></button>
-
     </div>
     
     <!-- Mini Cart Products -->
@@ -21,33 +18,29 @@
         {
             @foreach (var compareItem in Model.Items)
             {
-        <li>
-            <a class="image"><img src="@compareItem.PictureUrl" alt="@compareItem.ProductName"></a>
+                <li>
+                    <a class="image"><img src="@compareItem.PictureUrl" alt="@compareItem.ProductName"></a>
             
-            <form asp-page-handler="removetocompare" method="post">
-                <button class="remove"><i class="fa fa-trash-o"></i></button>
-                <input type="hidden" asp-for="@Model.Id" name="compareId" />
-                <input type="hidden" asp-for="@compareItem.Id" name="compareItemId" />                
-            </form>
+                    <form asp-page-handler="removetocompare" method="post">
+                        <button class="remove"><i class="fa fa-trash-o"></i></button>
+                        <input type="hidden" asp-for="@Model.Id" name="compareId" />
+                        <input type="hidden" asp-for="@compareItem.Id" name="compareItemId" />                
+                    </form>
 
-            <div class="content">
-                <a href="single-product.html" class="title">@compareItem.ProductName</a>
-                @*<a asp-page="product" asp-route-slug="@compareItem.Slug" class="img"><img src="@catalogItem.PictureUri" alt="Product Image"></a>*@
-            </div>
-        </li>
+                    <div class="content">
+                        <a href="single-product.html" class="title">@compareItem.ProductName</a>                
+                    </div>
+                </li>
             }
         }        
     </ul>
 
     <!-- Mini Cart Bottom -->
     <div class="mini-cart-bottom">
-
         <h4 class="sub-total">Total: <span>$1160</span></h4>
-
         <div class="button">
-            <a asp-page="/Compare/Index" asp-route-compareid="@Model.Id">CHECK OUT asd</a>
+            <a asp-page="/Compare/Index" asp-route-slug="@Model.Slug">COMPARE</a>
         </div>
-
     </div>
 
 </div>

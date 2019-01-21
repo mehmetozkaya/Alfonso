@@ -22,19 +22,7 @@ namespace Alfonso.Services
             _compareRepository = compareRepository ?? throw new ArgumentNullException(nameof(compareRepository));
             _uriComposer = uriComposer ?? throw new ArgumentNullException(nameof(uriComposer));
             _itemRepository = itemRepository ?? throw new ArgumentNullException(nameof(itemRepository));
-        }      
-
-        public async Task<CompareViewModel> GetOrCreateCompareForUser(string userName)
-        {
-            var compareSpec = new CompareWithItemsSpecification(userName);
-            var compare = (await _compareRepository.ListAsync(compareSpec)).FirstOrDefault();
-
-            if (compare == null)
-            {
-                return await CreateCompareForUser(userName);
-            }
-            return CreateViewModelFromCompare(compare);
-        }
+        }       
 
         public async Task<CompareViewModel> GetCompare(int compareId)
         {
@@ -48,6 +36,18 @@ namespace Alfonso.Services
 
             return CreateViewModelFromCompare(compare);
         }
+               
+        public async Task<CompareViewModel> GetOrCreateCompareForUser(string userName)
+        {
+            var compareSpec = new CompareWithItemsSpecification(userName);
+            var compare = (await _compareRepository.ListAsync(compareSpec)).FirstOrDefault();
+
+            if (compare == null)
+            {
+                return await CreateCompareForUser(userName);
+            }
+            return CreateViewModelFromCompare(compare);
+        }       
 
         private async Task<CompareViewModel> CreateCompareForUser(string userId)
         {
@@ -78,14 +78,15 @@ namespace Alfonso.Services
 
                 };
                 var item = _itemRepository.GetById(i.CatalogItemId);
-                itemModel.PictureUrl = _uriComposer.ComposePicUri(item.PictureUri);                
+                itemModel.PictureUrl = _uriComposer.ComposePicUri(item.PictureUri);
                 itemModel.ProductName = item.Name;
+                itemModel.Slug = item.Slug;
                 return itemModel;
             }).ToList();
 
             return viewModel;
         }
 
-       
+        
     }
 }

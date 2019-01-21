@@ -106,7 +106,42 @@ After that load view models in Index.cshtml;
         }
 
 --------------------------------------------------------------------------------------
+Compare Slug Issue
 
+This used fake slug in compare page. Compare Slug prepares in CompareViewModel.cs Slug property getter.
+
+public string Slug
+{
+    get
+    {
+        if (Items.Any())
+        {
+            var totalSlug = string.Empty;
+            foreach (var item in Items)
+            {
+                totalSlug += item.Slug;
+                totalSlug += "vs";
+            }
+            totalSlug = $"{totalSlug}id{Id.ToString()}";
+            return totalSlug;
+        }
+        return string.Empty;
+    }
+}
+
+When any items add to compare box, this fires main Index-OnPostAddToCompare method and added item to compare box.
+
+public async Task<IActionResult> OnPostAddToCompare(CatalogItemViewModel productDetails)
+{    
+    await SetCompareModelAsync();
+    await _compareService.AddItemToCompare(CompareModel.Id, productDetails.Id);
+    await SetCompareModelAsync();
+    return RedirectToPage();
+}
+
+After add to compare Slug again works and created with Id. So when Compare Page opened OnGet method id substring and revealed.
+
+--------------------------------------------------------------------------------------
 
 
 --------------------------------------------------------------------------------------

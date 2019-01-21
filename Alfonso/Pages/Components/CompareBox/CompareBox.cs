@@ -33,9 +33,9 @@ namespace Alfonso.Pages.Components.Compare
 
         private string GetCompareIdFromCookie()
         {
-            if (Request.Cookies.ContainsKey(Constants.BASKET_COOKIENAME))
+            if (Request.Cookies.ContainsKey(Constants.COMPARE_COOKIENAME))
             {
-                return Request.Cookies[Constants.BASKET_COOKIENAME];
+                return Request.Cookies[Constants.COMPARE_COOKIENAME];
             }
             return null;
         }       
