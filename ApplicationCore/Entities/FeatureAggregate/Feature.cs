@@ -22,6 +22,9 @@ namespace ApplicationCore.Entities.FeatureAggregate
         public string Name { get; set; }
         public string SubName { get; set; }
 
+        public int CatalogItemId { get; set; }
+        public CatalogItem CatalogItem { get; set; }
+
         private readonly List<FeatureItem> _featureItems = new List<FeatureItem>();
         public IReadOnlyCollection<FeatureItem> FeatureItems => _featureItems.AsReadOnly();
 
