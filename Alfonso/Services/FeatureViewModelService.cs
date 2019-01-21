@@ -18,7 +18,7 @@ namespace Alfonso.Services
             _uriComposer = uriComposer ?? throw new ArgumentNullException(nameof(uriComposer));
         }
 
-        public async Task<List<FeatureViewModel>> GetFeatures(int catalogItemId)
+        public async Task<IReadOnlyList<FeatureViewModel>> GetFeatures(int catalogItemId)
         {
             var featureList = await _featureService.GetFeatures(catalogItemId);
 
