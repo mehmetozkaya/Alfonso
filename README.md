@@ -109,6 +109,5 @@ After that load view models in Index.cshtml;
 
 --------------------------------------------------------------------------------------
 ### AlfonsoWeb -> Core -> Infrastructure
-
-### IRazorService -> IService -> Repository
+IRazorService -> IService -> Repository
 
