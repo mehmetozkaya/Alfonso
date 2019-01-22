@@ -3473,7 +3473,7 @@ img.mfp-img {
     @media only screen and (max-width: 479px) {
       .header-shop-links a i {
         font-size: 20px; } }
-  .header-shop-links a .number {
+.header-shop-links a .number {
     width: 20px;
     height: 20px;
     border-radius: 50px;
@@ -3486,8 +3486,9 @@ img.mfp-img {
     text-align: center;
     line-height: 20px;
     margin-top: 5px;
-    position: relative;
-    left: -7px; }
+    position: initial;
+    left: -7px;
+}
     @media only screen and (max-width: 479px) {
       .header-shop-links a .number {
         width: 16px;

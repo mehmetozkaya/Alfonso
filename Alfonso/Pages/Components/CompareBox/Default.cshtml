@@ -3,6 +3,20 @@
     ViewData["Title"] = "My Compare List";
 }
 
+
+<div class="col order-2 order-lg-12 order-xl-12">
+    <!-- Header Shop Links Start -->
+    <div class="header-shop-links">
+        
+        <!-- Wishlist -->
+        <a href="wishlist.html" class="header-wishlist"><i class="ti-heart"></i> <span class="number">3</span></a>
+        <!-- Compare -->
+        <a asp-page="/Compare/Index" asp-route-slug="@Model.Slug" class="header-compare"><i class="ti-control-shuffle"></i> <span class="number">@Model.Items.Count</span></a>
+    </div>
+    <!-- Header Shop Links End -->
+</div>
+
+
 <!-- Mini Cart Wrap Start -->
 <div class="mini-cart-wrap">
 
@@ -10,7 +24,7 @@
     <div class="mini-cart-top">
         <button class="close-cart">Close Cart<i class="icofont icofont-close"></i></button>
     </div>
-    
+
     <!-- Mini Cart Products -->
     <ul class="mini-cart-products">
 
@@ -20,19 +34,19 @@
             {
                 <li>
                     <a class="image"><img src="@compareItem.PictureUrl" alt="@compareItem.ProductName"></a>
-            
+
                     <form asp-page-handler="removetocompare" method="post">
                         <button class="remove"><i class="fa fa-trash-o"></i></button>
                         <input type="hidden" asp-for="@Model.Id" name="compareId" />
-                        <input type="hidden" asp-for="@compareItem.Id" name="compareItemId" />                
+                        <input type="hidden" asp-for="@compareItem.Id" name="compareItemId" />
                     </form>
 
                     <div class="content">
-                        <a href="single-product.html" class="title">@compareItem.ProductName</a>                
+                        <a href="single-product.html" class="title">@compareItem.ProductName</a>
                     </div>
                 </li>
             }
-        }        
+        }
     </ul>
 
     <!-- Mini Cart Bottom -->
