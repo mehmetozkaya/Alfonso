@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Infrastructure.Migrations
 {
-    public partial class Initial : Migration
+    public partial class initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -70,7 +70,16 @@ namespace Infrastructure.Migrations
                     Price = table.Column<decimal>(nullable: false),
                     PictureUri = table.Column<string>(nullable: true),
                     CatalogTypeId = table.Column<int>(nullable: false),
-                    CatalogBrandId = table.Column<int>(nullable: false)
+                    CatalogBrandId = table.Column<int>(nullable: false),
+                    AlfonsoPoint = table.Column<string>(nullable: true),
+                    VersusPoint = table.Column<string>(nullable: true),
+                    AntutuPoint = table.Column<string>(nullable: true),
+                    Battery = table.Column<string>(nullable: true),
+                    Camera = table.Column<string>(nullable: true),
+                    Screen = table.Column<string>(nullable: true),
+                    Storage = table.Column<string>(nullable: true),
+                    Ram = table.Column<string>(nullable: true),
+                    CPU = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {

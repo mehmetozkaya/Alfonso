@@ -69,6 +69,7 @@ namespace Infrastructure.Data
             builder.HasOne(ci => ci.CatalogType)
                 .WithMany()
                 .HasForeignKey(ci => ci.CatalogTypeId);
+            
         }
 
         private void ConfigureCatalogBrand(EntityTypeBuilder<CatalogBrand> builder)

@@ -95,18 +95,16 @@ namespace Infrastructure.Data
                     Summary = "A seasonal delight we offer every autumn.  Pumpking bread with just a bit of spice, cream cheese frosting with just a hint of home.",
                     Price = 19.5M,
                     PictureUri = "product-52.png",
-                    TagFeature = new TagFeature
-                    {
-                        AlfonsoPoint = "96",
-                        VersusPoint = "9.7",
-                        AntutuPoint = "6.4",
-                        Battery = "3000 Mah",
-                        Camera = "12 MP",
-                        Screen = "6.4 Inc",
-                        Storage = "64 GB",
-                        Ram = "4 GB",
-                        CPU = "2.9 Ghz"
-                    }
+
+                    AlfonsoPoint = "96",
+                    VersusPoint = "9.7",
+                    AntutuPoint = "6.4",
+                    Battery = "3000 Mah",
+                    Camera = "12 MP",
+                    Screen = "6.4 Inc",
+                    Storage = "64 GB",
+                    Ram = "4 GB",
+                    CPU = "2.9 Ghz"                    
                 };
 
                 var newFeature = new Feature("Screen");

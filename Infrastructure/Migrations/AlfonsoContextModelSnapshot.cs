@@ -47,6 +47,16 @@ namespace Infrastructure.Migrations
                         .HasAnnotation("SqlServer:HiLoSequenceName", "catalog_hilo")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.SequenceHiLo);
 
+                    b.Property<string>("AlfonsoPoint");
+
+                    b.Property<string>("AntutuPoint");
+
+                    b.Property<string>("Battery");
+
+                    b.Property<string>("CPU");
+
+                    b.Property<string>("Camera");
+
                     b.Property<int>("CatalogBrandId");
 
                     b.Property<int>("CatalogTypeId");
@@ -61,11 +71,19 @@ namespace Infrastructure.Migrations
 
                     b.Property<decimal>("Price");
 
+                    b.Property<string>("Ram");
+
+                    b.Property<string>("Screen");
+
                     b.Property<string>("Slug");
 
                     b.Property<double>("Star");
 
+                    b.Property<string>("Storage");
+
                     b.Property<string>("Summary");
+
+                    b.Property<string>("VersusPoint");
 
                     b.HasKey("Id");
 

@@ -46,7 +46,16 @@ namespace Alfonso.Services
                     Summary = i.Summary,
                     Star = i.Star,
                     PictureUri = i.PictureUri,
-                    Price = i.Price
+                    Price = i.Price,
+                    AlfonsoPoint = i.AlfonsoPoint,
+                    AntutuPoint = i.AntutuPoint,
+                    VersusPoint = i.VersusPoint,
+                    Battery = i.Battery,
+                    Camera = i.Camera,
+                    CPU = i.CPU,
+                    Ram = i.Ram,
+                    Screen = i.Screen,
+                    Storage = i.Storage
                 }),
                 Brands = await GetBrands(),
                 Types = await GetTypes(),
