@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 namespace Alfonso.Pages.Components.HeaderLinks
 {
     // TODO : Burada 2. kez compare e sorgu atılıyor, UI bozdugu icin CompareBox in icine alınamadı - burada cookie den oku!
+    // READ : https://docs.microsoft.com/en-us/aspnet/core/fundamentals/app-state?view=aspnetcore-2.2
     public class HeaderLinks : ViewComponent
     {
         private readonly ICompareRazorService _compareViewModelService;

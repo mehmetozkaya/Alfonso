@@ -12,7 +12,8 @@
 
         <!-- Mini Cart Top -->
         <div class="mini-cart-top">
-            <button class="close-cart">Close Cart<i class="icofont icofont-close"></i></button>
+            @*<button class="close-cart">Close Cart<i class="icofont icofont-close"></i></button>*@
+            <span>Compare Box</span>            
         </div>
 
         <!-- Mini Cart Products -->
@@ -23,7 +24,7 @@
                 @foreach (var compareItem in Model.Items)
                 {
                     <li>
-                        <a class="image"><img src="@compareItem.PictureUrl" alt="@compareItem.ProductName"></a>
+                        <a asp-page="product" asp-route-slug="@compareItem.Slug" class="image"><img src="@compareItem.PictureUrl" alt="@compareItem.ProductName"></a>
 
                         <form asp-page-handler="removetocompare" method="post">
                             <button class="remove"><i class="fa fa-trash-o"></i></button>
@@ -32,7 +33,7 @@
                         </form>
 
                         <div class="content">
-                            <a href="single-product.html" class="title">@compareItem.ProductName</a>
+                            <a asp-page="product" asp-route-slug="@compareItem.Slug" class="title">@compareItem.ProductName</a>                            
                         </div>
                     </li>
                 }

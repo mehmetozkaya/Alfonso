@@ -9,7 +9,7 @@
         <div class="header-shop-links">
 
             <!-- Wishlist -->
-            <a href="wishlist.html" class="header-wishlist"><i class="ti-heart"></i> <span class="number">3</span></a>
+            <a asp-page="wishlist" class="header-wishlist"><i class="ti-heart"></i> <span class="number">3</span></a>
             <!-- Compare -->
             <a asp-page="/Compare/Index" asp-route-slug="@Model.Slug" class="header-compare"><i class="ti-control-shuffle"></i> <span class="number">@Model.Items.Count</span></a>
         </div>
