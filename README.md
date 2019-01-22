@@ -49,7 +49,7 @@ Specifications
 
 Interfaces - Services
 	This folders includes Web related logics and after perform operations returns Razor Page elements.
-	ICompareViewModelService returns CompareViewModel, so the implementation CompareViewModelService uses repository and specs for retrieve data from db.
+	ICompareRazorService returns CompareViewModel, so the implementation CompareRazorService uses repository and specs for retrieve data from db.
 	Also this services could use Core - Services classes for void return business actions (CompareService.cs).
 
 ViewModels
@@ -81,7 +81,7 @@ Page Structure
 --------------------------------------------------------------------------------------
 ## Example Use Case
 
-AlfonsoWeb - Services - CatalogService.cs --> this returns ViewModel screen DTOs for use in Razor Page.
+AlfonsoWeb - Services - CatalogRazorService.cs --> this returns ViewModel screen DTOs for use in Razor Page.
 	This CatalogService could be uses IRepository and FilterSpecifications directly in order to perform db operations. After that returns UI elements.
 	But also Web project Services folder should use Core-Services folder when performing business db operations. 
 	Mostly Core-Services should use IRepository and FilterSpecifications directly but this is not mandatory, also AlfonsoWeb-Services could use repository related classes.
@@ -108,5 +108,6 @@ After that load view models in Index.cshtml;
         }
 
 --------------------------------------------------------------------------------------
-
+### AlfonsoWeb -> Core -> Infrastructure
+IRazorService -> IService -> Repository
 
