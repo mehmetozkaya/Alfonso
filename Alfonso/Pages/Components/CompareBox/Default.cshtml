@@ -4,60 +4,50 @@
 }
 
 
-<div class="col order-2 order-lg-12 order-xl-12">
-    <!-- Header Shop Links Start -->
-    <div class="header-shop-links">
-        
-        <!-- Wishlist -->
-        <a href="wishlist.html" class="header-wishlist"><i class="ti-heart"></i> <span class="number">3</span></a>
-        <!-- Compare -->
-        <a asp-page="/Compare/Index" asp-route-slug="@Model.Slug" class="header-compare"><i class="ti-control-shuffle"></i> <span class="number">@Model.Items.Count</span></a>
-    </div>
-    <!-- Header Shop Links End -->
-</div>
 
 
-<!-- Mini Cart Wrap Start -->
-<div class="mini-cart-wrap">
 
-    <!-- Mini Cart Top -->
-    <div class="mini-cart-top">
-        <button class="close-cart">Close Cart<i class="icofont icofont-close"></i></button>
-    </div>
+    <!-- Mini Cart Wrap Start -->
+    <div class="mini-cart-wrap">
 
-    <!-- Mini Cart Products -->
-    <ul class="mini-cart-products">
-
-        @if (Model.Items.Any())
-        {
-            @foreach (var compareItem in Model.Items)
-            {
-                <li>
-                    <a class="image"><img src="@compareItem.PictureUrl" alt="@compareItem.ProductName"></a>
-
-                    <form asp-page-handler="removetocompare" method="post">
-                        <button class="remove"><i class="fa fa-trash-o"></i></button>
-                        <input type="hidden" asp-for="@Model.Id" name="compareId" />
-                        <input type="hidden" asp-for="@compareItem.Id" name="compareItemId" />
-                    </form>
-
-                    <div class="content">
-                        <a href="single-product.html" class="title">@compareItem.ProductName</a>
-                    </div>
-                </li>
-            }
-        }
-    </ul>
-
-    <!-- Mini Cart Bottom -->
-    <div class="mini-cart-bottom">
-        <h4 class="sub-total">Total: <span>$1160</span></h4>
-        <div class="button">
-            <a asp-page="/Compare/Index" asp-route-slug="@Model.Slug">COMPARE</a>
+        <!-- Mini Cart Top -->
+        <div class="mini-cart-top">
+            <button class="close-cart">Close Cart<i class="icofont icofont-close"></i></button>
         </div>
-    </div>
 
-</div>
-<!-- Mini Cart Wrap End -->
-<!-- Cart Overlay -->
-<div class="cart-overlay"></div>
+        <!-- Mini Cart Products -->
+        <ul class="mini-cart-products">
+
+            @if (Model.Items.Any())
+            {
+                @foreach (var compareItem in Model.Items)
+                {
+                    <li>
+                        <a class="image"><img src="@compareItem.PictureUrl" alt="@compareItem.ProductName"></a>
+
+                        <form asp-page-handler="removetocompare" method="post">
+                            <button class="remove"><i class="fa fa-trash-o"></i></button>
+                            <input type="hidden" asp-for="@Model.Id" name="compareId" />
+                            <input type="hidden" asp-for="@compareItem.Id" name="compareItemId" />
+                        </form>
+
+                        <div class="content">
+                            <a href="single-product.html" class="title">@compareItem.ProductName</a>
+                        </div>
+                    </li>
+                }
+            }
+        </ul>
+
+        <!-- Mini Cart Bottom -->
+        <div class="mini-cart-bottom">
+            <h4 class="sub-total">Total: <span>$1160</span></h4>
+            <div class="button">
+                <a asp-page="/Compare/Index" asp-route-slug="@Model.Slug">COMPARE</a>
+            </div>
+        </div>
+
+    </div>
+    <!-- Mini Cart Wrap End -->
+    <!-- Cart Overlay -->
+    <div class="cart-overlay"></div>

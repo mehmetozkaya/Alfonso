@@ -136,16 +136,9 @@
             </div>*@
                         <!-- Main Menu End -->
                     </div>
-                   
 
-                    @if (IsSectionDefined("CompareBoxNotRequired"))
-                    {
-                        RenderSection("CompareBoxNotRequired");
-                    }
-                    else
-                    {
-                        <vc:compare-box></vc:compare-box>
-                    }
+                    <!-- Header Links Part - wishlist and compare count -->
+                    <vc:header-links></vc:header-links>
 
                     <!-- Mobile Menu -->
                     <div class="mobile-menu order-12 d-block d-lg-none col"></div>
@@ -187,11 +180,20 @@
             </div>
         </div>
         <!-- Header Category End -->
-        
+
 
     </div>
     <!-- Header Section End -->
 
+
+    @if (IsSectionDefined("CompareBoxNotRequired"))
+    {
+        RenderSection("CompareBoxNotRequired");
+    }
+    else
+    {
+        <vc:compare-box></vc:compare-box>
+    }
 
 
     @RenderBody()
