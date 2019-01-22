@@ -511,6 +511,7 @@ $('.add-to-cart').on('click', function(e){
     } else{
         $(this).addClass('added').find('i').addClass('ti-check').removeClass('ti-shopping-cart').siblings('span').text('added'); 
     }
+    $(this).submit();
 });
 /*--
 	Wishlist & Compare

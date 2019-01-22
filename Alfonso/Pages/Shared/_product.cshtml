@@ -42,7 +42,8 @@
                                 <p>Pages 1 of 25</p>
                             </div>
 
-                        </div><!-- Shop Top Bar End -->
+                        </div>
+                        <!-- Shop Top Bar End -->
 
                     </div>
                 </div>
@@ -56,7 +57,7 @@
                     {
                         @foreach (var catalogItem in Model.CatalogItems)
                         {
-                            <div class="col-xl-3 col-lg-4 col-md-6 col-12 pb-30 pt-10">
+                            <div class="col-xl-3 col-lg-4 col-md-6 col-12 pt-10">
 
                                 <!-- Product Start -->
                                 <div class="ee-product">
@@ -134,7 +135,7 @@
                                                 <h5 class="title"><a asp-page="product" asp-route-slug="@catalogItem.Slug">@catalogItem.Name</a></h5>
                                             </div>
 
-                                            <h5 class="price">$295.00</h5>
+                                            <h5 class="price">VERSUS PUANI : 96</h5>
 
                                         </div>
 
@@ -149,11 +150,26 @@
                                             </div>
 
                                             <div class="desc">
-                                                <p>@catalogItem.Description</p>
+                                                <p>@catalogItem.Description.Substring(0, 50)</p>
                                             </div>
 
-                                            <div class="actions">                                                
-                                                <a href="#" class="add-to-cart"><i class="ti-shopping-cart"></i><span>ADD TO CART</span></a>                                                                                             
+                                            <div class="specification">
+                                                <h5>Kamera</h5>
+                                                <span class="availability">Megapiksel: <span>12MP</span></span>
+                                                <span class="availability">Çözünürlük: <span>1440 x 2960px</span></span>
+                                                <span class="availability">Ön kamera megapikseli: <span>8MP</span></span>
+                                                <span class="availability">Piksel yoğunluğu: <span>570ppi</span></span>
+                                            </div>
+
+                                            <div class="actions">
+                                                <form asp-page-handler="addtocompare" method="post">
+                                                    <input type="submit" class="alfonso-button" value="Add Compare" />
+                                                    <input type="hidden" asp-for="@catalogItem.Id" name="id" />
+                                                    <input type="hidden" asp-for="@catalogItem.Name" name="name" />
+                                                    <input type="hidden" asp-for="@catalogItem.Slug" name="slug" />
+                                                    <input type="hidden" asp-for="@catalogItem.Description" name="description" />
+                                                    <input type="hidden" asp-for="@catalogItem.PictureUri" name="pictureUri" />
+                                                </form>
 
                                                 <div class="wishlist-compare">
                                                     <a href="#" data-tooltip="Compare"><i class="ti-control-shuffle"></i></a>
@@ -168,18 +184,20 @@
                                             <div class="specification">
                                                 <h5>Specifications</h5>
                                                 <ul>
-                                                    @*@foreach (var spec in tel.MainSpecs)
-                                            {
-                                                <li>@spec</li>
-                                            }*@
+                                                    <li>Puan: 9.7</li>
+                                                    <li>Antutu Puan : 6.3</li>
+                                                    <li>Pil gücü: 3000mAh</li>
+                                                    <li>Kamera : 12MP</li>
 
-                                                    <li>Intel Core i7 Processor</li>
-                                                    <li>Zeon Z 170 Pro Motherboad</li>
-                                                    <li>16 GB RAM</li>
+                                                    <li>Ekran Boyutu : 5.8"</li>
+                                                    <li>Harddisk : 32GB</li>
+                                                    <li>RAM : 4GB</li>
+                                                    <li>İşlemci : 2.9GHz</li>
                                                 </ul>
                                             </div>
+
                                             <span class="availability">Availability: <span>In Stock</span></span>
-                                        </div>
+                                        </div>                                       
 
                                     </div>
 
