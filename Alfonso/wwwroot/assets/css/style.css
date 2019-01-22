@@ -3453,6 +3453,24 @@ img.mfp-img {
         background-color: #f5d730;
         color: #202020; }
 
+
+.alfonsonumber {
+    width: 35px;
+    height: 35px;
+    border-radius: 50px;
+    font-size: 20px;
+    font-weight: 600;
+    color: #202020;
+    background-color: #f5d730;
+    display: block;
+    overflow: hidden;
+    text-align: center;
+    line-height: 35px;
+    margin-top: 2px;
+    position: initial;
+    left: -7px;
+}
+
 /*-- Header Shop Links --*/
 .header-shop-links a {
   color: #444444;
@@ -10319,7 +10337,7 @@ img.mfp-img {
     16. Blog Sidebar
 -----------------------------------------*/
 .blog-sidebar {
-  background-color: #f6f7f8; }
+   }
   .blog-sidebar .title {
     background-color: #fefcef;
     font-size: 18px;
@@ -10367,7 +10385,7 @@ img.mfp-img {
   .blog-sidebar .tags-cloud {
     margin: 0 -5px;
     padding: 20px 35px;
-    overflow: hidden; }
+    overflow: hidden; }    
     .blog-sidebar .tags-cloud a {
       font-size: 14px;
       border: 1px solid #999999;
@@ -10381,6 +10399,31 @@ img.mfp-img {
         color: #202020;
         background-color: #f5d730;
         border-color: #f5d730; }
+
+.blog-sidebar .tags-alfonso {
+    margin: 0 5px;
+    padding: 10px 10px;
+    overflow: inherit;
+}
+    .blog-sidebar .tags-alfonso .icofont {
+        font-size: 20px;
+    }
+    .blog-sidebar .tags-alfonso a {
+        font-size: 14px;
+        border: 1px solid #999999;
+        line-height: 23px;
+        padding: 5px 12px 3px;
+        color: #444444;
+        float: left;
+        margin: 5px;
+        text-transform: uppercase;
+    }
+
+        .blog-sidebar .tags-alfonso a:hover {
+            color: #202020;
+            background-color: #f5d730;
+            border-color: #f5d730;
+        }
 
 /*-- Sidebar Blog --*/
 .sidebar-blog {
