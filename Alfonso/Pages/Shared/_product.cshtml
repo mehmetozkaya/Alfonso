@@ -15,8 +15,8 @@
 
                             <!-- Product View Mode -->
                             <div class="product-view-mode">
-                                <a class="active" href="#" data-target="grid"><i class="fa fa-th"></i></a>
-                                <a href="#" data-target="list"><i class="fa fa-list"></i></a>
+                                <a href="#" data-target="grid"><i class="fa fa-th"></i></a>
+                                <a class="active" href="#" data-target="list"><i class="fa fa-list"></i></a>
                             </div>
 
 
@@ -50,7 +50,7 @@
                 @*<partial name="_pagination" for="@Model.PaginationInfo" />*@
 
                 <!-- Shop Product Wrap Start -->
-                <div class="shop-product-wrap grid row">
+                <div class="shop-product-wrap list row">
 
                     @if (Model.CatalogItems.Any())
                     {
@@ -111,7 +111,10 @@
 
                                     </div>
 
-                                </div><!-- Product End -->
+                                </div>
+                                <!-- Product End -->
+
+
                                 <!-- Product List Start -->
                                 <div class="ee-product-list">
 
@@ -180,7 +183,8 @@
 
                                     </div>
 
-                                </div><!-- Product List End -->
+                                </div>
+                                <!-- Product List End -->
 
                             </div>
                         }

@@ -29,7 +29,7 @@
                                                 <a href="#" class="title">@compareItem.ProductName</a>
                                             </td>
                                         }
-                                    }                               
+                                    }
                                 </tr>
                                 <tr>
                                     <td class="first-column">Description</td>
@@ -38,10 +38,10 @@
                                     {
                                         foreach (var compareItem in Model.CompareModel.Items)
                                         {
-                                            <td class="pro-desc"><p>@compareItem.ProductName + Refactor : Should be Description</p></td>                                          
+                                            <td class="pro-desc"><p>@compareItem.ProductName + Refactor : Should be Description</p></td>
                                         }
                                     }
-                                 </tr>
+                                </tr>
                                 <tr>
                                     <td class="first-column">Price</td>
 
@@ -59,7 +59,7 @@
                                     @if (Model.CompareModel.Items.Any())
                                     {
                                         foreach (var compareItem in Model.CompareModel.Items)
-                                        {                                            
+                                        {
                                             <td class="pro-color">Black</td>
                                         }
                                     }
@@ -74,7 +74,7 @@
                                             <td class="pro-stock">In Stock</td>
                                         }
                                     }
-                                    
+
                                 </tr>
                                 <tr>
                                     <td class="first-column">Add to cart</td>
@@ -85,7 +85,7 @@
                                         {
                                             <td class="pro-addtocart"><a href="#" class="add-to-cart" tabindex="0"><i class="ti-shopping-cart"></i><span>ADD TO CART</span></a></td>
                                         }
-                                    }                                                                        
+                                    }
                                 </tr>
                                 <tr>
                                     <td class="first-column">Delete</td>
@@ -93,7 +93,7 @@
                                     @if (Model.CompareModel.Items.Any())
                                     {
                                         foreach (var compareItem in Model.CompareModel.Items)
-                                        {                                            
+                                        {
                                             <form asp-page-handler="removetocompare" method="post">
                                                 <td class="pro-remove"><button><i class="fa fa-trash-o"></i></button></td>
                                                 <input type="hidden" asp-for="@Model.CompareModel.Id" name="compareId" />
@@ -117,7 +117,7 @@
                                                 <i class="fa fa-star-o"></i>
                                             </td>
                                         }
-                                    }                                    
+                                    }
                                 </tr>
                             </tbody>
                         </table>
@@ -130,3 +130,10 @@
     </div>
 </div>
 <!-- Compare Page End -->
+
+
+@section CompareBoxNotRequired {
+
+    <!-- Not need to render Compare Box in Compare Page -->
+
+}

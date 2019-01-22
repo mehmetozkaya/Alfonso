@@ -142,6 +142,11 @@ public async Task<IActionResult> OnPostAddToCompare(CatalogItemViewModel product
 After add to compare Slug again works and created with Id. So when Compare Page opened OnGet method id substring and revealed.
 
 --------------------------------------------------------------------------------------
+Product Layout :
 
+_product.html there is 2 type of showing products. 1-list 2- grid
 
+<div class="shop-product-wrap list row">
+
+<div class="shop-product-wrap grid row">
 --------------------------------------------------------------------------------------

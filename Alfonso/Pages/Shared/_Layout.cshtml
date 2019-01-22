@@ -193,7 +193,14 @@
     </div>
     <!-- Header Section End -->
 
-    <vc:compare-box></vc:compare-box>    
+    @if (IsSectionDefined("CompareBoxNotRequired"))
+    {
+        RenderSection("CompareBoxNotRequired");
+    }
+    else
+    {
+        <vc:compare-box></vc:compare-box>
+    }
 
     @RenderBody()
 

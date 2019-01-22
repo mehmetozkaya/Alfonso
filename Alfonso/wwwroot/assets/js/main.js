@@ -140,6 +140,8 @@ var headerCart = $('.header-cart');
 var closeCart = $('.close-cart, .cart-overlay');
 var miniCartWrap = $('.mini-cart-wrap');
 
+miniCartWrap.addClass('open');
+
 headerCart.on('click', function(e){
     e.preventDefault();
     // $('.cart-overlay').addClass('visible');
