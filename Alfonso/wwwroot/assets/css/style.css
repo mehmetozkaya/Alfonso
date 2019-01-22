@@ -3876,7 +3876,7 @@ img.mfp-img {
           font-weight: 400; } }
   .header-advance-search .submit {
     float: left;
-    margin-left: 10px; }
+    margin-left: 0px; }
     @media only screen and (max-width: 479px) {
       .header-advance-search .submit {
         position: absolute;
@@ -7806,7 +7806,7 @@ img.mfp-img {
   .ee-product-list .image {
     position: relative;
     float: left;
-    width: 170px; }
+    width: 132px; }
     @media only screen and (max-width: 767px) {
       .ee-product-list .image {
         width: 100%; } }
@@ -7851,7 +7851,7 @@ img.mfp-img {
       -ms-flex-align: center;
       align-items: center;
       padding: 0 10px 0 10px;
-      margin-bottom: 2px; }
+      margin-bottom: 0px; }
       @media only screen and (min-width: 992px) and (max-width: 1199px) {
         .ee-product-list .content .head-content {
           padding: 0 25px; } }
@@ -7872,7 +7872,7 @@ img.mfp-img {
         .ee-product-list .content .head-content .category-title .cat:hover {
           color: #202020; }
       .ee-product-list .content .head-content .category-title .title {
-        font-size: 24px;
+        font-size: 20px;
         font-weight: 700;
         margin: 0;
         line-height: 28px;
@@ -10401,8 +10401,8 @@ img.mfp-img {
         border-color: #f5d730; }
 
 .blog-sidebar .tags-alfonso {
-    margin: 0 5px;
-    padding: 10px 10px;
+    margin: 0 0px;
+    padding: 0px 0px;
     overflow: inherit;
 }
     .blog-sidebar .tags-alfonso .icofont {

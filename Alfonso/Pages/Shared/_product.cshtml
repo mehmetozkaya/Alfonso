@@ -13,13 +13,6 @@
                         <!-- Shop Top Bar Start -->
                         <div class="shop-top-bar">
 
-                            <!-- Product View Mode -->
-                            <div class="product-view-mode">
-                                <a href="#" data-target="grid"><i class="fa fa-th"></i></a>
-                                <a class="active" href="#" data-target="list"><i class="fa fa-list"></i></a>
-                            </div>
-
-
                             <form method="get" class="ee-register row">
 
                                 <!-- Product Showing -->
@@ -36,12 +29,6 @@
                                 </div>
 
                             </form>
-
-                            <!-- Product Pages -->
-                            <div class="product-pages">
-                                <p>Pages 1 of 25</p>
-                            </div>
-
                         </div>
                         <!-- Shop Top Bar End -->
 
@@ -58,64 +45,7 @@
                         @foreach (var catalogItem in Model.CatalogItems)
                         {
                             <div class="col-xl-3 col-lg-4 col-md-6 col-12 pt-10">
-
-                                <!-- Product Start -->
-                                <div class="ee-product">
-
-                                    <!-- Image -->
-                                    <div class="image">
-
-                                        <a asp-page="product" asp-route-slug="@catalogItem.Slug" class="img"><img src="@catalogItem.PictureUri" alt="Product Image"></a>
-
-                                        <div class="wishlist-compare">
-                                            <a href="#" data-tooltip="Compare"><i class="ti-control-shuffle"></i></a>
-                                            <a href="#" data-tooltip="Wishlist"><i class="ti-heart"></i></a>
-                                        </div>                                                                                 
-                                       <a href="#" class="add-to-cart"><i class="ti-shopping-cart"></i><span>ADD TO CART</span></a>                                           
-                                    </div>
-
-                                    <!-- Content -->
-                                    <div class="content">
-
-                                        <!-- Category & Title -->
-                                        <div class="category-title">
-
-                                            <a href="#" class="cat">Laptop</a>
-                                            @*<a href="#" class="cat">@tel.Category</a>*@
-                                            <h5 class="title"><a asp-page="product" asp-route-slug="@catalogItem.Slug">@catalogItem.Name</a></h5>
-
-                                            <form asp-page-handler="addtocompare" method="post">
-                                                <span><input type="submit" class="place-order" value="Add Compare" /></span>                                                
-                                                <input type="hidden" asp-for="@catalogItem.Id" name="id" />
-                                                <input type="hidden" asp-for="@catalogItem.Name" name="name" />
-                                                <input type="hidden" asp-for="@catalogItem.Slug" name="slug" />
-                                                <input type="hidden" asp-for="@catalogItem.Description" name="description" />
-                                                <input type="hidden" asp-for="@catalogItem.PictureUri" name="pictureUri" />
-                                            </form>
-
-
-                                        </div>
-
-                                        <!-- Price & Ratting -->
-                                        <div class="price-ratting">
-
-                                            <h5 class="price">$295.00</h5>
-                                            <div class="ratting">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star-half-o"></i>
-                                                <i class="fa fa-star-o"></i>
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-
-                                </div>
-                                <!-- Product End -->
-
-
+                      
                                 <!-- Product List Start -->
                                 <div class="ee-product-list">
 
@@ -142,13 +72,13 @@
 
                                         <div class="left-content">
 
-                                            <div class="ratting">
+                                            @*<div class="ratting">
                                                 <i class="fa fa-star"></i>
                                                 <i class="fa fa-star"></i>
                                                 <i class="fa fa-star"></i>
                                                 <i class="fa fa-star-half-o"></i>
                                                 <i class="fa fa-star-o"></i>
-                                            </div>
+                                            </div>*@
 
                                             <div class="desc">
                                                 <p>@catalogItem.Description.Substring(0, 200)</p>
