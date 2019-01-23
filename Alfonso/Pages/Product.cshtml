@@ -56,7 +56,8 @@
                             <h5 class="title">@Model.CatalogItem.Name</h5>
                         </div>
 
-                        <h5 class="price">$295.00 @Model.CatalogItem.Price</h5>
+                        @*<h5 class="price">$295.00 @Model.CatalogItem.Price</h5>*@
+                        <span class="alfonsonumber">96</span>
 
                     </div>
 
@@ -73,31 +74,29 @@
                         <div class="desc">
                             <p>@Model.CatalogItem.Description </p>
                         </div>
-
-                        <span class="availability">Availability: <span>In Stock</span></span>
-
-                        <div class="quantity-colors">
-
-                            <div class="quantity">
-                                <h5>Quantity</h5>
-                                <div class="pro-qty"><input type="text" value="1"></div>
+                                                
+                        <div class="blog-sidebar mb-40">
+                            <div class="tags-alfonso">
+                                <a href="#"><i class="icofont icofont-battery-half"></i><span class="availability">Puan: @Model.CatalogItem.VersusPoint<span></a>
+                                <a href="#"><i class="icofont icofont-battery-half"></i><span class="availability">Antutu: @Model.CatalogItem.AntutuPoint<span></a>
+                                <a href="#"><i class="icofont icofont-battery-half"></i><span class="availability">@Model.CatalogItem.Battery<span></a>
+                                <a href="#"><i class="icofont icofont-camera"></i><span class="availability">@Model.CatalogItem.Camera<span>  </a>
+                                <a href="#"><i class="icofont icofont-expand"></i><span class="availability">@Model.CatalogItem.Screen<span>  </a>
+                                <a href="#"><i class="icofont icofont-disc"></i><span class="availability">@Model.CatalogItem.Storage<span>  </a>
+                                <a href="#"><i class="icofont icofont-hard-disk"></i><span class="availability">@Model.CatalogItem.Ram<span>  </a>
+                                <a href="#"><i class="icofont icofont-speed-meter"></i><span class="availability">@Model.CatalogItem.CPU<span>  </a>
                             </div>
-
-                            <div class="colors">
-                                <h5>Color</h5>
-                                <select class="nice-select">
-                                    <option>red</option>
-                                    <option>black</option>
-                                    <option>yellow</option>
-                                    <option>grey</option>
-                                </select>
-                            </div>
-
                         </div>
-
+                        
                         <div class="actions">
-
-                            <a href="#" class="add-to-cart"><i class="ti-shopping-cart"></i><span>ADD TO COMPARE</span></a>
+                            <form asp-page-handler="addtocompare" method="post">
+                                <input type="submit" class="alfonso-button" value="Add Compare" />
+                                <input type="hidden" asp-for="@Model.CatalogItem.Id" name="id" />
+                                <input type="hidden" asp-for="@Model.CatalogItem.Name" name="name" />
+                                <input type="hidden" asp-for="@Model.CatalogItem.Slug" name="slug" />
+                                <input type="hidden" asp-for="@Model.CatalogItem.Description" name="description" />
+                                <input type="hidden" asp-for="@Model.CatalogItem.PictureUri" name="pictureUri" />
+                            </form>
 
                             <div class="wishlist-compare">
                                 <a href="#" data-tooltip="Compare"><i class="ti-control-shuffle"></i></a>
@@ -105,6 +104,7 @@
                             </div>
 
                         </div>
+
 
                         <div class="tags">
 

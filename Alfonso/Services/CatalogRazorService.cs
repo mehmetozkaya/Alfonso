@@ -121,7 +121,16 @@ namespace Alfonso.Services
                 Price = catalogItem.Price,
                 Slug = catalogItem.Slug,
                 Star = catalogItem.Star,
-                Summary = catalogItem.Summary
+                Summary = catalogItem.Summary,
+                AlfonsoPoint = catalogItem.AlfonsoPoint,
+                AntutuPoint = catalogItem.AntutuPoint,
+                Battery = catalogItem.Battery,
+                Camera = catalogItem.Camera,
+                CPU = catalogItem.CPU,
+                Ram = catalogItem.Ram,
+                Screen = catalogItem.Screen,
+                Storage = catalogItem.Storage,
+                VersusPoint = catalogItem.VersusPoint
             };
 
             return catalogItemViewModel;
