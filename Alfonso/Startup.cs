@@ -72,6 +72,9 @@ namespace Alfonso
             services.AddScoped<IFeatureService, FeatureService>();
             services.AddScoped<IFeatureRazorService, FeatureRazorService>();
 
+            services.AddScoped<IWishListService, WishListService>();
+            services.AddScoped<IWishlistRazorService, WishlistRazorService>();
+
             //services.AddScoped<IOrderService, OrderService>();
             //services.AddScoped<IOrderRepository, OrderRepository>();
             services.AddScoped<CatalogRazorService>();

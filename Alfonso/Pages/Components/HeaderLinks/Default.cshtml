@@ -1,4 +1,4 @@
-﻿@model Alfonso.Pages.Compare.CompareViewModel
+﻿@model Alfonso.ViewModels.HeaderLinksViewModel
 @{
     ViewData["Title"] = "My Header Links";
 }
@@ -9,9 +9,9 @@
         <div class="header-shop-links">
 
             <!-- Wishlist -->
-            <a asp-page="wishlist" class="header-wishlist"><i class="ti-heart"></i> <span class="number">3</span></a>
+            <a asp-page="wishlist" asp-route-slug="@Model.WishlistViewModel.Slug" class="header-wishlist"><i class="ti-heart"></i> <span class="number">@Model.WishlistViewModel.Items.Count</span></a>
             <!-- Compare -->
-            <a asp-page="/Compare/Index" asp-route-slug="@Model.Slug" class="header-compare"><i class="ti-control-shuffle"></i> <span class="number">@Model.Items.Count</span></a>
+            <a asp-page="/Compare/Index" asp-route-slug="@Model.CompareViewModel.Slug" class="header-compare"><i class="ti-control-shuffle"></i> <span class="number">@Model.CompareViewModel.Items.Count</span></a>
         </div>
         <!-- Header Shop Links End -->
     </div>

@@ -45,6 +45,31 @@ namespace ApplicationCore.Services
             throw new NotImplementedException();
         }
 
-        
+        public async Task<Wishlist> GetOrCreateWishlistForUser(string userName)
+        {
+            var wishlistSpec = new WishlistWithItemsSpecification(userName);
+            var wishlist = (await _wishlistRepository.ListAsync(wishlistSpec)).FirstOrDefault();
+
+            if (wishlist == null)
+            {
+                wishlist = new Wishlist() { OwnerId = userName };
+                await _wishlistRepository.AddAsync(wishlist);
+            }
+
+            return wishlist;
+        }
+
+        public async Task<Wishlist> GetWishlist(int wishlistId)
+        {
+            var wishlistSpec = new WishlistWithItemsSpecification(wishlistId);
+            var wishlist = (await _wishlistRepository.ListAsync(wishlistSpec)).FirstOrDefault();
+
+            if (wishlist == null)
+            {
+                throw new NotImplementedException();
+            }
+
+            return wishlist;
+        }
     }
 }

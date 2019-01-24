@@ -1,5 +1,6 @@
 ﻿using Alfonso.Interfaces;
 using Alfonso.Pages.Compare;
+using Alfonso.ViewModels;
 using ApplicationCore.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -15,25 +16,28 @@ namespace Alfonso.Pages.Components.HeaderLinks
     public class HeaderLinks : ViewComponent
     {
         private readonly ICompareRazorService _compareViewModelService;
+        private readonly IWishlistRazorService _wishlistRazorService;
         private string _username = null;
 
-        public HeaderLinks(ICompareRazorService compareViewModelService)
+        public HeaderLinks(ICompareRazorService compareViewModelService, IWishlistRazorService wishlistRazorService)
         {
             _compareViewModelService = compareViewModelService ?? throw new ArgumentNullException(nameof(compareViewModelService));
+            _wishlistRazorService = wishlistRazorService ?? throw new ArgumentNullException(nameof(wishlistRazorService));
         }
 
-        public CompareViewModel CompareModel { get; set; } = new CompareViewModel();
+        public HeaderLinksViewModel HeaderLinksModel { get; set; } = new HeaderLinksViewModel();
 
         public async Task<IViewComponentResult> InvokeAsync()
         {
             await SetCompareModelAsync();
-            return View(CompareModel);
+            return View(HeaderLinksModel);
         }        
 
         private async Task SetCompareModelAsync()
         {
             GetOrSetCompareCookieAndUserName();
-            CompareModel = await _compareViewModelService.GetOrCreateCompareForUser(_username);
+            HeaderLinksModel.CompareViewModel = await _compareViewModelService.GetOrCreateCompareForUser(_username);
+            HeaderLinksModel.WishlistViewModel = await _wishlistRazorService.GetOrCreateWishlistForUser(_username);
         }
 
         private void GetOrSetCompareCookieAndUserName()
