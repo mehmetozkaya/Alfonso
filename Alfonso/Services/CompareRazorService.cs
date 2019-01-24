@@ -13,9 +13,9 @@ namespace Alfonso.Services
 {
     public class CompareRazorService : ICompareRazorService
     {
-        private readonly IAsyncRepository<Compare> _compareRepository;
-        private readonly IUriComposer _uriComposer;
+        private readonly IAsyncRepository<Compare> _compareRepository;        
         private readonly IRepository<CatalogItem> _itemRepository;
+        private readonly IUriComposer _uriComposer;
 
         public CompareRazorService(IAsyncRepository<Compare> compareRepository, IUriComposer uriComposer, IRepository<CatalogItem> itemRepository)
         {
