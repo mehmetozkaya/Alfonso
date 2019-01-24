@@ -1,6 +1,7 @@
 ﻿using ApplicationCore.Entities;
 using ApplicationCore.Entities.CompareAggregate;
 using ApplicationCore.Entities.FeatureAggregate;
+using ApplicationCore.Entities.WishlistAggregate;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
@@ -16,6 +17,8 @@ namespace Infrastructure.Data
         }
 
         public DbSet<Compare> Compares { get; set; }
+        public DbSet<Feature> Features { get; set; }
+        public DbSet<Wishlist> Wishlists { get; set; }
         public DbSet<CatalogBrand> CatalogBrands { get; set; }
         public DbSet<CatalogItem> CatalogItems { get; set; }
         public DbSet<CatalogType> CatalogTypes { get; set; }        
@@ -23,6 +26,7 @@ namespace Infrastructure.Data
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
+            builder.Entity<Wishlist>(ConfigureWishlist);
             builder.Entity<Feature>(ConfigureFeature);
             builder.Entity<Compare>(ConfigureCompare);
             builder.Entity<CatalogBrand>(ConfigureCatalogBrand);
@@ -30,17 +34,19 @@ namespace Infrastructure.Data
             builder.Entity<CatalogItem>(ConfigureCatalogItem);            
         }
 
+        private void ConfigureWishlist(EntityTypeBuilder<Wishlist> builder)
+        {
+            var navigation = builder.Metadata.FindNavigation(nameof(Wishlist.Items));
+            navigation.SetPropertyAccessMode(PropertyAccessMode.Field);
+        }
         private void ConfigureFeature(EntityTypeBuilder<Feature> builder)
         {
             var navigation = builder.Metadata.FindNavigation(nameof(Feature.Items));
-
             navigation.SetPropertyAccessMode(PropertyAccessMode.Field);
-
         }
         private void ConfigureCompare(EntityTypeBuilder<Compare> builder)
         {
             var navigation = builder.Metadata.FindNavigation(nameof(Compare.Items));
-
             navigation.SetPropertyAccessMode(PropertyAccessMode.Field);
         }
 
