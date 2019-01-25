@@ -9702,8 +9702,8 @@ img.mfp-img {
 
 /*-- Checkout Cart Total --*/
 .checkout-cart-total {
-  background-color: #fefcef;
-  padding: 45px; }
+  /*background-color: #fefcef;*/
+  padding: 10px; }
   @media only screen and (max-width: 479px) {
     .checkout-cart-total {
       padding: 30px; } }
@@ -10840,7 +10840,7 @@ img.mfp-img {
 -----------------------------------------*/
 /*-- Faq Wrap --*/
 .faq-wrap {
-  padding: 60px;
+  padding: 10px;
   -webkit-box-shadow: 0 3px 15px rgba(0, 0, 0, 0.07);
   box-shadow: 0 3px 15px rgba(0, 0, 0, 0.07); }
   @media only screen and (max-width: 767px) {
@@ -10859,7 +10859,7 @@ img.mfp-img {
     font-size: 18px;
     font-weight: 700;
     line-height: 24px;
-    margin-bottom: 20px; }
+    margin-bottom: 0px; }
   .single-faq p {
     font-size: 14px;
     line-height: 24px;
