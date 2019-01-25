@@ -162,7 +162,7 @@ namespace Infrastructure.Migrations
 
                     b.HasIndex("CatalogItemId");
 
-                    b.ToTable("Feature");
+                    b.ToTable("Features");
                 });
 
             modelBuilder.Entity("ApplicationCore.Entities.FeatureAggregate.FeatureItem", b =>
@@ -182,6 +182,42 @@ namespace Infrastructure.Migrations
                     b.HasIndex("FeatureId");
 
                     b.ToTable("FeatureItem");
+                });
+
+            modelBuilder.Entity("ApplicationCore.Entities.WishlistAggregate.Wishlist", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("OwnerId");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Wishlists");
+                });
+
+            modelBuilder.Entity("ApplicationCore.Entities.WishlistAggregate.WishlistItem", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("CatalogItemId");
+
+                    b.Property<string>("CompareDesc");
+
+                    b.Property<int>("Quantity");
+
+                    b.Property<decimal>("UnitPrice");
+
+                    b.Property<int?>("WishlistId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("WishlistId");
+
+                    b.ToTable("WishlistItem");
                 });
 
             modelBuilder.Entity("ApplicationCore.Entities.CatalogItem", b =>
@@ -217,6 +253,13 @@ namespace Infrastructure.Migrations
                     b.HasOne("ApplicationCore.Entities.FeatureAggregate.Feature")
                         .WithMany("Items")
                         .HasForeignKey("FeatureId");
+                });
+
+            modelBuilder.Entity("ApplicationCore.Entities.WishlistAggregate.WishlistItem", b =>
+                {
+                    b.HasOne("ApplicationCore.Entities.WishlistAggregate.Wishlist")
+                        .WithMany("Items")
+                        .HasForeignKey("WishlistId");
                 });
 #pragma warning restore 612, 618
         }

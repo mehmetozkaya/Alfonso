@@ -20,14 +20,15 @@ namespace Alfonso.Pages
         private readonly IUriComposer _uriComposer;
         private string _username = null;
 
-        public IndexModel(ICatalogRazorService catalogService, ICompareRazorService compareViewModelService, ICompareService compareService, IUriComposer uriComposer)
+        public IndexModel(ICatalogRazorService catalogService, ICompareRazorService compareViewModelService, IWishlistRazorService wishlistRazorService, ICompareService compareService, IUriComposer uriComposer)
         {
             _catalogService = catalogService ?? throw new ArgumentNullException(nameof(catalogService));
             _compareViewModelService = compareViewModelService ?? throw new ArgumentNullException(nameof(compareViewModelService));
+            _wishlistRazorService = wishlistRazorService ?? throw new ArgumentNullException(nameof(wishlistRazorService));
             _compareService = compareService ?? throw new ArgumentNullException(nameof(compareService));
-            _uriComposer = uriComposer ?? throw new ArgumentNullException(nameof(uriComposer));            
+            _uriComposer = uriComposer ?? throw new ArgumentNullException(nameof(uriComposer));
         }
-        
+
         public CatalogIndexViewModel CatalogModel { get; set; } = new CatalogIndexViewModel();
         public CompareViewModel CompareModel { get; set; } = new CompareViewModel();
         public WishlistViewModel WishlistModel { get; set; } = new WishlistViewModel();

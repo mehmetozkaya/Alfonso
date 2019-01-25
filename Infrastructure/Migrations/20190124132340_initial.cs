@@ -58,6 +58,19 @@ namespace Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Wishlists",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    OwnerId = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Wishlists", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Catalog",
                 columns: table => new
                 {
@@ -122,7 +135,30 @@ namespace Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Feature",
+                name: "WishlistItem",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    UnitPrice = table.Column<decimal>(nullable: false),
+                    Quantity = table.Column<int>(nullable: false),
+                    CompareDesc = table.Column<string>(nullable: true),
+                    CatalogItemId = table.Column<int>(nullable: false),
+                    WishlistId = table.Column<int>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_WishlistItem", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_WishlistItem_Wishlists_WishlistId",
+                        column: x => x.WishlistId,
+                        principalTable: "Wishlists",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Features",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -133,9 +169,9 @@ namespace Infrastructure.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Feature", x => x.Id);
+                    table.PrimaryKey("PK_Features", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Feature_Catalog_CatalogItemId",
+                        name: "FK_Features_Catalog_CatalogItemId",
                         column: x => x.CatalogItemId,
                         principalTable: "Catalog",
                         principalColumn: "Id",
@@ -156,9 +192,9 @@ namespace Infrastructure.Migrations
                 {
                     table.PrimaryKey("PK_FeatureItem", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_FeatureItem_Feature_FeatureId",
+                        name: "FK_FeatureItem_Features_FeatureId",
                         column: x => x.FeatureId,
-                        principalTable: "Feature",
+                        principalTable: "Features",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -179,14 +215,19 @@ namespace Infrastructure.Migrations
                 column: "CompareId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Feature_CatalogItemId",
-                table: "Feature",
-                column: "CatalogItemId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_FeatureItem_FeatureId",
                 table: "FeatureItem",
                 column: "FeatureId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Features_CatalogItemId",
+                table: "Features",
+                column: "CatalogItemId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_WishlistItem_WishlistId",
+                table: "WishlistItem",
+                column: "WishlistId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -198,10 +239,16 @@ namespace Infrastructure.Migrations
                 name: "FeatureItem");
 
             migrationBuilder.DropTable(
+                name: "WishlistItem");
+
+            migrationBuilder.DropTable(
                 name: "Compares");
 
             migrationBuilder.DropTable(
-                name: "Feature");
+                name: "Features");
+
+            migrationBuilder.DropTable(
+                name: "Wishlists");
 
             migrationBuilder.DropTable(
                 name: "Catalog");
