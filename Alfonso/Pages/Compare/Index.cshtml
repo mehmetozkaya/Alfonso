@@ -74,8 +74,20 @@
                                             <td class="pro-stock">In Stock</td>
                                         }
                                     }
-
                                 </tr>
+
+                                <tr>
+                                    <td class="first-column">FeatureList</td>
+
+                                    @if (Model.CompareModel.Items.Any())
+                                    {
+                                        foreach (var compareItem in Model.CompareModel.Items)
+                                        {
+                                            <td class="pro-stock">Feature List</td>
+                                        }
+                                    }
+                                </tr>
+
                                 <tr>
                                     <td class="first-column">Add to cart</td>
 

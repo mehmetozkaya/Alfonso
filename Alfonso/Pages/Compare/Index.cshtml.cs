@@ -18,7 +18,7 @@ namespace Alfonso.Pages.Compare
             _compareService = compareService ?? throw new ArgumentNullException(nameof(compareService));
         }
 
-        public CompareViewModel CompareModel { get; set; }
+        public CompareViewModel CompareModel { get; set; }        
 
         public async Task OnGet(string slug)
         {
