@@ -18,14 +18,26 @@ namespace Alfonso.Pages.Components.FeatureList
         }
 
         public int RowCount { get; set; }
+        
 
-        public async Task<IViewComponentResult> InvokeAsync(int catalogItemId)
+        public async Task<IViewComponentResult> InvokeAsync(int catalogItemId, bool isCompareMode = false)
         {            
             var vm = await _featureService.GetFeatures(catalogItemId);
+
+            var featureComponentView = new FeatureComponentView();
+            featureComponentView.FeatureViewModel = vm;
+            featureComponentView.IsCompareMode = isCompareMode;
+
             int count = vm.Count();
             RowCount = int.Parse(Math.Ceiling(((decimal)count / 2)).ToString());
-
-            return View(vm);
+            
+            return View(featureComponentView);
         }
+    }
+
+    public class FeatureComponentView
+    {
+        public IEnumerable<FeatureViewModel> FeatureViewModel { get; set; }
+        public bool IsCompareMode { get; set; }
     }
 }

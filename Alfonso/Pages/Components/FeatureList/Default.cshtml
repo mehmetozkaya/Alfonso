@@ -1,73 +1,114 @@
-﻿@model IEnumerable<Alfonso.ViewModels.FeatureViewModel>
+﻿@model FeatureComponentView
 @{
     ViewData["Title"] = "My Feature List";
 }
 
+@if (!@Model.IsCompareMode)
+{
+    <!-- Faq Section Start -->
+    <div class="faq-section section">
+        <div class="container">
+            <div class="row row-25">
 
+                <div class="col-lg-6 col-12 mb-50">
 
-<!-- Faq Section Start -->
-<div class="faq-section section">
-    <div class="container">
-        <div class="row row-25">
+                    <div class="faq-wrap">
 
-            <div class="col-lg-6 col-12 mb-50">
+                        <div class="single-faq">
 
-                <div class="faq-wrap">
+                            @{int rowCount = int.Parse(Math.Ceiling(((decimal)Model.FeatureViewModel.Count() / 2)).ToString());}
 
-                    <div class="single-faq">
+                            @for (int i = 0; i < rowCount; i++)
+                            {
 
-                        @{int rowCount = int.Parse(Math.Ceiling(((decimal)Model.Count() / 2)).ToString());}
+                                <h4>@Model.FeatureViewModel.ElementAt(i).Name</h4>
 
-                        @for (int i = 0; i < rowCount; i++)
-                        {                            
+                                <div class="checkout-cart-total">
+                                    <ul>
+                                        @foreach (var item in @Model.FeatureViewModel.ElementAt(i).Items)
+                                        {
+                                            <li>@item.Name <span>@item.Value</span></li>
+                                        }
+                                    </ul>
+                                </div>
+                            }
 
-                        <h4>@Model.ElementAt(i).Name</h4>
-
-                            <div class="checkout-cart-total">
-                                <ul>
-                                    @foreach (var item in @Model.ElementAt(i).Items)
-                                    {
-                                        <li>@item.Name <span>@item.Value</span></li>
-                                    }
-                                </ul>
-                            </div>
-                        }                       
-
-                    </div>                 
-                </div>
-
-            </div>
-
-            <div class="col-lg-6 col-12 mb-50">
-
-                <div class="faq-wrap">
-
-                    <div class="single-faq">
-
-                        @for (int i = rowCount; i < Model.Count(); i++)
-                        {                                                        
-
-                            <h4>@Model.ElementAt(i).Name</h4>
-
-                            <div class="checkout-cart-total">
-                                <ul>
-                                    @foreach (var item in @Model.ElementAt(i).Items)
-                                    {
-                                        <li>@item.Name <span>@item.Value</span></li>
-                                    }
-                                </ul>
-                            </div>
-                        }
-
-                      
-                    </div>                                       
+                        </div>
+                    </div>
 
                 </div>
 
+                <div class="col-lg-6 col-12 mb-50">
+
+                    <div class="faq-wrap">
+
+                        <div class="single-faq">
+
+                            @for (int i = rowCount; i < Model.FeatureViewModel.Count(); i++)
+                            {
+
+                                <h4>@Model.FeatureViewModel.ElementAt(i).Name</h4>
+
+                                <div class="checkout-cart-total">
+                                    <ul>
+                                        @foreach (var item in @Model.FeatureViewModel.ElementAt(i).Items)
+                                        {
+                                            <li>@item.Name <span>@item.Value</span></li>
+                                        }
+                                    </ul>
+                                </div>
+                            }
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
             </div>
-
-
         </div>
     </div>
-</div>
-<!-- Faq Section End -->
+    <!-- Faq Section End -->
+}
+else
+{
+    <!-- Faq Section Start -->
+    <div class="faq-section section">
+        <div class="container">
+            <div>
+
+                <div>
+
+                    <div class="faq-wrap">
+
+                        <div class="single-faq">
+                            
+
+                            @for (int i = 0; i < Model.FeatureViewModel.Count(); i++)
+                            {
+
+                                <h4>@Model.FeatureViewModel.ElementAt(i).Name</h4>
+
+                                <div class="checkout-cart-total">
+                                    <ul>
+                                        @foreach (var item in @Model.FeatureViewModel.ElementAt(i).Items)
+                                        {
+                                            <li>@item.Name <span>@item.Value</span></li>
+                                        }
+                                    </ul>
+                                </div>
+                            }
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- Faq Section End -->
+}
+
+
