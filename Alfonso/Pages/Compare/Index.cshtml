@@ -6,7 +6,7 @@
 
 
 <!-- Compare Page Start -->
-<div class="page-section section mt-90 mb-90">
+<div class="page-section section mt-10 mb-10">
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -25,8 +25,8 @@
                                         {
                                             <td class="product-image-title">
                                                 <a asp-area="" asp-page="/Product" asp-route-slug="@compareItem.Slug" class="image"><img src="@compareItem.PictureUrl" alt="Compare Product"></a>
-                                                <a href="#" class="category">@compareItem.ProductName</a>
-                                                <a href="#" class="title">@compareItem.ProductName</a>
+                                                <a asp-area="" asp-page="/Product" asp-route-slug="@compareItem.Slug" class="category">@compareItem.ProductName</a>
+                                                <a asp-area="" asp-page="/Product" asp-route-slug="@compareItem.Slug" class="title">@compareItem.ProductName</a>
                                             </td>
                                         }
                                     }
