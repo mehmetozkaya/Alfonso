@@ -24,7 +24,7 @@
                                         foreach (var compareItem in Model.CompareModel.Items)
                                         {
                                             <td class="product-image-title">
-                                                <a href="#" class="image"><img src="@compareItem.PictureUrl" alt="Compare Product"></a>
+                                                <a asp-area="" asp-page="/Product" asp-route-slug="@compareItem.Slug" class="image"><img src="@compareItem.PictureUrl" alt="Compare Product"></a>
                                                 <a href="#" class="category">@compareItem.ProductName</a>
                                                 <a href="#" class="title">@compareItem.ProductName</a>
                                             </td>
