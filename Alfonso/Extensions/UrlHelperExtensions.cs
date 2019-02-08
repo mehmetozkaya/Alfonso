@@ -31,5 +31,14 @@ namespace Alfonso.Extensions
                 values: new { userId, code },
                 protocol: scheme);
         }
+
+        public static string ConfirmPage(this IUrlHelper urlHelper, string userId, string code, string scheme)
+        {
+            return urlHelper.Page(
+               "/Account/ConfirmEmail",
+               pageHandler: null,
+               values: new { userId, code },
+               protocol: scheme);
+        }
     }
 }
