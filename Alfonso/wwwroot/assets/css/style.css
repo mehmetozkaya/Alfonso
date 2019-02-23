@@ -3537,6 +3537,20 @@ img.mfp-img {
   -webkit-transition: all 0.3s ease 0s;
   -o-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s; }
+
+@media only screen and (max-width: 767px) {
+    .mini-cart-wrap {
+        width: 100px;
+        right: -100px;
+    }
+}
+@media only screen and (max-width: 486px) {
+    .mini-cart-wrap {
+        width: 70px;
+        right: -70px;
+    }
+}
+
   .mini-cart-wrap.open {
     right: 0; }
   .mini-cart-wrap .mini-cart-top {
