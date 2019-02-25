@@ -86,7 +86,7 @@ namespace Alfonso.Pages
                 return RedirectToPage("/Index");
             }
 
-            await SetWishlistModelAsync();            
+            await SetWishlistModelAsync();
             await _wishlistRazorService.AddItemToWishlist(WishlistModel.Id, productDetails.Id);
             await SetWishlistModelAsync();
             return RedirectToPage();
