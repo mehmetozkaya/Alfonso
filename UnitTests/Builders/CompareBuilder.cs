@@ -15,13 +15,13 @@ namespace UnitTests.Builders
             _compare = WithNoItems();
         }
 
-        private Compare WithNoItems()
+        public Compare WithNoItems()
         {
             _compare = new Compare { Id = CompareId };
             return _compare;
         }
 
-        private Compare WithOneCompareItem()
+        public Compare WithOneCompareItem()
         {
             _compare = new Compare { Id = CompareId };
             _compare.AddItem(2);
