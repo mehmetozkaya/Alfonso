@@ -6,8 +6,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace FunctionalTests.Web
 {
@@ -60,12 +58,8 @@ namespace FunctionalTests.Web
                         logger.LogError(exception, $"An error occurred seeding the " +
                             "database with test messages. Error: {exception.Message}");
                     }
-
                 }
-
-
-            });
-            
+            });            
         }
     }
 }
