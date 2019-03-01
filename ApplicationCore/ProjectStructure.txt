@@ -150,3 +150,47 @@ _product.html there is 2 type of showing products. 1-list 2- grid
 
 <div class="shop-product-wrap grid row">
 --------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------
+The Use Case of Project :
+
+GET
+User get all of phones.
+User get spesific of phone details with features.
+
+FILTER
+User filter by brand of phones.
+User filter by model of phones.
+User filter by cpu of phones.
+User filter by all features of phones.
+User filter by one more filter together of phones.
+
+ORDER
+User order by all features to phones.
+
+PAGING
+User change page of phones.
+User change page of phones with filtered list.
+
+SEARCH
+User search all phones by text.
+
+COMPARE
+User add compare to selected phone.
+User remove compare to selected phone.
+User compare to compareList phones with all features.
+
+LIST
+User get all list of phones.
+User open one of list of phones with ordered.
+
+INSERT
+Admin insert new phones - characteristics.
+Admin insert new phone models.
+
+Admin create new phone list.
+
+
+
+
+
+--------------------------------------------------------------------------------------
