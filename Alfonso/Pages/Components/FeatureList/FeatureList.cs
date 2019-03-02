@@ -1,8 +1,6 @@
 ﻿using Alfonso.Interfaces;
-using Alfonso.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -33,11 +31,5 @@ namespace Alfonso.Pages.Components.FeatureList
             
             return View(featureComponentView);
         }
-    }
-
-    public class FeatureComponentView
-    {
-        public IEnumerable<FeatureViewModel> FeatureViewModel { get; set; }
-        public bool IsCompareMode { get; set; }
     }
 }
