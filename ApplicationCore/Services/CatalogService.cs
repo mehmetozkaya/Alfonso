@@ -48,5 +48,11 @@ namespace ApplicationCore.Services
             var slugSpecification = new SlugSpecification(slug);
             return _catalogRepository.GetSingleBySpec(slugSpecification);            
         }
+
+        public CatalogItem GetCatalog1(string slug)
+        {
+            var slugSpecification = new SlugSpecification(slug);
+            return _catalogRepository.GetSingleBySpec(slugSpecification);
+        }
     }
 }
